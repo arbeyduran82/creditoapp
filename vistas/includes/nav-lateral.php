@@ -31,16 +31,16 @@
                 </li>
 
                 <li>
-                    <a href="#" class="nav-btn-submenu"><i class="fas fa-pallet fa-fw"></i> &nbsp; Items <i class="fas fa-chevron-down"></i></a>
+                    <a href="#" class="nav-btn-submenu"><i class="fas fa-pallet fa-fw"></i> &nbsp; Articulos <i class="fas fa-chevron-down"></i></a>
                     <ul>
                         <li>
-                            <a href="item-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar item</a>
+                            <a href="item-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar articulos</a>
                         </li>
                         <li>
-                            <a href="item-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de items</a>
+                            <a href="item-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de articulos</a>
                         </li>
                         <li>
-                            <a href="item-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar item</a>
+                            <a href="item-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar articulo</a>
                         </li>
                     </ul>
                 </li>
@@ -52,7 +52,7 @@
                             <a href="reservation-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Credito</a>
                         </li>
                         <li>
-                            <a href="reservation-reservation.html"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Reservaciones</a>
+                            <a href="reservation-reservation.html"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Solicitudes</a>
                         </li>
                         <li>
                             <a href="reservation-pending.html"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Creditos</a>

@@ -19,7 +19,7 @@
 				</a>
 				
 				<a href="item-list.html" class="tile">
-					<div class="tile-tittle">Items</div>
+					<div class="tile-tittle">Articulos</div>
 					<div class="tile-icon">
 						<i class="fas fa-pallet fa-fw"></i>
 						<p>9 Registrados</p>
@@ -27,7 +27,7 @@
 				</a>
 
 				<a href="reservation-reservation.html" class="tile">
-					<div class="tile-tittle">Reservaciones</div>
+					<div class="tile-tittle">Solicitudes</div>
 					<div class="tile-icon">
 						<i class="far fa-calendar-alt fa-fw"></i>
 						<p>30 Registradas</p>
@@ -35,7 +35,7 @@
 				</a>
 
 				<a href="reservation-pending.html" class="tile">
-					<div class="tile-tittle">Prestamos</div>
+					<div class="tile-tittle">Creditos</div>
 					<div class="tile-icon">
 						<i class="fas fa-hand-holding-usd fa-fw"></i>
 						<p>200 Registrados</p>
