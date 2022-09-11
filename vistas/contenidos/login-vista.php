@@ -8,7 +8,7 @@
 			</p>
 			<form action="" method="POST" autocomplete="off" >
 				<div class="form-group">
-					<label for="UserName" class="bmd-label-floating"><i class="fas fa-user-secret"></i> &nbsp; Usuario</label>
+					<label for="UserName" class="bmd-label-floating"><i class="fas fa-user"></i> &nbsp; Usuario</label>
 					<input type="text" class="form-control" id="UserName" name="txtusuario" pattern="[a-zA-Z0-9]{1,35}" maxlength="35" required="" >
 				</div>
 				<div class="form-group">

@@ -3,21 +3,18 @@
                 <h3 class="text-left">
                     <i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE ITEMS
                 </h3>
-                <p class="text-justify">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum delectus eos enim numquam fugit optio accusantium, aperiam eius facere architecto facilis quibusdam asperiores veniam omnis saepe est et, quod obcaecati.
-                </p>
             </div>
 
             <div class="container-fluid">
                 <ul class="full-box list-unstyled page-nav-tabs">
                     <li>
-                        <a href="item-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR ITEM</a>
+                        <a href="<?php echo SERVERURL; ?>articulo-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR ITEM</a>
                     </li>
                     <li>
-                        <a class="active" href="item-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE ITEMS</a>
+                        <a class="active" href="articulo-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE ITEMS</a>
                     </li>
                     <li>
-                        <a href="item-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR ITEM</a>
+                        <a href="<?php echo SERVERURL; ?>articulobuscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR ITEM</a>
                     </li>
                 </ul>
             </div>
@@ -41,7 +38,7 @@
 							<tr class="text-center" >
 								<td>1</td>
 								<td>012342567</td>
-								<td>NOMBRE DEL ITEM</td>
+								<td>NOMBRE DEL ARTICULO</td>
 								<td>20</td>
                                 <td>
                                     <button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Titulo del item" data-content="Texto detalle del item ">
@@ -49,7 +46,7 @@
                                     </button>
                                 </td>
 								<td>
-                                    <a href="item-update.html" class="btn btn-success">
+                                    <a href="<?php echo SERVERURL; ?>articulo-actualizar/" class="btn btn-success">
                                         <i class="fas fa-sync-alt"></i> 
                                     </a>
                                 </td>
@@ -64,7 +61,7 @@
 							<tr class="text-center" >
 								<td>2</td>
 								<td>012342567</td>
-								<td>NOMBRE DEL ITEM</td>
+								<td>NOMBRE DEL ARTICULO</td>
 								<td>57</td>
                                 <td>
                                     <button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Titulo del item" data-content="Texto detalle del item ">
@@ -72,7 +69,7 @@
                                     </button>
                                 </td>
 								<td>
-                                    <a href="item-update.html" class="btn btn-success">
+                                    <a href="<?php echo SERVERURL; ?>articulo-actualizar/" class="btn btn-success">
                                         <i class="fas fa-sync-alt"></i> 
                                     </a>
                                 </td>
@@ -87,7 +84,7 @@
 							<tr class="text-center" >
 								<td>3</td>
 								<td>012342567</td>
-								<td>NOMBRE DEL ITEM</td>
+								<td>NOMBRE DEL ARTICULO</td>
 								<td>81</td>
                                 <td>
                                     <button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Titulo del item" data-content="Texto detalle del item ">
@@ -95,7 +92,7 @@
                                     </button>
                                 </td>
 								<td>
-                                    <a href="item-update.html" class="btn btn-success">
+                                    <a href="<?php echo SERVERURL; ?>articulo-actualizar/" class="btn btn-success">
                                         <i class="fas fa-sync-alt"></i> 
                                     </a>
                                 </td>
@@ -110,7 +107,7 @@
 							<tr class="text-center" >
 								<td>4</td>
 								<td>012342567</td>
-								<td>NOMBRE DEL ITEM</td>
+								<td>NOMBRE DEL ARTICULO</td>
 								<td>90</td>
                                 <td>
                                     <button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Titulo del item" data-content="Texto detalle del item ">
@@ -118,7 +115,7 @@
                                     </button>
                                 </td>
 								<td>
-                                    <a href="item-update.html" class="btn btn-success">
+                                    <a href="<?php echo SERVERURL; ?>articulo-actualizar/" class="btn btn-success">
                                         <i class="fas fa-sync-alt"></i> 
                                     </a>
                                 </td>

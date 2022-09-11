@@ -3,27 +3,24 @@
                 <h3 class="text-left">
                     <i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO PRÉSTAMO
                 </h3>
-                <p class="text-justify">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quod harum vitae, fugit quo soluta. Molestias officiis voluptatum delectus doloribus at tempore, iste optio quam recusandae numquam non inventore dolor.
-                </p>
             </div>
 
             <div class="container-fluid">
                 <ul class="full-box list-unstyled page-nav-tabs">
                     <li>
-                        <a class="active" href="reservation-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO PRÉSTAMO</a>
+                        <a class="active" href="<?php echo SERVERURL; ?>solicitar-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO PRÉSTAMO</a>
                     </li>
                     <li>
-                        <a href="reservation-reservation.html"><i class="far fa-calendar-alt"></i> &nbsp; RESERVACIONES</a>
+                        <a href="<?php echo SERVERURL; ?>solicitud-solicitud/"><i class="far fa-calendar-alt"></i> &nbsp; RESERVACIONES</a>
                     </li>
                     <li>
-                        <a href="reservation-pending.html"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; PRÉSTAMOS</a>
+                        <a href="<?php echo SERVERURL; ?>solicitar-pendiente/"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; PRÉSTAMOS</a>
                     </li>
                     <li>
-                        <a href="reservation-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; FINALIZADOS</a>
+                        <a href="solicitar-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; FINALIZADOS</a>
                     </li>
                     <li>
-                        <a href="reservation-search.html"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; BUSCAR POR FECHA</a>
+                        <a href="<?php echo SERVERURL; ?>solicitar-buscar/"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; BUSCAR POR FECHA</a>
                     </li>
                 </ul>
             </div>
@@ -225,7 +222,7 @@
                         <div class="modal-body">
                             <div class="container-fluid">
                                 <div class="form-group">
-                                    <label for="input_cliente" class="bmd-label-floating">DNI, Nombre, Apellido, Telefono</label>
+                                    <label for="input_cliente" class="bmd-label-floating">CEDULA, Nombre, Apellido, Telefono</label>
                                     <input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" class="form-control" name="input_cliente" id="input_cliente" maxlength="30">
                                 </div>
                             </div>
@@ -367,7 +364,7 @@
                                     </div>
                                     <div class="col-12 col-md-4">
                                         <div class="form-group">
-                                            <label for="detalle_cantidad" class="bmd-label-floating">Cantidad de items</label>
+                                            <label for="detalle_cantidad" class="bmd-label-floating">Cantidad de articulos</label>
                                             <input type="num" pattern="[0-9]{1,7}" class="form-control" name="detalle_cantidad" id="detalle_cantidad" maxlength="7" required="" >
                                         </div>
                                     </div>

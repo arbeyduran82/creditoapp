@@ -10,15 +10,15 @@
 			
 			<!-- Content -->
 			<div class="full-box tile-container">
-				<a href="client-new.html" class="tile">
+				<a href="<?php echo SERVERURL; ?>cliente-nuevo/" class="tile">
 					<div class="tile-tittle">Clientes</div>
 					<div class="tile-icon">
-						<i class="fas fa-users fa-fw"></i>
+						<i class="fas fa-users"></i>
 						<p>5 Registrados</p>
 					</div>
 				</a>
 				
-				<a href="item-list.html" class="tile">
+				<a href="<?php echo SERVERURL; ?>articulo-lista/" class="tile">
 					<div class="tile-tittle">Articulos</div>
 					<div class="tile-icon">
 						<i class="fas fa-pallet fa-fw"></i>
@@ -26,7 +26,7 @@
 					</div>
 				</a>
 
-				<a href="reservation-reservation.html" class="tile">
+				<a href="<?php echo SERVERURL; ?>solicitud-solicitud/" class="tile">
 					<div class="tile-tittle">Solicitudes</div>
 					<div class="tile-icon">
 						<i class="far fa-calendar-alt fa-fw"></i>
@@ -34,7 +34,7 @@
 					</div>
 				</a>
 
-				<a href="reservation-pending.html" class="tile">
+				<a href="<?php echo SERVERURL; ?>solicitar-pendiente/" class="tile">
 					<div class="tile-tittle">Creditos</div>
 					<div class="tile-icon">
 						<i class="fas fa-hand-holding-usd fa-fw"></i>
@@ -42,7 +42,7 @@
 					</div>
 				</a>
 
-				<a href="reservation-list.html" class="tile">
+				<a href="<?php echo SERVERURL; ?>solicitar-lista" class="tile">
 					<div class="tile-tittle">Finalizados</div>
 					<div class="tile-icon">
 						<i class="fas fa-clipboard-list fa-fw"></i>
@@ -50,7 +50,7 @@
 					</div>
 				</a>
 
-				<a href="user-list.html" class="tile">
+				<a href="<?php echo SERVERURL; ?>usuario-lista" class="tile">
 					<div class="tile-tittle">Usuarios</div>
 					<div class="tile-icon">
 						<i class="fas fa-user-secret fa-fw"></i>
@@ -58,7 +58,7 @@
 					</div>
 				</a>
 
-				<a href="company.html" class="tile">
+				<a href="<?php echo SERVERURL; ?>empresa" class="tile">
 					<div class="tile-tittle">Empresa</div>
 					<div class="tile-icon">
 						<i class="fas fa-store-alt fa-fw"></i>

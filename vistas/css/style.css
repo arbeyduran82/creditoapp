@@ -176,7 +176,6 @@ table form{
 /*----------  Page 404 styles  ----------*/
 .container-404{
 	background: #000428;
-	background: linear-gradient(to right, #004e92, #000428);
 	color: #fff;
 	height: 100%;
 	display: flex;
@@ -190,9 +189,7 @@ table form{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: #0575E6;
-	background: -webkit-linear-gradient(to right, #021B79, #0575E6);
-	background: linear-gradient(to right, #021B79, #0575E6);
+	background: #000428;
 
 }
 .login-content{
@@ -255,7 +252,7 @@ table form{
 	left: 0;
 	z-index: 1;
 	transition: all .2s ease-in-out;
-	background-image: url('../assets/img/nav-font.jpg');
+	/*background-image: url('../assets/img/nav-font.jpg');*/
 	background-position: center center;
 	background-size: cover;
 }

@@ -3,27 +3,24 @@
 			    <h3 class="text-left">
 			        <i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; PRÉSTAMOS
 			    </h3>
-			    <p class="text-justify">
-			        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia fugiat est ducimus inventore, repellendus deserunt cum aliquam dignissimos, consequuntur molestiae perferendis quae, impedit doloribus harum necessitatibus magnam voluptatem voluptatum alias!
-			    </p>
 			</div>
 
 			<div class="container-fluid">
 			    <ul class="full-box list-unstyled page-nav-tabs">
 			        <li>
-			            <a href="reservation-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO PRÉSTAMO</a>
+			            <a href="<?php echo SERVERURL; ?>solicitar-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO PRÉSTAMO</a>
 			        </li>
 			        <li>
-			            <a href="reservation-reservation.html"><i class="far fa-calendar-alt"></i> &nbsp; RESERVACIONES</a>
+			            <a href="<?php echo SERVERURL; ?>solicitud-solicitud/"><i class="far fa-calendar-alt"></i> &nbsp; RESERVACIONES</a>
 			        </li>
 			        <li>
-			            <a class="active" href="reservation-pending.html"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; PRÉSTAMOS</a>
+			            <a class="active" href="<?php echo SERVERURL; ?>solicitar-pendiente/"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; PRÉSTAMOS</a>
 			        </li>
 			        <li>
-			            <a href="reservation-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; FINALIZADOS</a>
+			            <a href="<?php echo SERVERURL; ?>solicitar-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; FINALIZADOS</a>
 			        </li>
 			        <li>
-			            <a href="reservation-search.html"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; BUSCAR POR FECHA</a>
+			            <a href="<?php echo SERVERURL; ?>solicitar-buscar/"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; BUSCAR POR FECHA</a>
 			        </li>
 			    </ul>
 			</div>
@@ -35,7 +32,7 @@
 							<tr class="text-center roboto-medium">
 								<th>#</th>
 								<th>CLIENTE</th>
-								<th>FECHA DE PRÉSTAMO</th>
+								<th>FECHA DE CREDITO</th>
 								<th>FECHA DE ENTREGA</th>
 								<th>TIPO</th>
 								<th>ESTADO</th>
@@ -50,7 +47,7 @@
 								<td>NOMBRE CLIENTE</td>
 								<td>2017/10/8</td>
 								<td>2017/10/10</td>
-								<td><span class="badge badge-info">Prestamo</span></td>
+								<td><span class="badge badge-info">Credito</span></td>
 								<td><span class="badge badge-primary">Cancelado</span></td>
 								<td>
 									<a href="#" class="btn btn-info">
@@ -58,7 +55,7 @@
 									</a>
 								</td>
 								<td>
-									<a href="reservation-update.html" class="btn btn-success">
+									<a href="<?php echo SERVERURL; ?>solicitar-actualizar/" class="btn btn-success">
 											<i class="fas fa-sync-alt"></i>	
 									</a>
 								</td>
@@ -75,7 +72,7 @@
 								<td>NOMBRE CLIENTE</td>
 								<td>2017/10/8</td>
 								<td>2017/10/10</td>
-								<td><span class="badge badge-info">Prestamo</span></td>
+								<td><span class="badge badge-info">Credito</span></td>
 								<td><span class="badge badge-primary">Cancelado</span></td>
 								<td>
 									<a href="#" class="btn btn-info">
@@ -100,7 +97,7 @@
 								<td>NOMBRE CLIENTE</td>
 								<td>2017/10/8</td>
 								<td>2017/10/10</td>
-								<td><span class="badge badge-info">Prestamo</span></td>
+								<td><span class="badge badge-info">Credito</span></td>
 								<td><span class="badge badge-danger">Pendiente</span></td>
 								<td>
 									<a href="#" class="btn btn-info">
@@ -108,7 +105,7 @@
 									</a>
 								</td>
 								<td>
-									<a href="reservation-update.html" class="btn btn-success">
+									<a href="<?php echo SERVERURL; ?>solicitar-actualizar/" class="btn btn-success">
 											<i class="fas fa-sync-alt"></i>	
 									</a>
 								</td>
@@ -125,7 +122,7 @@
 								<td>NOMBRE CLIENTE</td>
 								<td>2017/10/8</td>
 								<td>2017/10/10</td>
-								<td><span class="badge badge-info">Prestamo</span></td>
+								<td><span class="badge badge-info">Credito</span></td>
 								<td><span class="badge badge-danger">Pendiente</span></td>
 								<td>
 									<a href="#" class="btn btn-info">

@@ -12,20 +12,20 @@
         <nav class="full-box nav-lateral-menu">
             <ul>
                 <li>
-                    <a href="home.html"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Inicio</a>
+                    <a href="<?php echo SERVERURL; ?>inicio/"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Inicio</a>
                 </li>
 
                 <li>
                     <a href="#" class="nav-btn-submenu"><i class="fas fa-users fa-fw"></i> &nbsp; Clientes <i class="fas fa-chevron-down"></i></a>
                     <ul>
                         <li>
-                            <a href="client-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Cliente</a>
+                            <a href="<?php echo SERVERURL; ?>cliente-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Cliente</a>
                         </li>
                         <li>
-                            <a href="client-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de clientes</a>
+                            <a href="<?php echo SERVERURL; ?>cliente-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de clientes</a>
                         </li>
                         <li>
-                            <a href="client-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar cliente</a>
+                            <a href="<?php echo SERVERURL; ?>cliente-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar cliente</a>
                         </li>
                     </ul>
                 </li>
@@ -34,13 +34,13 @@
                     <a href="#" class="nav-btn-submenu"><i class="fas fa-pallet fa-fw"></i> &nbsp; Articulos <i class="fas fa-chevron-down"></i></a>
                     <ul>
                         <li>
-                            <a href="item-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar articulos</a>
+                            <a href="<?php echo SERVERURL; ?>articulo-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar articulos</a>
                         </li>
                         <li>
-                            <a href="item-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de articulos</a>
+                            <a href="<?php echo SERVERURL; ?>articulo-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de articulos</a>
                         </li>
                         <li>
-                            <a href="item-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar articulo</a>
+                            <a href="<?php echo SERVERURL; ?>articulo-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar articulo</a>
                         </li>
                     </ul>
                 </li>
@@ -49,19 +49,19 @@
                     <a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Creditos <i class="fas fa-chevron-down"></i></a>
                     <ul>
                         <li>
-                            <a href="reservation-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Credito</a>
+                            <a href="<?php echo SERVERURL; ?>solicitar-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Credito</a>
                         </li>
                         <li>
-                            <a href="reservation-reservation.html"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Solicitudes</a>
+                            <a href="<?php echo SERVERURL; ?>solicitud-solicitud/"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Solicitudes</a>
                         </li>
                         <li>
-                            <a href="reservation-pending.html"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Creditos</a>
+                            <a href="<?php echo SERVERURL; ?>solicitar-pendiente/"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Creditos</a>
                         </li>
                         <li>
-                            <a href="reservation-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Finalizados</a>
+                            <a href="<?php echo SERVERURL; ?>solicitar-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Finalizados</a>
                         </li>
                         <li>
-                            <a href="reservation-search.html"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar por fecha</a>
+                            <a href="<?php echo SERVERURL; ?>solicitar-buscar/"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar por fecha</a>
                         </li>
                     </ul>
                 </li>
@@ -70,19 +70,19 @@
                     <a href="#" class="nav-btn-submenu"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Usuarios <i class="fas fa-chevron-down"></i></a>
                     <ul>
                         <li>
-                            <a href="user-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo usuario</a>
+                            <a href="<?php echo SERVERURL; ?>usuario-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo usuario</a>
                         </li>
                         <li>
-                            <a href="user-list.html"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios</a>
+                            <a href="<?php echo SERVERURL; ?>usuario-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios</a>
                         </li>
                         <li>
-                            <a href="user-search.html"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario</a>
+                            <a href="<?php echo SERVERURL; ?>usuario-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario</a>
                         </li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="company.html"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Empresa</a>
+                    <a href="<?php echo SERVERURL; ?>empresa/"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Empresa</a>
                 </li>
             </ul>
         </nav>
