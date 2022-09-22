@@ -6,7 +6,7 @@
         <i class="fas fa-user-cog"></i>
     </a>
     
-    <a href="<?php echo SERVERURL; ?>login/" class="btn-exit-system">
+    <a href="<?php echo SERVERURL; ?>controladores/destroyControler.php">
         <i class="fas fa-power-off"></i>
     </a>
 </nav>

@@ -9,6 +9,13 @@ class vistasModelo{
     "usuario-actualizar","articulo-buscar","articulo-actualizar","solicitar-lista","solicitar-nuevo",
 "solicitar-pendiente","solicitud-solicitud","solicitar-buscar","solicitar-actualizar"];
         if (in_array($vistas, $listaBlanca)) {
+            
+            //se valida que la session este seteada
+            session_start();
+            if(!$_SESSION['verificar']){
+                header("location:".SERVERURL);
+                } 
+
             if (is_file("./vistas/contenidos/".$vistas."-vista.php")) {
                 $contenido = "./vistas/contenidos/".$vistas."-vista.php";
             }else {
