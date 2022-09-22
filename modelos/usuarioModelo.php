@@ -16,7 +16,8 @@ require_once "../config/Conexion.php";
         public function loginusuarios($usu_email,$usu_clave,$usu_privilegio){
             
             if($usu_privilegio=="admin"){
-                $sql="SELECT * FROM usuarios WHERE usu_email='$usu_email' AND usu_clave='$usu_clave' AND usu_privilegio='admin'";
+                $sha1md5Clave = md5(sha1($usu_clave));
+                $sql="SELECT * FROM usuarios WHERE usu_email='$usu_email' AND usu_clave='$sha1md5Clave' AND usu_privilegio='admin'";
                 $resultado=$this->_bd->query($sql);
                 $filas=$resultado->num_rows;
                 if($filas==1){
