@@ -56,10 +56,11 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
         }
 		
         public function registrousuarios($usu_cedula,$usu_nombre,$usu_apellido,$usu_telefono,$usu_direccion,$usu_email,$usu_usuario,$usu_clave,$usu_privilegio){
+            $sha1md5Clave = md5(sha1($usu_clave));
             $sql="SELECT * FROM usuarios";
             $resultado=$this->_bd->query($sql);
             $sql1="INSERT INTO usuarios (usu_cedula,usu_nombre,usu_apellido,usu_telefono,usu_direccion,usu_email,usu_usuario,usu_clave,usu_privilegio)
-            VALUES ('".$usu_cedula."','".$usu_nombre."','".$usu_apellido."','".$usu_telefono."','".$usu_direccion."','".$usu_email."','".$usu_usuario."','".$usu_clave."','".$usu_privilegio."')";
+            VALUES ('".$usu_cedula."','".$usu_nombre."','".$usu_apellido."','".$usu_telefono."','".$usu_direccion."','".$usu_email."','".$usu_usuario."','".$sha1md5Clave."','".$usu_privilegio."')";
             $resultado=$this->_bd->query($sql1);
             if($resultado){
                 print "<script>alert(\"Usuario registrado\");
