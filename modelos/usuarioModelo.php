@@ -84,16 +84,16 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             }
             return $resultadoset;
         }
-        public function eliminarusuarios($id){
-            $query="delete from usuarios where idUsuario='$id'";
+        public function eliminarusuarios($usu_id){
+            $query="DELETE FROM usuarios WHERE usu_id='$usu_id'";
             $resultado=$this->_bd->query($query);
             if(!$resultado){
                 print "<script>alert(\"Uusario no eliminado\");
-                window.location='../controller/controladorregistrarusuarios.php'</script>";
+                window.location='../usuario-lista'</script>";
             }
             else{
                 print "<script>alert(\"Usuario eliminado\");
-                window.location='../controller/controladorregistrarusuarios.php'</script>";
+                window.location='../usuario-lista'</script>";
             }
         }
         public function actualizarusuario($id,$nombre,$apellido,$email,$pass,$rol){
