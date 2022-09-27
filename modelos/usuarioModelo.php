@@ -1,6 +1,6 @@
 <?php
-require_once "../config/Conexion.php";
-    
+require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
+
     class usuario extends Conectar{
         protected $usu_id;
         protected $usu_cedula;
@@ -59,11 +59,11 @@ require_once "../config/Conexion.php";
             $sql="SELECT * FROM usuarios";
             $resultado=$this->_bd->query($sql);
             $sql1="INSERT INTO usuarios (usu_cedula,usu_nombre,usu_apellido,usu_telefono,usu_direccion,usu_email,usu_usuario,usu_clave,usu_privilegio)
-            VALUES ('".$usu_cedula."','".$usu_nombre."','".$usu_apellido."','".$usu_telefono."','".$usu_direccion."','".$usu_email."','".$usu_email."','".$usu_usuario."','".$usu_clave."','".$usu_privilegio."')";
+            VALUES ('".$usu_cedula."','".$usu_nombre."','".$usu_apellido."','".$usu_telefono."','".$usu_direccion."','".$usu_email."','".$usu_usuario."','".$usu_clave."','".$usu_privilegio."')";
             $resultado=$this->_bd->query($sql1);
             if($resultado){
                 print "<script>alert(\"Usuario registrado\");
-                window.location='../vistas/contenidos/loginvista.php';</script>";
+                window.location='../usuario-lista';</script>";
                 $resultado->close();
                 $this->_bd->close();
             }

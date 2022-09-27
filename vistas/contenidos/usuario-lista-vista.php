@@ -1,4 +1,8 @@
 <!-- Page header -->
+<?php
+require_once 'modelos/usuarioModelo.php';
+
+?>
 <div class="full-box page-header">
 				<h3 class="text-left">
 					<i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE USUARIOS
@@ -30,100 +34,50 @@
 								<th>NOMBRE</th>
 								<th>APELLIDO</th>
 								<th>TELÉFONO</th>
-								<th>USUARIO</th>
+								<th>DIRECCION</th>
 								<th>EMAIL</th>
+								<th>USUARIO</th>
+								<th>PRIVILEGIO</th>
 								<th>ACTUALIZAR</th>
 								<th>ELIMINAR</th>
 							</tr>
 						</thead>
 						<tbody>
+						<?php
+						$Objlistarusuarios = new usuario();
+						$Datos = $Objlistarusuarios->listarusuarios();
+
+						foreach ($Datos as $key) {
+						?>
 							<tr class="text-center" >
-								<td>1</td>
-								<td>03045643</td>
-								<td>NOMBRE DE USUARIO</td>
-								<td>APELLIDO DE USUARIO</td>
-								<td>2345456</td>
-								<td>NOMBRE DE USUARIO</td>
-								<td>ADMIN@ADMIN.COM</td>
-								<td>
-									<a href="<?php echo SERVERURL; ?>usuario-actualizar/" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
+							<td><?php echo $key["usu_id"]?></td>
+							<td><?php echo $key["usu_cedula"]?></td>
+							<td><?php echo $key["usu_nombre"]?></td>
+							<td><?php echo $key["usu_apellido"]?></td>
+							<td><?php echo $key["usu_telefono"]?></td>
+							<td><?php echo $key["usu_direccion"]?></td>
+							<td><?php echo $key["usu_email"]?></td>
+							<td><?php echo $key["usu_usuario"]?></td>
+							<td><?php echo $key["usu_privilegio"]?></td>
+							<td>
+								<a href="<?php echo SERVERURL; ?>usuario-actualizar/" class="btn btn-success">
+	  								<i class="fas fa-sync-alt"></i>	
+								</a>
+							</td>
+							<td>
+								<form action="">
+									<button type="button" class="btn btn-warning">
+		  								<i class="far fa-trash-alt"></i>
+									</button>
+								</form>
+							</td>
 							</tr>
-							<tr class="text-center" >
-								<td>2</td>
-								<td>03045643</td>
-								<td>NOMBRE DE USUARIO</td>
-								<td>APELLIDO DE USUARIO</td>
-								<td>2345456</td>
-								<td>NOMBRE DE USUARIO</td>
-								<td>ADMIN@ADMIN.COM</td>
-								<td>
-									<a href="<?php echo SERVERURL; ?>usuario-actualizar/" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>3</td>
-								<td>03045643</td>
-								<td>NOMBRE DE USUARIO</td>
-								<td>APELLIDO DE USUARIO</td>
-								<td>2345456</td>
-								<td>NOMBRE DE USUARIO</td>
-								<td>ADMIN@ADMIN.COM</td>
-								<td>
-									<a href="<?php echo SERVERURL; ?>usuario-actualizar/" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>4</td>
-								<td>03045643</td>
-								<td>NOMBRE DE USUARIO</td>
-								<td>APELLIDO DE USUARIO</td>
-								<td>2345456</td>
-								<td>NOMBRE DE USUARIO</td>
-								<td>ADMIN@ADMIN.COM</td>
-								<td>
-									<a href="<?php echo SERVERURL; ?>usuario-actualizar/" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
+							<?php } ?>
+							
 						</tbody>
 					</table>
 				</div>
+
 				<nav aria-label="Page navigation example">
 					<ul class="pagination justify-content-center">
 						<li class="page-item disabled">
