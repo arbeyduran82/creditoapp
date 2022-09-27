@@ -54,15 +54,12 @@
                         <li>
                             <a href="<?php echo SERVERURL; ?>solicitud-solicitud/"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Solicitudes</a>
                         </li>
-                        <li>
-                            <a href="<?php echo SERVERURL; ?>solicitar-pendiente/"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Creditos</a>
+                        
                         </li>
                         <li>
                             <a href="<?php echo SERVERURL; ?>solicitar-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Finalizados</a>
                         </li>
-                        <li>
-                            <a href="<?php echo SERVERURL; ?>solicitar-buscar/"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar por fecha</a>
-                        </li>
+                        
                     </ul>
                 </li>
 

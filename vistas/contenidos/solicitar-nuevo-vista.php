@@ -1,23 +1,21 @@
 <!-- Page header -->
 <div class="full-box page-header">
                 <h3 class="text-left">
-                    <i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO PRÉSTAMO
+                    <i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO CREDITO
                 </h3>
             </div>
 
             <div class="container-fluid">
                 <ul class="full-box list-unstyled page-nav-tabs">
                     <li>
-                        <a class="active" href="<?php echo SERVERURL; ?>solicitar-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO PRÉSTAMO</a>
+                        <a class="active" href="<?php echo SERVERURL; ?>solicitar-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO CRÉDITO</a>
                     </li>
                     <li>
-                        <a href="<?php echo SERVERURL; ?>solicitud-solicitud/"><i class="far fa-calendar-alt"></i> &nbsp; RESERVACIONES</a>
+                        <a href="<?php echo SERVERURL; ?>solicitud-solicitud/"><i class="far fa-calendar-alt"></i> &nbsp; SOLICITUDES</a>
                     </li>
+                    
                     <li>
-                        <a href="<?php echo SERVERURL; ?>solicitar-pendiente/"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; PRÉSTAMOS</a>
-                    </li>
-                    <li>
-                        <a href="solicitar-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; FINALIZADOS</a>
+                        <a href="solicitar-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; CRÉDITOS FINALIZADOS</a>
                     </li>
                     <li>
                         <a href="<?php echo SERVERURL; ?>solicitar-buscar/"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; BUSCAR POR FECHA</a>
@@ -28,11 +26,6 @@
             <div class="container-fluid">
                 <div class="container-fluid form-neon">
                     <div class="container-fluid">
-                        <p class="text-center roboto-medium">AGREGAR CLIENTE O ITEMS</p>
-                        <p class="text-center">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalCliente"><i class="fas fa-user-plus"></i> &nbsp; Agregar cliente</button>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalItem"><i class="fas fa-box-open"></i> &nbsp; Agregar item</button>
-                        </p>
                         <div>
                             <span class="roboto-medium">CLIENTE:</span> 
                             <span class="text-danger">&nbsp; <i class="fas fa-exclamation-triangle"></i> Seleccione un cliente</span>
@@ -125,18 +118,18 @@
                     </div>
                     <form action="" autocomplete="off">
                         <fieldset>
-                            <legend><i class="far fa-clock"></i> &nbsp; Fecha y hora de préstamo</legend>
+                            <legend><i class="far fa-clock"></i> &nbsp; Fecha y hora de crédito</legend>
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
-                                            <label for="prestamo_fecha_inicio">Fecha de préstamo</label>
+                                            <label for="prestamo_fecha_inicio">Fecha de crédito</label>
                                             <input type="date" class="form-control" name="prestamo_fecha_inicio_reg" id="prestamo_fecha_inicio">
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
-                                            <label for="prestamo_hora_inicio">Hora de préstamo</label>
+                                            <label for="prestamo_hora_inicio">Hora de CRÉDITO</label>
                                             <input type="time" class="form-control" name="prestamo_hora_inicio_reg" id="prestamo_hora_inicio">
                                         </div>
                                     </div>
@@ -171,9 +164,9 @@
                                             <label for="prestamo_estado" class="bmd-label-floating">Estado</label>
                                             <select class="form-control" name="prestamo_estado_reg" id="prestamo_estado">
                                                 <option value="" selected="" disabled="">Seleccione una opción</option>
-                                                <option value="Reservacion">Reservación</option>
-                                                <option value="Prestamo">Préstamo</option>
-                                                <option value="Finalizado">Finalizado</option>
+                                                <option value="Reservacion">Solicitado</option>
+                                                <option value="Prestamo">Aprobado</option>
+                                                <option value="Finalizado">Pagado</option>
                                             </select>
                                         </div>
                                     </div>
@@ -222,7 +215,7 @@
                         <div class="modal-body">
                             <div class="container-fluid">
                                 <div class="form-group">
-                                    <label for="input_cliente" class="bmd-label-floating">CEDULA, Nombre, Apellido, Telefono</label>
+                                    <label for="input_cliente" class="bmd-label-floating">Cedula, Nombre, Apellido, Telefono</label>
                                     <input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" class="form-control" name="input_cliente" id="input_cliente" maxlength="30">
                                 </div>
                             </div>
@@ -275,7 +268,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="ModalItem">Agregar item</h5>
+                            <h5 class="modal-title" id="ModalItem">Agregar articulo</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
