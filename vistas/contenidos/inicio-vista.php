@@ -4,9 +4,6 @@
 				<h3 class="text-left">
 					<i class="fab fa-dashcube fa-fw"></i> &nbsp; Inicio
 				</h3>
-				<!--<p class="text-justify">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit nostrum rerum animi natus beatae ex. Culpa blanditiis tempore amet alias placeat, obcaecati quaerat ullam, sunt est, odio aut veniam ratione.
-				</p> -->
 			</div>
 			
 			<!-- Content -->
@@ -43,7 +40,7 @@
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>solicitar-lista" class="tile">
+				<a href="<?php echo SERVERURL; ?>solicitar-lista/" class="tile">
 					<div class="tile-tittle">Finalizados</div>
 					<div class="tile-icon">
 						<i class="fas fa-clipboard-list fa-fw"></i>
@@ -51,7 +48,7 @@
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>usuario-lista" class="tile">
+				<a href="<?php echo SERVERURL; ?>usuario-lista/" class="tile">
 					<div class="tile-tittle">Usuarios</div>
 					<div class="tile-icon">
 						<i class="fas fa-user-secret fa-fw"></i>
@@ -59,7 +56,7 @@
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>empresa" class="tile">
+				<a href="<?php echo SERVERURL; ?>empresa/" class="tile">
 					<div class="tile-tittle">Empresa</div>
 					<div class="tile-icon">
 						<i class="fas fa-store-alt fa-fw"></i>

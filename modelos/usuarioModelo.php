@@ -28,7 +28,8 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
                 }
             }
             elseif($usu_privilegio=="analista"){
-                $sql="SELECT * FROM usuarios WHERE usu_email='$usu_email' AND usu_clave='$usu_clave' AND usu_privilegio='analista'";
+                $sha1md5Clave = md5(sha1($usu_clave));
+                $sql="SELECT * FROM usuarios WHERE usu_email='$usu_email' AND usu_clave='$sha1md5Clave' AND usu_privilegio='analista'";
                 $resultado=$this->_bd->query($sql);
                 $filas=$resultado->num_rows;
                 if($filas==1){

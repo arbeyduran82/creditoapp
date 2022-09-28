@@ -23,7 +23,7 @@
 						<select class="form-control fadeIn third" name="txtrol" required>
 							<option value="" select="selected">Opciones</option>
 							<option value="admin">Administrador</option>
-							<option value="auxiliar">Analista</option>
+							<option value="analista">Analista</option>
 							<!--<option value="medico">Cliente</option> -->
 						</select>
 					</div>

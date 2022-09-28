@@ -66,7 +66,7 @@ require_once 'modelos/usuarioModelo.php';
 							</td>
 							<td>
 								<button type="button" class="btn btn-warning">
-									<a href="controladores/eliminarUsuControlador.php?id=<?php echo $key['usu_id'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+									<a href="../controladores/eliminarUsuControlador.php?id=<?php echo $key['usu_id'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
 								</button>	
 							</td>
 							</tr>
