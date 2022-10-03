@@ -1,8 +1,8 @@
-<!-- Page header -->
 <?php
 require_once 'modelos/articulosModelo.php';
 
 ?>
+
 <div class="full-box page-header">
                 <h3 class="text-left">
                     <i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR ARTICULO
@@ -25,13 +25,13 @@ require_once 'modelos/articulosModelo.php';
             
             <!--CONTENT-->
             <div class="container-fluid">
-                <form class="form-neon" action="../controladores/buscarArtControlador.php" method="POST">
+                <form class="form-neon" action="">
                     <div class="container-fluid">
                         <div class="row justify-content-md-center">
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <label for="inputSearch" class="bmd-label-floating">¿Qué articulo estas buscando?</label>
-                                    <input type="number" class="form-control" name="busqueda-articulos" value="<?php echo $busquedaarticulos;?>" id="inputSearch" maxlength="30">
+                                    <input type="text" class="form-control" name="" id="inputSearch" maxlength="30">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -64,6 +64,14 @@ require_once 'modelos/articulosModelo.php';
                 </form>
             </div>
 
+            <?php
+$busquedaarticulos=strtolower($_REQUEST['busqueda-articulos']);
+if(empty($busquedaarticulos)){
+  header("location:../articulo-lista/");
+}
+
+?>
+
             <div class="container-fluid">
 				<div class="table-responsive">
 					<table class="table table-dark table-sm">
@@ -81,7 +89,7 @@ require_once 'modelos/articulosModelo.php';
                         <tbody>
                         <?php
 						$Objbuscararticulos = new producto();
-						$Datos = $Objbuscararticulos->listararticulos();
+						$Datos = $Objbuscararticulos->buscararticulos($busquedaarticulos);
 
 						foreach ($Datos as $key) {
 						?>

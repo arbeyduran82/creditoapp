@@ -1,4 +1,8 @@
 <!-- Page header -->
+<?php
+require_once 'modelos/articulosModelo.php';
+
+?>
 <div class="full-box page-header">
                 <h3 class="text-left">
                     <i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE ARTICULOS
@@ -25,7 +29,6 @@
 					<table class="table table-dark table-sm">
 						<thead>
 							<tr class="text-center roboto-medium">
-								<th>#</th>
 								<th>CÓDIGO</th>
 								<th>NOMBRE</th>
 								<th>STOCK</th>
@@ -35,98 +38,29 @@
 							</tr>
 						</thead>
 						<tbody>
+                        <?php
+						$Objlistararticulos = new producto();
+						$Datos = $Objlistararticulos->listararticulos();
+
+						foreach ($Datos as $key) {
+						?>
 							<tr class="text-center" >
-								<td>1</td>
-								<td>012342567</td>
-								<td>NOMBRE DEL ARTICULO</td>
-								<td>20</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Titulo del item" data-content="Texto detalle del item ">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button>
-                                </td>
-								<td>
-                                    <a href="<?php echo SERVERURL; ?>articulo-actualizar/" class="btn btn-success">
-                                        <i class="fas fa-sync-alt"></i> 
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
+							<td><?php echo $key["art_codigo"]?></td>
+							<td><?php echo $key["art_nombre"]?></td>
+							<td><?php echo $key["art_stock"]?></td>
+							<td><?php echo $key["art_detalle"]?></td>
+							<td>
+								<a href="<?php echo SERVERURL; ?>usuario-actualizar/" class="btn btn-success">
+	  								<i class="fas fa-sync-alt"></i>	
+								</a>
+							</td>
+							<td>
+								<button type="button" class="btn btn-warning">
+									<a href="../controladores/eliminarArtControlador.php?id=<?php echo $key['art_codigo'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+								</button>	
+							</td>
 							</tr>
-							<tr class="text-center" >
-								<td>2</td>
-								<td>012342567</td>
-								<td>NOMBRE DEL ARTICULO</td>
-								<td>57</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Titulo del item" data-content="Texto detalle del item ">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button>
-                                </td>
-								<td>
-                                    <a href="<?php echo SERVERURL; ?>articulo-actualizar/" class="btn btn-success">
-                                        <i class="fas fa-sync-alt"></i> 
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
-							</tr>
-							<tr class="text-center" >
-								<td>3</td>
-								<td>012342567</td>
-								<td>NOMBRE DEL ARTICULO</td>
-								<td>81</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Titulo del item" data-content="Texto detalle del item ">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button>
-                                </td>
-								<td>
-                                    <a href="<?php echo SERVERURL; ?>articulo-actualizar/" class="btn btn-success">
-                                        <i class="fas fa-sync-alt"></i> 
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
-							</tr>
-							<tr class="text-center" >
-								<td>4</td>
-								<td>012342567</td>
-								<td>NOMBRE DEL ARTICULO</td>
-								<td>90</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Titulo del item" data-content="Texto detalle del item ">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button>
-                                </td>
-								<td>
-                                    <a href="<?php echo SERVERURL; ?>articulo-actualizar/" class="btn btn-success">
-                                        <i class="fas fa-sync-alt"></i> 
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
-							</tr>
+							<?php } ?>
 						</tbody>
 					</table>
 				</div>
