@@ -4,21 +4,6 @@
 					<i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO USUARIO
 				</h3>
 			</div>
-			
-			<div class="container-fluid">
-				<ul class="full-box list-unstyled page-nav-tabs">
-					<li>
-						<a class="active" href="<?php echo SERVERURL; ?>usuario-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO USUARIO</a>
-					</li>
-					<li>
-						<a href="<?php echo SERVERURL; ?>usuario-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE USUARIOS</a>
-					</li>
-					<li>
-						<a href="usuario-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR USUARIO</a>
-					</li>
-				</ul>	
-			</div>
-			
 			<!-- Content -->
 			<div class="container-fluid">
 				<form action="../controladores/nuevoUsuControlador.php" class="form-neon" autocomplete="off" method="POST">
