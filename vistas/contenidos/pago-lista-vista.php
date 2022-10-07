@@ -1,24 +1,24 @@
 <!-- Page header -->
 <?php
-require_once 'modelos/usuarioModelo.php';
+require_once 'modelos/pagosModelo.php';
 
 ?>
 <div class="full-box page-header">
 				<h3 class="text-left">
-					<i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE USUARIOS
+					<i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE PAGOS
 				</h3>
 			</div>
 			
 			<div class="container-fluid">
 				<ul class="full-box list-unstyled page-nav-tabs">
 					<li>
-						<a href="<?php echo SERVERURL; ?>usuario-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO USUARIO</a>
+						<a href="<?php echo SERVERURL; ?>pago-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO PAGO</a>
 					</li>
 					<li>
-						<a class="active" href="<?php echo SERVERURL; ?>usuario-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE USUARIOS</a>
+						<a class="active" href="<?php echo SERVERURL; ?>pago-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE PAGOS</a>
 					</li>
 					<li>
-						<a href="<?php echo SERVERURL; ?>usuario-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR USUARIO</a>
+						<a href="<?php echo SERVERURL; ?>pago-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR PAGO</a>
 					</li>
 				</ul>	
 			</div>
@@ -30,35 +30,25 @@ require_once 'modelos/usuarioModelo.php';
 						<thead>
 							<tr class="text-center roboto-medium">
 								<th>#</th>
-								<th>CEDULA</th>
-								<th>NOMBRE</th>
-								<th>APELLIDO</th>
-								<th>TELÉFONO</th>
-								<th>DIRECCION</th>
-								<th>EMAIL</th>
-								<th>USUARIO</th>
-								<th>PRIVILEGIO</th>
+								<th>TOTAL PAGO</th>
+								<th>FECHA PAGO</th>
+								<th>CODIGO CREDITO</th>
 								<th>ACTUALIZAR</th>
 								<th>ELIMINAR</th>
 							</tr>
 						</thead>
 						<tbody>
 						<?php
-						$Objlistarusuarios = new usuario();
-						$Datos = $Objlistarusuarios->listarusuarios();
+						$Objlistarpagos = new pago();
+						$Datos = $Objlistarpagos->listarpagos();
 
 						foreach ($Datos as $key) {
 						?>
 							<tr class="text-center" >
-							<td><?php echo $key["usu_id"]?></td>
-							<td><?php echo $key["usu_cedula"]?></td>
-							<td><?php echo $key["usu_nombre"]?></td>
-							<td><?php echo $key["usu_apellido"]?></td>
-							<td><?php echo $key["usu_telefono"]?></td>
-							<td><?php echo $key["usu_direccion"]?></td>
-							<td><?php echo $key["usu_email"]?></td>
-							<td><?php echo $key["usu_usuario"]?></td>
-							<td><?php echo $key["usu_privilegio"]?></td>
+							<td><?php echo $key["pag_id"]?></td>
+							<td><?php echo $key["pag_total"]?></td>
+							<td><?php echo $key["pag_fecha"]?></td>
+							<td><?php echo $key["cre_codigo"]?></td>
 							<td>
 								<a href="<?php echo SERVERURL; ?>usuario-actualizar/" class="btn btn-success">
 	  								<i class="fas fa-sync-alt"></i>	
@@ -66,7 +56,7 @@ require_once 'modelos/usuarioModelo.php';
 							</td>
 							<td>
 								<button type="button" class="btn btn-warning">
-									<a href="../controladores/eliminarUsuControlador.php?id=<?php echo $key['usu_id'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+									<a href="../controladores/eliminarPagControlador.php?id=<?php echo $key['pag_id'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
 								</button>	
 							</td>
 							</tr>

@@ -49,7 +49,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Pagos <i class="fas fa-chevron-down"></i></a>
+                    <li><a href="#" class="nav-btn-submenu"><i class="fas fa-credit-card"></i> &nbsp; Pagos <i class="fas fa-chevron-down"></i></a>
                         <ul>
                             <li><a href="<?php echo SERVERURL; ?>pago-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Pago</a></li>
                             <li><a href="<?php echo SERVERURL; ?>pago-lista/"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Pagos realizados</a></li>

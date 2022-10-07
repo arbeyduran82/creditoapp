@@ -1,33 +1,45 @@
 <!-- Page header -->
+<?php
+require_once 'modelos/pagosModelo.php';
+error_reporting(0);
+?>
 <div class="full-box page-header">
 				<h3 class="text-left">
-					<i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR USUARIO
+					<i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR PAGO
 				</h3>
 			</div>
 			
 			<div class="container-fluid">
 				<ul class="full-box list-unstyled page-nav-tabs">
 					<li>
-						<a href="<?php echo SERVERURL; ?>usuario-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO USUARIO</a>
+						<a href="<?php echo SERVERURL; ?>pago-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO PAGO</a>
 					</li>
 					<li>
-						<a href="<?php echo SERVERURL; ?>usuario-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE USUARIOS</a>
+						<a href="<?php echo SERVERURL; ?>pago-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE PAGOS</a>
 					</li>
 					<li>
-						<a class="active" href="<?php echo SERVERURL; ?>usuario-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR USUARIO</a>
+						<a class="active" href="<?php echo SERVERURL; ?>pago-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR PAGO</a>
 					</li>
 				</ul>	
 			</div>
 			
+			<?php
+$busquedapago=strtolower($_REQUEST['busqueda-pagos']);
+if(empty($busquedapago)){
+  header("location:../pago-lista/");
+}
+
+?>
+
 			<!-- Content -->
 			<div class="container-fluid">
-				<form class="form-neon" action="">
+				<form class="form-neon" action="" method="POST">
 					<div class="container-fluid">
 						<div class="row justify-content-md-center">
 							<div class="col-12 col-md-6">
 								<div class="form-group">
-									<label for="inputSearch" class="bmd-label-floating">¿Qué usuario estas buscando?</label>
-									<input type="text" class="form-control" name="busqueda-" id="inputSearch" maxlength="30">
+									<label for="inputSearch" class="bmd-label-floating">¿Qué pago estas buscando?</label>
+									<input type="text" class="form-control" name="busqueda-pagos" id="inputSearch" maxlength="30">
 								</div>
 							</div>
 							<div class="col-12">
@@ -47,7 +59,7 @@
 						<div class="row justify-content-md-center">
 							<div class="col-12 col-md-6">
 								<p class="text-center" style="font-size: 20px;">
-									Resultados de la busqueda <strong>“Buscar”</strong>
+									Resultados de la busqueda <strong>"<?php echo $busquedapago; ?>"</strong>
 								</p>
 							</div>
 							<div class="col-12">
@@ -66,104 +78,42 @@
 						<thead>
 							<tr class="text-center roboto-medium">
 								<th>#</th>
-								<th>CEDULA</th>
-								<th>NOMBRE</th>
-								<th>APELLIDO</th>
-								<th>TELÉFONO</th>
-								<th>USUARIO</th>
-								<th>EMAIL</th>
+								<th>TOTAL PAGO</th>
+								<th>FECHA PAGO</th>
+								<th>CODIGO CREDITO</th>
 								<th>ACTUALIZAR</th>
 								<th>ELIMINAR</th>
 							</tr>
 						</thead>
 						<tbody>
+						<?php
+						$Objbuscarpagos = new pago();
+						$Datos = $Objbuscarpagos->buscarpagos($busquedapago);
+
+						foreach ($Datos as $key) {
+						?>
 							<tr class="text-center" >
-								<td>1</td>
-								<td>03045643</td>
-								<td>NOMBRE DE USUARIO</td>
-								<td>APELLIDO DE USUARIO</td>
-								<td>2345456</td>
-								<td>NOMBRE DE USUARIO</td>
-								<td>ADMIN@ADMIN.COM</td>
-								<td>
-									<a href="user-update.html" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
+							<td><?php echo $key["pag_id"]?></td>
+							<td><?php echo $key["pag_total"]?></td>
+							<td><?php echo $key["pag_fecha"]?></td>
+							<td><?php echo $key["cre_codigo"]?></td>
+							<td>
+								<a href="<?php echo SERVERURL; ?>usuario-actualizar/" class="btn btn-success">
+	  								<i class="fas fa-sync-alt"></i>	
+								</a>
+							</td>
+							<td>
+								<button type="button" class="btn btn-warning">
+									<a href="../controladores/eliminarPagControlador.php?id=<?php echo $key['pag_id'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+								</button>	
+							</td>
 							</tr>
-							<tr class="text-center" >
-								<td>2</td>
-								<td>03045643</td>
-								<td>NOMBRE DE USUARIO</td>
-								<td>APELLIDO DE USUARIO</td>
-								<td>2345456</td>
-								<td>NOMBRE DE USUARIO</td>
-								<td>ADMIN@ADMIN.COM</td>
-								<td>
-									<a href="user-update.html" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>3</td>
-								<td>03045643</td>
-								<td>NOMBRE DE USUARIO</td>
-								<td>APELLIDO DE USUARIO</td>
-								<td>2345456</td>
-								<td>NOMBRE DE USUARIO</td>
-								<td>ADMIN@ADMIN.COM</td>
-								<td>
-									<a href="user-update.html" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>4</td>
-								<td>03045643</td>
-								<td>NOMBRE DE USUARIO</td>
-								<td>APELLIDO DE USUARIO</td>
-								<td>2345456</td>
-								<td>NOMBRE DE USUARIO</td>
-								<td>ADMIN@ADMIN.COM</td>
-								<td>
-									<a href="<?php echo SERVERURL; ?>usuario-actualizar/" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
+							<?php } ?>
+							
 						</tbody>
 					</table>
 				</div>
+
 				<nav aria-label="Page navigation example">
 					<ul class="pagination justify-content-center">
 						<li class="page-item disabled">

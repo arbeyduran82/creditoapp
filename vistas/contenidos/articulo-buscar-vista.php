@@ -1,4 +1,9 @@
 <!-- Page header -->
+<?php
+require_once 'modelos/articulosModelo.php';
+error_reporting(0);
+
+?>
 <div class="full-box page-header">
                 <h3 class="text-left">
                     <i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR ARTICULO
@@ -19,20 +24,29 @@
                 </ul>
             </div>
             
+            <?php
+
+$busquedaarticulos=strtolower($_REQUEST['busqueda-articulos']);
+if(empty($busquedaarticulos)){
+  header("location:../articulo-lista/");
+}
+
+?>
+
             <!--CONTENT-->
             <div class="container-fluid">
-                <form class="form-neon" action="">
+                <form class="form-neon" action="" method="POST">
                     <div class="container-fluid">
                         <div class="row justify-content-md-center">
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     <label for="inputSearch" class="bmd-label-floating">¿Qué articulo estas buscando?</label>
-                                    <input type="text" class="form-control" name="busqueda-" id="inputSearch" maxlength="30">
+                                    <input type="number" class="form-control" name="busqueda-articulos" value="<?php echo $busquedaarticulos;?>" id="inputSearch" maxlength="30">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <p class="text-center" style="margin-top: 40px;">
-                                    <button type="submit" class="btn btn-raised btn-info"><i class="fas fa-search"></i> &nbsp; BUSCAR</button>
+                                    <button type="submit" name="" class="btn btn-raised btn-info"><i class="fas fa-search"></i> &nbsp; BUSCAR</button>
                                 </p>
                             </div>
                         </div>
@@ -47,7 +61,7 @@
                         <div class="row justify-content-md-center">
                             <div class="col-12 col-md-6">
                                 <p class="text-center" style="font-size: 20px;">
-                                    Resultados de la busqueda <strong>“Buscar”</strong>
+                                    Resultados de la busqueda <strong>"<?php echo $busquedaarticulos; ?>"</strong>
                                 </p>
                             </div>
                             <div class="col-12">
@@ -75,98 +89,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="text-center" >
-                                <td>1</td>
-                                <td>012342567</td>
-                                <td>NOMBRE DEL ARTICULO</td>
-                                <td>20</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Titulo del item" data-content="Texto detalle del item ">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button>
-                                </td>
-                                <td>
-                                    <a href="item-update.html" class="btn btn-success">
-                                        <i class="fas fa-sync-alt"></i> 
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                            <tr class="text-center" >
-                                <td>2</td>
-                                <td>012342567</td>
-                                <td>NOMBRE DEL ARTICULO</td>
-                                <td>57</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Titulo del item" data-content="Texto detalle del item ">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button>
-                                </td>
-                                <td>
-                                    <a href="item-update.html" class="btn btn-success">
-                                        <i class="fas fa-sync-alt"></i> 
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                            <tr class="text-center" >
-                                <td>3</td>
-                                <td>012342567</td>
-                                <td>NOMBRE DEL ARTICULO</td>
-                                <td>81</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Titulo del item" data-content="Texto detalle del item ">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button>
-                                </td>
-                                <td>
-                                    <a href="item-update.html" class="btn btn-success">
-                                        <i class="fas fa-sync-alt"></i> 
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                            <tr class="text-center" >
-                                <td>4</td>
-                                <td>012342567</td>
-                                <td>NOMBRE DEL ARTICULO</td>
-                                <td>90</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Titulo del item" data-content="Texto detalle del item ">
-                                        <i class="fas fa-info-circle"></i>
-                                    </button>
-                                </td>
-                                <td>
-                                    <a href="item-update.html" class="btn btn-success">
-                                        <i class="fas fa-sync-alt"></i> 
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="">
-                                        <button type="button" class="btn btn-warning">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
+                        <?php
+						$Objbuscararticulos = new producto();
+						$Datos = $Objbuscararticulos->buscararticulos($busquedaarticulos);
+
+						foreach ($Datos as $key) {
+						?>
+							<tr class="text-center" >
+                            <td><?php echo $key["art_id"]?></td>
+							<td><?php echo $key["art_codigo"]?></td>
+							<td><?php echo $key["art_nombre"]?></td>
+							<td><?php echo $key["art_stock"]?></td>
+							<td><?php echo $key["art_detalle"]?></td>
+							<td>
+								<a href="<?php echo SERVERURL; ?>usuario-actualizar/" class="btn btn-success">
+	  								<i class="fas fa-sync-alt"></i>	
+								</a>
+							</td>
+							<td>
+								<button type="button" class="btn btn-warning">
+									<a href="../controladores/eliminarArtControlador.php?id=<?php echo $key['art_codigo'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+								</button>	
+							</td>
+							</tr>
+							<?php } ?>
                         </tbody>
                     </table>
 				</div>
