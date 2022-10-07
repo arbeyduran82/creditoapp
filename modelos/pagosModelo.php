@@ -1,0 +1,59 @@
+<?php
+
+require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
+
+class pago extends Conectar{
+    protected $pagot;
+    protected $fechapag;
+    protected $codcredito;
+
+    public function registropago($pagot,$fechapag,$codcredito){
+        $sql="SELECT * FROM pagos";
+        $result=$this->_bd->query($sql);
+        $insertar="INSERT INTO pagos (pag_total, pag_fecha, cre_codigo)VALUES('".$pagot."','".$fechapag."','".$codcredito."')";
+            $result=$this->_bd->query($insertar);
+            if(!$result){
+                print "<script>alert(\"problema al insertar los datos.\");
+				window.location='../pago-nuevo/';</script>";
+            }else{
+                print "<script>alert(\"Pago registrado.\");
+				window.location='../pago-lista/';</script>";
+				$result->close();
+				$this->_bd->close();
+            }
+
+        }
+    public function listarpagos(){
+		$sql1="SELECT * FROM pagos ORDER BY pag_id";
+		$resul=$this->_bd->query($sql1);
+		if($resul->num_rows>0){
+			while ($row = $resul->fetch_assoc()) {
+				$resultset[]=$row;
+			}
+		}
+		return $resultset;
+	}
+    public function eliminarpago($id){
+		$query1="DELETE FROM pagos WHERE pag_id='$id'";
+		$resul=$this->_bd->query($query1);
+		if($resul){
+			print "<script>alert(\"Pago Eliminado.\");
+			window.location='../pago-lista/';</script>";
+		}else{
+			print "<script>alert(\"No se puede eliminar el pago\");
+			window.location='../pago-lista/';</script>";
+		}
+	}
+	public function buscarpagos($busquedapago){
+		$consulta1="SELECT * FROM pagos WHERE pag_id LIKE '%$busquedapago%'";
+		$busquedapago=$this->_bd->query($consulta1);
+
+		if($busquedapago->num_rows>0){
+			while ($row=$busquedapago->fetch_assoc()) {
+				$resultset[]=$row;
+			}return $resultset;
+		}
+
+    }
+}
+?>

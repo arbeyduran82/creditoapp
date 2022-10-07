@@ -22,7 +22,6 @@ require_once 'modelos/articulosModelo.php';
                     </li>
                 </ul>
             </div>
-            
             <!--CONTENT-->
             <div class="container-fluid">
 				<div class="table-responsive">
@@ -50,7 +49,7 @@ require_once 'modelos/articulosModelo.php';
 							<td><?php echo $key["art_stock"]?></td>
 							<td><?php echo $key["art_detalle"]?></td>
 							<td>
-								<a href="<?php echo SERVERURL; ?>usuario-actualizar/" class="btn btn-success">
+							<a href="<?php echo SERVERURL; ?>usuario-actualizar/" class="btn btn-success">
 	  								<i class="fas fa-sync-alt"></i>	
 								</a>
 							</td>
@@ -77,4 +76,4 @@ require_once 'modelos/articulosModelo.php';
 						</li>
 					</ul>
 				</nav>
-			</div>
+						</div>

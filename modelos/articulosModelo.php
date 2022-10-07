@@ -65,5 +65,8 @@ class producto extends Conectar{
 		}
 
 	}
+	public function paginararticulos(){
+
+	}
 }
 ?>

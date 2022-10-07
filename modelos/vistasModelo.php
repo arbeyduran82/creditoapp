@@ -6,9 +6,9 @@ class vistasModelo{
      protected static function obtener_vistas_modelo($vistas){
         $listaBlanca=["inicio","cliente-lista","cliente-nuevo","cliente-buscar","cliente-actualizar",
     "empresa","articulo-lista","articulo-nuevo","usuario-lista","usuario-nuevo","usuario-buscar",
-    "usuario-actualizar","articulo-buscar","articulo-actualizar","solicitar-lista","solicitar-nuevo",
+    "usuario-actualizar","articulo-buscar","articulo-buscar-resultado","articulo-actualizar","solicitar-lista","solicitar-nuevo",
 "solicitar-pendiente","solicitud-solicitud","solicitar-buscar","solicitar-actualizar","pago-actualizar",
-"pago-buscar","pago-lista","pago-nuevo","reportes"];
+"pago-buscar","pago-buscar-resultado","pago-lista","pago-nuevo","reportes"];
         if (in_array($vistas, $listaBlanca)) {
             
             //se valida que la session este seteada

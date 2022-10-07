@@ -1,6 +1,7 @@
 <!-- Page header -->
 <?php
 require_once 'modelos/articulosModelo.php';
+error_reporting(0);
 
 ?>
 <div class="full-box page-header">
@@ -23,9 +24,18 @@ require_once 'modelos/articulosModelo.php';
                 </ul>
             </div>
             
+            <?php
+
+$busquedaarticulos=strtolower($_REQUEST['busqueda-articulos']);
+if(empty($busquedaarticulos)){
+  header("location:../articulo-lista/");
+}
+
+?>
+
             <!--CONTENT-->
             <div class="container-fluid">
-                <form class="form-neon" action="../controladores/buscarArtControlador.php" method="POST">
+                <form class="form-neon" action="" method="POST">
                     <div class="container-fluid">
                         <div class="row justify-content-md-center">
                             <div class="col-12 col-md-6">
@@ -51,7 +61,7 @@ require_once 'modelos/articulosModelo.php';
                         <div class="row justify-content-md-center">
                             <div class="col-12 col-md-6">
                                 <p class="text-center" style="font-size: 20px;">
-                                    Resultados de la busqueda <strong>“Buscar”</strong>
+                                    Resultados de la busqueda <strong>"<?php echo $busquedaarticulos; ?>"</strong>
                                 </p>
                             </div>
                             <div class="col-12">
@@ -81,7 +91,7 @@ require_once 'modelos/articulosModelo.php';
                         <tbody>
                         <?php
 						$Objbuscararticulos = new producto();
-						$Datos = $Objbuscararticulos->listararticulos();
+						$Datos = $Objbuscararticulos->buscararticulos($busquedaarticulos);
 
 						foreach ($Datos as $key) {
 						?>
