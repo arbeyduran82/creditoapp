@@ -28,7 +28,7 @@
 							<div class="row">
 								<div class="col-12 col-md-4">
 									<div class="form-group">
-										<label for="item_codigo" class="bmd-label-floating">Códido</label>
+										<label for="item_codigo" class="bmd-label-floating">Código</label>
 										<input type="text" pattern="[a-zA-Z0-9-]{1,45}" class="form-control" name="item_codigo_reg" id="item_codigo" maxlength="45">
 									</div>
 								</div>

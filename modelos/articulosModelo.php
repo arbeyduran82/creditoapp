@@ -65,6 +65,32 @@ class producto extends Conectar{
 		}
 
 	}
+	public function ObtenerArticulo($id)
+    {
+        $query1 = "SELECT * FROM articulos WHERE art_id='$id'";
+        $resul = $this->_bd->query($query1);
+        
+        if($resul->num_rows > 0)
+        {
+            while($row = $resul->fetch_assoc())
+            {
+                $resultadoset[] = $row;
+            }
+        }
+
+        return $resultadoset[0];
+    }
+	public function actualizararticulos($codart,$nomart,$stockart,$estadoart,$detart){
+		$consulta="UPDATE articulos set art_codigo='$codart', art_nombre='$nomart', art_stock='$stockart', art_estado='$estadoart', art_detalle='$detart' WHERE art_codigo=$codart";
+		$resul=$this->_bd->query($consulta);
+		if(!$resul){
+			print "<script>alert(\"No se puede actualizar el articulo\");
+			window.location='../articulo-actualizar/';</script>";
+		}else{
+			print "<script>alert(\"Articulo actualizado\");
+			window.location='../articulo-lista/';</script>";
+		}
+	}
 	public function paginararticulos(){
 
 	}

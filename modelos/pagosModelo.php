@@ -3,6 +3,7 @@
 require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
 
 class pago extends Conectar{
+	protected $idpag;
     protected $pagot;
     protected $fechapag;
     protected $codcredito;
@@ -55,5 +56,34 @@ class pago extends Conectar{
 		}
 
     }
+	public function Obtenerpago($id)
+    {
+        $query1 = "SELECT * FROM pagos WHERE pag_id='$id'";
+        $resul = $this->_bd->query($query1);
+        
+        if($resul->num_rows > 0)
+        {
+            while($row = $resul->fetch_assoc())
+            {
+                $resultadoset[] = $row;
+            }
+        }
+
+        return $resultadoset[0];
+    }
+	public function actualizarpago($pagot,$fechapag,$codcredito){
+		$consulta="UPDATE pagos set pag_id='$idpag', pag_total='$pagot', pag_fecha='$fechapag', cre_codigo='$codcredito' WHERE pag_id='$idpag'";
+		$resul=$this->_bd->query($consulta);
+		if(!$resul){
+			print "<script>alert(\"No se puede actualizar el pago\");
+			window.location='../pago-actualizar/';</script>";
+		}else{
+			print "<script>alert(\"Pago actualizado\");
+			window.location='../pago-lista/';</script>";
+		}
+	}
+	public function paginarpagos(){
+
+	}
 }
 ?>
