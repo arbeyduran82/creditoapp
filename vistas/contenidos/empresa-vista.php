@@ -20,6 +20,8 @@
                     <th>EMAIL</th>
                     <th>TELÉFONO</th>
                     <th>DIRECCION</th>
+                    <th>ACTUALIZAR</th>
+					<th>ELIMINAR</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,17 +37,17 @@
                         <td><?php echo $key["emp_email"] ?></td>
                         <td><?php echo $key["emp_telefono"] ?></td>
                         <td><?php echo $key["emp_direccion"] ?></td>
-                        <!--
+                        
                         <td>
-                            <a href="<?php echo SERVERURL; ?>usuario-actualizar/" class="btn btn-success">
+                            <a href="<?php echo SERVERURL; ?>empresa-actualizar/" class="btn btn-success">
                                 <i class="fas fa-sync-alt"></i>
                             </a>
                         </td>
                        <td>
                             <button type="button" class="btn btn-warning">
-                                <a href="controladores/eliminarUsuControlador.php?id=<?php echo $key['usu_id'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                                <a href="controladores/eliminarEmpControlador.php?id=<?php echo $key['emp_id'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
                             </button>
-                        </td> -->
+                        </td>
                     </tr>
                 <?php } ?>
 
@@ -56,7 +58,7 @@
 </div>
 
 <div class="container-fluid">
-    <form action="controladores/nuevaEmpControlador.php" class="form-neon" autocomplete="off" method="POST">
+    <form action="<?php echo SERVERURL; ?>controladores/nuevaEmpControlador.php" class="form-neon" autocomplete="off" method="POST">
         <fieldset>
             <legend><i class="far fa-building"></i> &nbsp; Registrar Nueva Sede</legend>
             <div class="container-fluid">

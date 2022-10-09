@@ -52,6 +52,18 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
                 window.location='../empresa';</script>";
             }
         }
+
+        public function eliminarempresa($emp_id){
+            $query1="DELETE FROM empresa WHERE emp_id='$emp_id'";
+            $resul=$this->_bd->query($query1);
+            if($resul){
+                print "<script>alert(\"Empresa Eliminado.\");
+                window.location='../empresa/';</script>";
+            }else{
+                print "<script>alert(\"Error al eliminar empresa\");
+                window.location='../empresa/';</script>";
+            }
+        }
         
     }
 ?>
