@@ -45,7 +45,7 @@ if ($busquedaclientes == true) {
 foreach ($Datos as $key) {
 ?>
     <div class="container-fluid">
-        <form class="form-neon" action="controladores/nuevoCreControlador.php" method="POST">
+        <form class="form-neon" action="../controladores/nuevoCreControlador.php" method="POST">
             <div class="row">
                     
                     <div class="form-group col-md-4">
@@ -65,7 +65,7 @@ foreach ($Datos as $key) {
 
                     <div class="form-group col-md-4">
                         <label class="bmd-label-floating">Monto credito</label>
-                        <input type="number" class="form-control" name="txtcrevalor" maxlength="30" required>
+                        <input type="number" class="form-control" name="txtcremonto" maxlength="30" required>
                     </div>
 
                     <div class="form-group col-md-3">
@@ -85,9 +85,14 @@ foreach ($Datos as $key) {
                     <div class="form-group col-md-2 content-select">
                     <select style="padding: top 20px;" name="selestado" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                         <option selected>&nbsp; Estado &nbsp;</option>
-                        <option value="aldia">aldia</option>
+                        <option value="estudio">En estudio</option>
+                        <option value="aprobado">Aprobado</option>
+                        <option value="rechazado">Rechazado</option>
+                        <option value="aldia">al dia</option>
                         <option value="mora30">Mora 30 dias</option>
                         <option value="mora60">Mora 60 dias</option>
+                        <option value="mora90">Mora 90 dias</option>
+                        <option value="mora120">Mora 120 dias</option>
                     </select>
                     </div>
 
@@ -104,10 +109,8 @@ foreach ($Datos as $key) {
                     $Datos1 = $Objlistaranalista->consultasbasicas();
                     foreach ($Datos1 as $key) {
                     ?>  
-                    
                         <option value="<?php echo $key["usu_id"] ?>"><?php echo $key["usu_nombre"] ?></option>
                        
-                    
                     <?php } ?>
                     </select>
                     </div>
