@@ -4,7 +4,7 @@ $ruta = explode("/", $_GET['views']);
 $peticionAjax = false;
 $instanciarVista = new vistasControlador();
 $vistas = $instanciarVista->obtener_vistas_controlador();
-if($ruta[0] == "pago-actualizar") 
+if($ruta[0] == "cliente-actualizar") 
 {?>
     <div>
         <?php

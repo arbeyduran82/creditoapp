@@ -1,4 +1,8 @@
 <!-- Page header -->
+<?php
+require_once 'modelos/clienteModelo.php';
+
+?>
 <div class="full-box page-header">
 				<h3 class="text-left">
 					<i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE CLIENTES
@@ -36,105 +40,28 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="text-center" >
-								<td>1</td>
-								<td>012342567</td>
-								<td>NOMBRE DEL CLIENTE</td>
-								<td>APELLIDO DEL CLIENTE</td>
-								<td>72349874</td>
-								<td>
-									<button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Nombre del cliente" data-content="Direccion completa del cliente">
-										<i class="fas fa-info-circle"></i>
-									</button>
-								</td>
-								<td>
-									<a href="client-update.html" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>2</td>
-								<td>012342567</td>
-								<td>NOMBRE DEL CLIENTE</td>
-								<td>APELLIDO DEL CLIENTE</td>
-								<td>72349874</td>
-								<td>
-									<button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Nombre del cliente" data-content="Direccion completa del cliente">
-										<i class="fas fa-info-circle"></i>
-									</button>
-								</td>
-								<td>
-									<a href="<?php echo SERVERURL; ?>cliente-actualizar/" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>3</td>
-								<td>012342567</td>
-								<td>NOMBRE DEL CLIENTE</td>
-								<td>APELLIDO DEL CLIENTE</td>
-								<td>72349874</td>
-								<td>
-									<button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Nombre del cliente" data-content="Direccion completa del cliente">
-										<i class="fas fa-info-circle"></i>
-									</button>
-								</td>
-								<td>
-									<a href="<?php echo SERVERURL; ?>cliente-actualizar/" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>4</td>
-								<td>012342567</td>
-								<td>NOMBRE DEL CLIENTE</td>
-								<td>APELLIDO DEL CLIENTE</td>
-								<td>72349874</td>
-								<td>
-									<button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Nombre del cliente" data-content="Direccion completa del cliente">
-										<i class="fas fa-info-circle"></i>
-									</button>
-								</td>
-								<td>
-									<a href="<?php echo SERVERURL; ?>cliente-actualizar/" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
+<?php
+					
+                        $obj1=new Clientes();
+                        $datos=$obj1->listarcliente();
+						error_reporting(0);
+                        foreach($datos as $key){?>
+                        <tr class="text-center" >
+                            <td><?php echo $key["cli_id"]?></td>
+                            <td><?php echo $key["cli_documento"]?></td>
+                            <td><?php echo $key["cli_nombre"]?></td>
+                            <td><?php echo $key["cli_apellido"]?></td>
+                            <td><?php echo $key["cli_telefono"]?></td>
+                            <td><?php echo $key["cli_direccion"]?></td>
+							<td><a type="submit"  class="btn btn-success" data-toggle="modal" data-target="#actualizar" data-idCliente="<?php echo $key["cli_id"]?>"><i class="fas fa-sync-alt"></i>Actualizar</a></td>
+				            <td><button type="submit" class="btn btn-warning"><a href="../controladores/eliminarClientesControlador.php?id=<?php echo $key['cli_documento'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></button></td>
+						</tr>
+                    <?php } ?>
+							
 						</tbody>
 					</table>
 				</div>
+
 				<nav aria-label="Page navigation example">
 					<ul class="pagination justify-content-center">
 						<li class="page-item disabled">
@@ -149,3 +76,25 @@
 					</ul>
 				</nav>
 			</div>
+<!-- para que la pantalla quede gris-->
+<div id="actualizar" class="modal fade" role ="dialog">
+<div class="modal-dialog">
+    <div class= "modal-content"> 
+    </div>
+</div>
+</div>
+
+
+<script>
+$('#actualizar').on('show.bs.modal', function (event) {
+	var button = $(event.relatedTarget); // Button that triggered the modal
+	var idClient = button[0].attributes["data-idcliente"].value; // Extract info from data-* attributes
+
+	fetch('../cliente-actualizar/' + idClient)
+	.then(response => response.text())
+	.then(htmlContent =>{
+		var modal = $(this);
+		var formUpdate = modal.find('.modal-content').append(htmlContent);
+	});
+});
+</script>
