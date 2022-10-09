@@ -1,68 +1,57 @@
-<!-- Page header -->
-<div class="full-box page-header">
-				<h3 class="text-left">
-					<i class="fas fa-sync-alt fa-fw"></i> &nbsp; ACTUALIZAR CLIENTE
-				</h3>
-			</div>
+<?php
+    require_once "modelos/clienteModelo.php";
+    $id = $_SESSION['IdClient'];
+    $clienteModelo = new Clientes();
+    $Cliente = $clienteModelo->ObtenerCliente($id);
+?>
 
-			<div class="container-fluid">
-				<ul class="full-box list-unstyled page-nav-tabs">
-					<li>
-						<a href="cliente-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR CLIENTE</a>
-					</li>
-					<li>
-						<a href="cliente-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE CLIENTES</a>
-					</li>
-					<li>
-						<a href="cliente-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR CLIENTE</a>
-					</li>
-				</ul>	
+<form id="updateClientForm" action="../controladores/cliente-actualizar.php?id=<?php echo $id ?>" method="POST" >
+    <div class="modal-header">
+       <div class="col-12 col-md-12">
+         <h3>Actualizar Cliente</h3>  
+          <button type ="button" class="close" data-dismiss="modal" >&times;</button> 
+        </div>  
+    </div>
+<div class="modal-body">       
+        <!-- <code><?php print_r ($_SESSION['IdClient']); ?></code> -->
+     
+        <div class="container-fluid">
+			<div class="col-12 col-md-12">
+				<div class="form-group">
+					<label for="cliente_cedula" class="bmd-label-floating">Cedula</label>
+					<input type="number"  class="form-control"  name="txtcedulacla"  maxlength="27"name="txtcedulacla" value="<?php echo $Cliente["cli_documento"] ?>">
+				</div>
 			</div>
-			
-			<!-- Content here-->
-			<div class="container-fluid">
-				<form action="" class="form-neon" autocomplete="off">
-					<fieldset>
-						<legend><i class="fas fa-user"></i> &nbsp; Información básica</legend>
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-12 col-md-6">
-									<div class="form-group">
-										<label for="cliente_cedula" class="bmd-label-floating">CEDULA</label>
-										<input type="text" pattern="[0-9-]{1,27}" class="form-control" name="cliente_dni_up" id="cliente_dni" maxlength="27">
-									</div>
-								</div>
-								<div class="col-12 col-md-6">
-									<div class="form-group">
-										<label for="cliente_nombre" class="bmd-label-floating">Nombre</label>
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" name="cliente_nombre_up" id="cliente_nombre" maxlength="40">
-									</div>
-								</div>
-								<div class="col-12 col-md-4">
-									<div class="form-group">
-										<label for="cliente_apellido" class="bmd-label-floating">Apellido</label>
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,40}" class="form-control" name="cliente_apellido_up" id="cliente_apellido" maxlength="40">
-									</div>
-								</div>
-								<div class="col-12 col-md-4">
-									<div class="form-group">
-										<label for="cliente_telefono" class="bmd-label-floating">Teléfono</label>
-										<input type="text" pattern="[0-9()+]{8,20}" class="form-control" name="cliente_telefono_up" id="cliente_telefono" maxlength="20">
-									</div>
-								</div>
-								<div class="col-12 col-md-4">
-									<div class="form-group">
-										<label for="cliente_direccion" class="bmd-label-floating">Dirección</label>
-										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,150}" class="form-control" name="cliente_direccion_up" id="cliente_direccion" maxlength="150">
-									</div>
-								</div>
-							</div>
-						</div>
-					</fieldset>
-					<br><br><br>
-					<p class="text-center" style="margin-top: 40px;">
-						<button type="submit" class="btn btn-raised btn-success btn-sm"><i class="fas fa-sync-alt"></i> &nbsp; ACTUALIZAR</button>
-					</p>
-				</form>
-
-			</div>	
+			<div class="form-group">
+                <div class="col-12 col-md-12">
+					<label for="cliente_nombre" class="bmd-label-floating">Nombre</label>
+					<input type="text" class="form-control" name="txtnombrecla" maxlength="40"value="<?php echo $Cliente["cli_nombre"]; ?>">
+				</div>
+			</div>
+			<div class="col-12 col-md-12">
+				<div class="form-group">
+					<label for="cliente_apellido" class="bmd-label-floating">Apellido</label>
+					<input type="text" class="form-control" name="txtapellidocla"  maxlength="40" value="<?php echo $Cliente["cli_apellido"] ?>">	
+				</div>
+			</div>
+			<div class="col-12 col-md-12">
+				<div class="form-group">
+					<label for="cliente_telefono" class="bmd-label-floating">Teléfono</label>
+					<input type="number"  class="form-control" name= "txtcelularcla"  maxlength="20"value="<?php echo $Cliente["cli_telefono"] ?>">
+				</div>
+			</div>
+			<div class="col-12 col-md-12">
+				<div class="form-group">
+					<label for="cliente_direccion" class="bmd-label-floating">Dirección</label>
+					<input type="text" class="form-control" name="txtadireccioncla" maxlength="150"value="<?php echo $Cliente["cli_direccion"] ?>">
+				</div>
+			</div>
+            <div class="modal-footer">
+                <div class="col-12 col-md-12">
+								
+                    <button class="btn btn-success"  name="actualizarCliente" type="submit"class="btn btn-success">  <i class="fas fa-sync-alt"></i> Actualizar</button>
+                </div>
+            </div>
+        </div>  
+        
+</div>
