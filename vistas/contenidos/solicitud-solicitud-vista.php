@@ -5,7 +5,7 @@ require_once 'modelos/creditosModelo.php';
 <!-- Page header -->
 <div class="full-box page-header">
     <h3 class="text-left">
-        <i class="far fa-calendar-alt fa-fw"></i> &nbsp; SOLICITUDES PARA ESTUDIO
+        <i class="far fa-calendar-alt fa-fw"></i> &nbsp; LISTADO DE CREDITOS
     </h3>
 </div>
 
@@ -41,7 +41,7 @@ require_once 'modelos/creditosModelo.php';
                             <td><?php echo $key["cli_id"] ?></td>
                             <td><?php echo $key["cre_codigo"] ?></td>
                             <td><?php echo $key["cre_fecha"] ?></td>
-                            <td>$<?php echo $key["cre_cantidad"] ?></td>
+                            <td>$<?php echo $key["cre_monto"] ?></td>
                             <td><?php echo $key["cre_tasa"] ?>%</td>
                             <td><?php echo $key["cre_cuotas"] ?></td>
                             <td>$<?php echo $key["cre_total"] ?></td>

@@ -2,21 +2,21 @@
 require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
 
     class creditos extends Conectar{
-        //protected $cre_id;//hidden
-        protected $cli_id;
+        protected $cre_id;
         protected $cre_codigo;
         protected $cre_fecha;
-        protected $cre_cantidad;
+        protected $cre_monto;
         protected $cre_tasa;
         protected $cre_cuotas;
-        //protected $cre_total;//hidden
-        //protected $cre_pagado;//hidden
+        protected $cre_total;
+        protected $cre_pagado ;
         protected $cre_estado;
         protected $cre_observaciones;
         protected $usu_id;
+        protected $cli_id;
         
         public function consultasbasicas(){
-            $sql="select * from creditos INNER JOIN usuarios";
+            $sql="SELECT * FROM creditos INNER JOIN usuarios GROUP BY 13";
             $resultado=$this->_bd->query($sql);
             if($resultado->num_rows>0){
                 while($row=$resultado->fetch_assoc()){
@@ -26,22 +26,23 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             return $resultadoset;
         }
 
-        public function registrocredito($cli_id,$cre_codigo,$cre_fecha,$cre_cantidad,$cre_tasa,$cre_cuotas,$cre_estado,$cre_observacion,$usu_id){
-            $sql="SELECT * FROM creditos";
-            $resultado=$this->_bd->query($sql);
-            $sql1="INSERT INTO creditos (cli_id,cre_codigo,cre_fecha,cre_cantidad,cre_tasa,cre_cuotas,cre_estado,cre_observacion,usu_id)
-            VALUES ('".$cli_id."','".$cre_codigo."','".$cre_fecha."','".$cre_cantidad."','".$cre_tasa."','".$cre_cuotas."','".$cre_estado."','".$cre_observacion."','".$usu_id."')";
+        public function registrocredito($cre_codigo,$cre_fecha,$cre_monto,$cre_tasa,$cre_cuotas,$cre_total,$cre_pagado,$cre_estado,$cre_observacion,$usu_id,$cli_id){
+            /*$sql="SELECT * FROM creditos";
+            $resultado=$this->_bd->query($sql);*/
+            
+            $sql1="INSERT INTO creditos (cre_codigo,cre_fecha,cre_monto,cre_tasa,cre_cuotas,cre_total,cre_pagado,cre_estado,cre_observacion,usu_id,cli_id)
+            VALUES ('".$cre_codigo."','".$cre_fecha."','".$cre_monto."','".$cre_tasa."','".$cre_cuotas."','".$cre_total."','".$cre_pagado."','".$cre_estado."','".$cre_observacion."','".$usu_id."','".$cli_id."')";
             $resultado=$this->_bd->query($sql1);
-            var_dump($sql1);
+            var_dump($resultado);
             if($resultado){
                 print "<script>alert(\"Credito registrado\");
-                window.location='../solicitar-lista';</script>";
+                window.location='../solicitud-solicitud/';</script>";
                 $resultado->close();
                 $this->_bd->close();
             }
             else{
-                /*print "<script>alert(\"Credito no registrado\");
-                window.location='../solicitar-nuevo';</script>";*/
+                print "<script>alert(\"Credito no registrado\");
+                window.location='../solicitar-nuevo';</script>";
                 /*$resultado->close();
                 $this->_bd->close();*/
             }
