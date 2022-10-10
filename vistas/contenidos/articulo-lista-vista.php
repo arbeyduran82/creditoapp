@@ -49,8 +49,10 @@ require_once 'modelos/articulosModelo.php';
 							<td><?php echo $key["art_stock"]?></td>
 							<td><?php echo $key["art_detalle"]?></td>
 							<td>
-								<a type="submit"  class="btn btn-success" data-toggle="modal" data-target="#actualizar" data-idCliente="<?php echo $key["art_id"]?>"><i class="fas fa-sync-alt"></i></a>
-						</td>
+								<button type="button" class="btn btn-success">
+									<a href="<?php echo SERVERURL; ?>articulo-actualizar/?id=<?php echo $key['art_codigo']?>" class="btn btn-success"><i class="fas fa-sync-alt"></i></a>
+								</button>	
+							</td>
 							<td>
 								<button type="button" class="btn btn-warning">
 									<a href="../controladores/eliminarArtControlador.php?id=<?php echo $key['art_codigo'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
@@ -76,24 +78,3 @@ require_once 'modelos/articulosModelo.php';
 				</nav>
 						</div>
 
-<div id="actualizar" class="modal fade" role ="dialog">
-<div class="modal-dialog">
-    <div class= "modal-content"> 
-    </div>
-</div>
-</div>
-
-
-<script>
-$('#actualizar').on('show.bs.modal', function (event) {
-	var button = $(event.relatedTarget); // Button that triggered the modal
-	var idClient = button[0].attributes["data-idcliente"].value; // Extract info from data-* attributes
-
-	fetch('../articulo-actualizar/' + idClient)
-	.then(response => response.text())
-	.then(htmlContent =>{
-		var modal = $(this);
-		var formUpdate = modal.find('.modal-content').append(htmlContent);
-	});
-});
-</script>

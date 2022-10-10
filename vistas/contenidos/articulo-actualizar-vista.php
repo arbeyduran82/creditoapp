@@ -1,19 +1,37 @@
 <?php
     require_once "modelos/articulosModelo.php";
-    $id = $_SESSION['IdClient'];
+    $id = $_GET['art_codigo'];
     $clienteModelo = new producto();
     $Cliente = $clienteModelo->ObtenerArticulo($id);
 ?>
 
-<form id="updateClientForm" action="../controladores/actualizarArtControlador.php?id=<?php echo $id ?>" method="POST" >
-    <div class="modal-header">
-       <div class="col-12 col-md-12">
-         <h3>Actualizar Articulo</h3>  
-          <button type ="button" class="close" data-dismiss="modal" >&times;</button> 
-        </div>  
-    </div>
-<div class="modal-body">       
-        <!-- <code><?php print_r ($_SESSION['IdClient']); ?></code> -->
+<!-- Page header -->
+<div class="full-box page-header">
+                <h3 class="text-left">
+                    <i class="fas fa-sync-alt fa-fw"></i> &nbsp; ACTUALIZAR ARTICULO
+                </h3>
+            </div>
+
+            <div class="container-fluid">
+                <ul class="full-box list-unstyled page-nav-tabs">
+                    <li>
+                        <a href="<?php echo SERVERURL; ?>articulo-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR ARTICULO</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo SERVERURL; ?>articulo-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE ARTICULOS</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo SERVERURL; ?>articulo-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR ARTICULO</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!--CONTENT-->
+            <div class="container-fluid">
+				<form action="../controladores/actualizarArtControlador.php?id=<?php echo $id; ?>" method="POST" class="form-neon" autocomplete="off">
+					<fieldset>
+						<legend><i class="far fa-plus-square"></i> &nbsp; Información del articulo</legend>      
+        
 
 						<div class="container-fluid">
 							<div class="row">

@@ -67,7 +67,7 @@ class producto extends Conectar{
 	}
 	public function ObtenerArticulo($id)
     {
-        $query1 = "SELECT * FROM articulos WHERE art_id='$id'";
+        $query1 = "SELECT * FROM articulos WHERE art_codigo='$id'";
         $resul = $this->_bd->query($query1);
         
         if($resul->num_rows > 0)
