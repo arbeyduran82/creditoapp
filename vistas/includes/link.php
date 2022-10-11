@@ -21,9 +21,3 @@
 
 <!-- General Styles -->
 <link rel="stylesheet" href="<?php echo SERVERURL; ?>vistas/css/style.css">
-
-<!-- jQuery V3.4.1 -->
-<script src="<?php echo SERVERURL; ?>vistas/js/jquery-3.4.1.min.js"></script>
-
-<!-- Bootstrap V4.3 -->
-<script src="<?php echo SERVERURL; ?>vistas/js/bootstrap.min.js"></script>

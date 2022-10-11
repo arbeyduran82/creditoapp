@@ -32,7 +32,7 @@ class Clientes extends Conectar
           } else
            {
          
-            print "<script>alert(\"usuario registrado .\");
+            print "<script>alert(\"cliente registrado .\");
              window.location='../cliente-lista/' ;</script>"; 
              $result->close();
              $this->_bd->close();
@@ -63,11 +63,11 @@ class Clientes extends Conectar
       $resul=$this->_bd->query($query);
       if($resul)
       {
-        print"<script>alert(\"registro eliminado\");
+        print"<script>alert(\"registro del cliente fue  eliminado\");
         window.location='../cliente-lista/' ;</script>"; 
       }else 
       {
-        print"<script>alert(\"no se puede  eliminado\");
+        print"<script>alert(\"no se puede  eliminado el registro \");
         window.location='../cliente-lista/' ;</script>";    
        }
       }

@@ -36,7 +36,7 @@ if(empty($busquedacliente)){
 						<div class="row justify-content-md-center">
 							<div class="col-12 col-md-6">
 								<div class="form-group">
-									<label for="inputSearch" class="bmd-label-floating">¿Qué cliente estas buscando?</label>
+									<label for="inputSearch" class="bmd-label-floating">ingrese el numero del documento del cliente</label>
 									
 									<input type="number" name="busqueda-clientes"  maxlength="30"value="<?php echo 	$busquedacliente;?>" class="form-control" >
 								</div>
@@ -103,7 +103,8 @@ if(empty($busquedacliente)){
                             <td><?php echo $key["cli_apellido"]?></td>
                             <td><?php echo $key["cli_telefono"]?></td>
                             <td><?php echo $key["cli_direccion"]?></td>
-							<td><a type="submit"  class="btn btn-success" data-toggle="modal" data-target="#actualizar" data-idCliente="<?php echo $key["cli_id"]?>"data-idCliente="<?php echo $key["cli_id"]?>"><i class="fas fa-sync-alt"></i>Actualizar</a></td>
+							<td>	<a href="<?php echo SERVERURL; ?>cliente-actualizar/" class="btn btn-success">
+	  								<i class="fas fa-sync-alt"></i>	</td>
 				            <td><button type="submit" class="btn btn-warning"><a href="../controladores/eliminarClientesControlador.php?id=<?php echo $key['cli_documento'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></button></td>
 						</tr>
 							<?php } ?>
@@ -126,27 +127,3 @@ if(empty($busquedacliente)){
 					</ul>
 				</nav>
 			</div>
-
-
-<!-- para que la pantalla quede gris-->
-<div id="actualizar" class="modal fade" role ="dialog">
-<div class="modal-dialog">
-    <div class= "modal-content"> 
-    </div>
-</div>
-</div>
-
-
-<script>
-$('#actualizar').on('show.bs.modal', function (event) {
-	var button = $(event.relatedTarget); // Button that triggered the modal
-	var idClient = button[0].attributes["data-idcliente"].value; // Extract info from data-* attributes
-
-	fetch('../cliente-actualizar/' + idClient)
-	.then(response => response.text())
-	.then(htmlContent =>{
-		var modal = $(this);
-		var formUpdate = modal.find('.modal-content').append(htmlContent);
-	});
-});
-</script>
