@@ -8,8 +8,8 @@ if(isset($_POST['btn_actualizar_pago'])){
 	$fechapt=$_POST['txtfechapago_act'];
     $codcrep=$_POST['txtcodcredito_act'];
 
-	$actualizarpago=new pago();
-	$reg=$actualizarpago->actualizarpago($pagoida,$pagot,$fechapt,$codcrep);
+	$actualizarpago1=new pago();
+	$reg=$actualizarpago1->actualizarpago($pagoida,$pagot,$fechapt,$codcrep);
 	if($reg){
 		print "<script>alert(\"Pago actualizado.\");
 		window.location='../pago-lista/';</script>";

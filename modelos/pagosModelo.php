@@ -69,9 +69,9 @@ class pago extends Conectar{
             }
         }
 
-        return $resultadoset[0];
+        return $resultadoset;
     }
-	public function actualizarpago($pagot,$fechapag,$codcredito){
+	public function actualizarpago($idpag,$pagot,$fechapag,$codcredito){
 		$consulta="UPDATE pagos set pag_id='$idpag', pag_total='$pagot', pag_fecha='$fechapag', cre_codigo='$codcredito' WHERE pag_id='$idpag'";
 		$resul=$this->_bd->query($consulta);
 		if(!$resul){

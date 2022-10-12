@@ -78,7 +78,7 @@ class producto extends Conectar{
             }
         }
 
-        return $resultadoset[0];
+        return $resultadoset;
     }
 	public function actualizararticulos($codart,$nomart,$stockart,$estadoart,$detart){
 		$consulta="UPDATE articulos set art_codigo='$codart', art_nombre='$nomart', art_stock='$stockart', art_estado='$estadoart', art_detalle='$detart' WHERE art_codigo=$codart";
