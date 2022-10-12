@@ -5,7 +5,14 @@
             <i class="far fa-times-circle show-nav-lateral"></i>
             <img src="<?php echo SERVERURL; ?>vistas/assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
             <figcaption class="roboto-medium text-center">
-                Julian Giraldo <br><small class="roboto-condensed-light">Programador de software</small>
+                <?php
+                if (isset($_SESSION['usuario'])) {
+                    echo '<strong>' . $_SESSION['usuario'] . '</strong>';
+                } elseif (isset($_SESSION['analista'])) {
+                    echo '<strong>' . $_SESSION['analista'] . '</strong>';
+                }
+                ?>
+                <!--Julian Giraldo <br><small class="roboto-condensed-light">Programador de software</small> -->
             </figcaption>
         </figure>
         <div class="full-box nav-lateral-bar"></div>
@@ -37,8 +44,8 @@
                     <li><a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Creditos <i class="fas fa-chevron-down"></i></a>
                         <ul>
                             <li><a href="<?php echo SERVERURL; ?>solicitar-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Credito</a></li>
-                            <li><a href="<?php echo SERVERURL; ?>solicitud-solicitud/"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Solicitudes</a></li>
-                            <li><a href="<?php echo SERVERURL; ?>solicitar-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Finalizados</a></li>
+                            <li><a href="<?php echo SERVERURL; ?>solicitud-solicitud/"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Lista creditos</a></li>
+                            <!--<li><a href="<?php echo SERVERURL; ?>solicitar-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Creditos finalizados</a></li> -->
                         </ul>
                     </li>
 
@@ -54,7 +61,7 @@
                         <ul>
                             <li><a href="<?php echo SERVERURL; ?>usuario-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo usuario</a></li>
                             <li><a href="<?php echo SERVERURL; ?>usuario-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios</a></li>
-                            <li><a href="<?php echo SERVERURL; ?>usuario-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario</a></li>
+                            <!--<li><a href="<?php echo SERVERURL; ?>usuario-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario</a></li> -->
                         </ul>
                     </li>
 
@@ -65,7 +72,7 @@
             </nav>
 
         <?php
-        }elseif (isset($_SESSION['analista'])) {
+        } elseif (isset($_SESSION['analista'])) {
         ?>
             <nav class="full-box nav-lateral-menu">
                 <ul>
@@ -89,8 +96,8 @@
                     <li><a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Creditos <i class="fas fa-chevron-down"></i></a>
                         <ul>
                             <li><a href="<?php echo SERVERURL; ?>solicitar-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Credito</a></li>
-                            <li><a href="<?php echo SERVERURL; ?>solicitud-solicitud/"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Solicitudes</a></li>
-                            <li><a href="<?php echo SERVERURL; ?>solicitar-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Finalizados</a></li>
+                            <li><a href="<?php echo SERVERURL; ?>solicitud-solicitud/"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Lista creditos</a></li>
+                            <!--<li><a href="<?php echo SERVERURL; ?>solicitar-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Creditos finalizados</a></li> -->
                         </ul>
                     </li>
 

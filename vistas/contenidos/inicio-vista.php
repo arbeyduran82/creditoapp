@@ -32,7 +32,7 @@
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>solicitar-pendiente/" class="tile">
+				<a href="<?php echo SERVERURL; ?>solicitud-solicitud/" class="tile">
 					<div class="tile-tittle">Creditos</div>
 					<div class="tile-icon">
 						<i class="fas fa-hand-holding-usd fa-fw"></i>
@@ -40,11 +40,11 @@
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>solicitar-lista/" class="tile">
-					<div class="tile-tittle">Finalizados</div>
+				<a href="<?php echo SERVERURL; ?>pago-nuevo/" class="tile">
+					<div class="tile-tittle">Pagos</div>
 					<div class="tile-icon">
-						<i class="fas fa-clipboard-list fa-fw"></i>
-						<p>700 Registrados</p>
+					<i class="fas fa-wallet"></i>
+						<p>200 Registrados</p>
 					</div>
 				</a>
 
