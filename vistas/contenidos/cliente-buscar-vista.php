@@ -1,4 +1,8 @@
 <!-- Page header -->
+<?php
+require_once 'modelos/clienteModelo.php';
+error_reporting(0);
+?>
 <div class="full-box page-header">
 				<h3 class="text-left">
 					<i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR CLIENTE
@@ -18,17 +22,26 @@
 					</li>
 				</ul>	
 			</div>
-			
+
+            <?php
+			$busquedacliente=strtolower($_REQUEST['busqueda-clientes']);
+if(empty($busquedacliente)){
+  header("location:../cliente-lista/");
+}
+?>
 			<!-- Content here-->
 			<div class="container-fluid">
-				<form class="form-neon" action="">
+			<form action="" method="POST">
 					<div class="container-fluid">
 						<div class="row justify-content-md-center">
 							<div class="col-12 col-md-6">
 								<div class="form-group">
 									<label for="inputSearch" class="bmd-label-floating">¿Qué cliente estas buscando?</label>
-									<input type="text" class="form-control" name="busqueda-" id="inputSearch" maxlength="30">
+									
+									<input type="number" name="busqueda-clientes"  maxlength="30"value="<?php echo 	$busquedacliente;?>" class="form-control" >
 								</div>
+								
+                                </div>
 							</div>
 							<div class="col-12">
 								<p class="text-center" style="margin-top: 40px;">
@@ -39,6 +52,8 @@
 					</div>
 				</form>
 			</div>
+		
+						
 			
 			<div class="container-fluid">
 				<form action="">
@@ -47,7 +62,7 @@
 						<div class="row justify-content-md-center">
 							<div class="col-12 col-md-6">
 								<p class="text-center" style="font-size: 20px;">
-									Resultados de la busqueda <strong>“Buscar”</strong>
+									Resultados de la busqueda <strong>“<?php echo $busquedacliente; ?>”</strong>
 								</p>
 							</div>
 							<div class="col-12">
@@ -73,108 +88,30 @@
 								<th>DIRECCIÓN</th>
 								<th>ACTUALIZAR</th>
 								<th>ELIMINAR</th>
-							</tr>
+								</tr>
 						</thead>
 						<tbody>
-							<tr class="text-center" >
-								<td>1</td>
-								<td>012342567</td>
-								<td>NOMBRE DEL CLIENTE</td>
-								<td>APELLIDO DEL CLIENTE</td>
-								<td>72349874</td>
-								<td>
-									<button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Nombre del cliente" data-content="Direccion completa del cliente">
-										<i class="fas fa-info-circle"></i>
-									</button>
-								</td>
-								<td>
-									<a href="<?php echo SERVERURL; ?>cliente-actualizar/" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>2</td>
-								<td>012342567</td>
-								<td>NOMBRE DEL CLIENTE</td>
-								<td>APELLIDO DEL CLIENTE</td>
-								<td>72349874</td>
-								<td>
-									<button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Nombre del cliente" data-content="Direccion completa del cliente">
-										<i class="fas fa-info-circle"></i>
-									</button>
-								</td>
-								<td>
-									<a href="<?php echo SERVERURL; ?>cliente-actualizar/" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>3</td>
-								<td>012342567</td>
-								<td>NOMBRE DEL CLIENTE</td>
-								<td>APELLIDO DEL CLIENTE</td>
-								<td>72349874</td>
-								<td>
-									<button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Nombre del cliente" data-content="Direccion completa del cliente">
-										<i class="fas fa-info-circle"></i>
-									</button>
-								</td>
-								<td>
-									<a href="<?php echo SERVERURL; ?>cliente-actualizar/" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<tr class="text-center" >
-								<td>4</td>
-								<td>012342567</td>
-								<td>NOMBRE DEL CLIENTE</td>
-								<td>APELLIDO DEL CLIENTE</td>
-								<td>72349874</td>
-								<td>
-									<button type="button" class="btn btn-info" data-toggle="popover" data-trigger="hover" title="Nombre del cliente" data-content="Direccion completa del cliente">
-										<i class="fas fa-info-circle"></i>
-									</button>
-								</td>
-								<td>
-									<a href="<?php echo SERVERURL; ?>cliente-actualizar/" class="btn btn-success">
-	  									<i class="fas fa-sync-alt"></i>	
-									</a>
-								</td>
-								<td>
-									<form action="">
-										<button type="button" class="btn btn-warning">
-		  									<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
+	<?php
+                    $Objcliente = new Clientes ();
+					$Datos = $Objcliente->buscarcliente($busquedacliente);
+					foreach ($Datos as $key) {
+					?>
+                            <tr class="text-center" >
+                            <td><?php echo $key["cli_id"]?></td>
+                            <td><?php echo $key["cli_documento"]?></td>
+                            <td><?php echo $key["cli_nombre"]?></td>
+                            <td><?php echo $key["cli_apellido"]?></td>
+                            <td><?php echo $key["cli_telefono"]?></td>
+                            <td><?php echo $key["cli_direccion"]?></td>
+							<td><a type="submit"  class="btn btn-success" data-toggle="modal" data-target="#actualizar" data-idCliente="<?php echo $key["cli_id"]?>"data-idCliente="<?php echo $key["cli_id"]?>"><i class="fas fa-sync-alt"></i>Actualizar</a></td>
+				            <td><button type="submit" class="btn btn-warning"><a href="../controladores/eliminarClientesControlador.php?id=<?php echo $key['cli_documento'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></button></td>
+						</tr>
+							<?php } ?>
+							
 						</tbody>
 					</table>
 				</div>
+
 				<nav aria-label="Page navigation example">
 					<ul class="pagination justify-content-center">
 						<li class="page-item disabled">
@@ -189,3 +126,27 @@
 					</ul>
 				</nav>
 			</div>
+
+
+<!-- para que la pantalla quede gris-->
+<div id="actualizar" class="modal fade" role ="dialog">
+<div class="modal-dialog">
+    <div class= "modal-content"> 
+    </div>
+</div>
+</div>
+
+
+<script>
+$('#actualizar').on('show.bs.modal', function (event) {
+	var button = $(event.relatedTarget); // Button that triggered the modal
+	var idClient = button[0].attributes["data-idcliente"].value; // Extract info from data-* attributes
+
+	fetch('../cliente-actualizar/' + idClient)
+	.then(response => response.text())
+	.then(htmlContent =>{
+		var modal = $(this);
+		var formUpdate = modal.find('.modal-content').append(htmlContent);
+	});
+});
+</script>

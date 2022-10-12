@@ -8,6 +8,17 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
         protected $emp_telefono;
         protected $emp_direccion;
 
+        public function consultabasica($emp_id){
+            $sql="SELECT * FROM empresa WHERE emp_id='$emp_id' ";
+            $resultado=$this->_bd->query($sql);
+            if($resultado->num_rows>0){
+                while($row=$resultado->fetch_assoc()){
+                    $resultadoset[]=$row;
+                }
+            }
+            return $resultadoset;
+        }
+
         public function registroempresa($emp_nombre,$emp_email,$emp_telefono,$emp_direccion){
             $sql="SELECT * FROM empresa";
             var_dump($sql);
@@ -50,6 +61,18 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             {
                 print "<script>alert(\"Empresa no actualizada\");
                 window.location='../empresa';</script>";
+            }
+        }
+
+        public function eliminarempresa($emp_id){
+            $query1="DELETE FROM empresa WHERE emp_id='$emp_id'";
+            $resul=$this->_bd->query($query1);
+            if($resul){
+                print "<script>alert(\"Empresa Eliminado.\");
+                window.location='../empresa/';</script>";
+            }else{
+                print "<script>alert(\"Error al eliminar empresa\");
+                window.location='../empresa/';</script>";
             }
         }
         
