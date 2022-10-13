@@ -29,7 +29,6 @@ require_once 'modelos/clienteModelo.php';
 					<table class="table table-dark table-sm">
 						<thead>
 							<tr class="text-center roboto-medium">
-								<th>#</th>
 								<th>CEDULA</th>
 								<th>NOMBRE</th>
 								<th>APELLIDO</th>
@@ -40,27 +39,28 @@ require_once 'modelos/clienteModelo.php';
 							</tr>
 						</thead>
 						<tbody>
-<?php
-					
-                        $obj1=new Clientes();
-                        $datos=$obj1->listarcliente();
+						<?php
 						error_reporting(0);
-                        foreach($datos as $key){?>
-                        <tr class="text-center" >
+						$Objcliente = new Clientes ();
+					$Datos = $Objcliente->buscarcliente($busquedacliente);
+					foreach ($Datos as $key) {
+					?>
+                            <tr class="text-center" >
                             <td><?php echo $key["cli_id"]?></td>
-                            <td><?php echo $key["cli_documento"]?></td>
                             <td><?php echo $key["cli_nombre"]?></td>
                             <td><?php echo $key["cli_apellido"]?></td>
                             <td><?php echo $key["cli_telefono"]?></td>
                             <td><?php echo $key["cli_direccion"]?></td>
-							<td><a type="submit"  class="btn btn-success" data-toggle="modal" data-target="#actualizar" data-idCliente="<?php echo $key["cli_id"]?>"><i class="fas fa-sync-alt"></i>Actualizar</a></td>
+							<td>	<a href="<?php echo SERVERURL; ?>cliente-actualizar/?id=<?php echo $key['cli_id'] ?>" class="btn btn-success"><i class="fas fa-sync-alt"></i>	</td>
 				            <td><button type="submit" class="btn btn-warning"><a href="../controladores/eliminarClientesControlador.php?id=<?php echo $key['cli_documento'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></button></td>
 						</tr>
-                    <?php } ?>
+							<?php } ?>
 							
 						</tbody>
 					</table>
 				</div>
+					 
+					
 
 				<nav aria-label="Page navigation example">
 					<ul class="pagination justify-content-center">
@@ -76,25 +76,3 @@ require_once 'modelos/clienteModelo.php';
 					</ul>
 				</nav>
 			</div>
-<!-- para que la pantalla quede gris-->
-<div id="actualizar" class="modal fade" role ="dialog">
-<div class="modal-dialog">
-    <div class= "modal-content"> 
-    </div>
-</div>
-</div>
-
-
-<script>
-$('#actualizar').on('show.bs.modal', function (event) {
-	var button = $(event.relatedTarget); // Button that triggered the modal
-	var idClient = button[0].attributes["data-idcliente"].value; // Extract info from data-* attributes
-
-	fetch('../cliente-actualizar/' + idClient)
-	.then(response => response.text())
-	.then(htmlContent =>{
-		var modal = $(this);
-		var formUpdate = modal.find('.modal-content').append(htmlContent);
-	});
-});
-</script>
