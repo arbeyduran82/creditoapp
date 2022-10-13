@@ -13,6 +13,17 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
         protected $usu_clave;
         protected $usu_privilegio;
 
+        public function consultabasica($usu_id){
+            $sql="SELECT * FROM usuarios WHERE usu_id='$usu_id' ";
+            $resultado=$this->_bd->query($sql);
+            if($resultado->num_rows>0){
+                while($row=$resultado->fetch_assoc()){
+                    $resultadoset[]=$row;
+                }
+            }
+            return $resultadoset;
+        }
+
         public function loginusuarios($usu_email,$usu_clave,$usu_privilegio){
             
             if($usu_privilegio=="admin"){
@@ -98,24 +109,24 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
                 window.location='../usuario-lista'</script>";
             }
         }
-        public function actualizarusuario($id,$nombre,$apellido,$email,$pass,$rol){
-            $consulta="UPDATE usuarios SET nombreUsu='$nombre', apellidoUsu='$apellido', emailUsu='$email', pass='$pass', rol='$rol' WHERE id='$id'";
+        public function actualizarusuario($usu_id,$usu_cedula,$usu_nombre,$usu_apellido,$usu_telefono,$usu_direccion){
+            $consulta="UPDATE usuarios SET usu_cedula='$usu_cedula', usu_nombre='$usu_nombre', usu_apellido='$usu_apellido', usu_telefono='$usu_telefono', usu_direccion='$usu_direccion' WHERE usu_id='$usu_id'";
             $resultado=$this->_bd->query($consulta);
             if($resultado){
                 print "<script>alert(\"Usuario actualizado\");
-                window.location='../view/principal.php';</script>";  
+                window.location='../usuario-lista';</script>";  
             }
             else
             {
                 print "<script>alert(\"Usuario no actualizado\");
-                window.location='../view/principal.php';</script>";
+                window.location='../usuario-lista';</script>";
             }
         }
         
         public function cambiarpass($usu,$cona,$conn){
-            $sql="UPDATE usuarios SET Contraseña='$conn' Where Contraseña='$cona' AND Email='$usu'";
-            $res=$this->_bd->query($sql);
-            if($res){
+            $consulta="UPDATE usuarios SET Contraseña='$conn' Where Contraseña='$cona' AND Email='$usu'";
+            $resultado=$this->_bd->query($consulta);
+            if($resultado){
                 print "<script>alert(\"Contraseña actualizada\");
                 window.location='../index.php';</script>";  
             }

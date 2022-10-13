@@ -45,7 +45,7 @@ require_once 'modelos/usuarioModelo.php';
 							<td><?php echo $key["usu_usuario"]?></td>
 							<td><?php echo $key["usu_privilegio"]?></td>
 							<td>
-								<a href="<?php echo SERVERURL; ?>usuario-actualizar/" class="btn btn-success">
+								<a href="<?php echo SERVERURL; ?>usuario-actualizar/?id=<?php echo $key['usu_id'] ?>" class="btn btn-success">
 	  								<i class="fas fa-sync-alt"></i>	
 								</a>
 							</td>

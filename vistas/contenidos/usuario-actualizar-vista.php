@@ -1,3 +1,12 @@
+<?php
+require_once "modelos/usuarioModelo.php";
+$usu_id = $_GET['id'];
+$objusuarioModelo = new usuario();
+$Datos = $objusuarioModelo->consultabasica($usu_id);
+
+foreach ($Datos as $key) {
+	?>
+
 <!-- Page header -->
 <div class="full-box page-header">
 				<h3 class="text-left">
@@ -21,46 +30,54 @@
 			
 			<!-- Content -->
 			<div class="container-fluid">
-				<form action="" class="form-neon" autocomplete="off">
+				<form action="../controladores/actualizarUsuControlador.php" class="form-neon" autocomplete="off" method="POST">
 					<fieldset>
 						<legend><i class="far fa-address-card"></i> &nbsp; Información personal</legend>
 						<div class="container-fluid">
 							<div class="row">
+							<div class="col-12 col-md-4">
+									<div class="form-group">
+										<label for="usuario_cedula" class="bmd-label-floating">Cedula</label>
+										<input type="number" pattern="[0-9-]{1,20}" class="form-control" name="txtusu_id" value="<?php echo $key["usu_id"] ?>" maxlength="20">
+									</div>
+								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group">
-										<label for="usuario_cedula" class="bmd-label-floating">CEDULA</label>
-										<input type="text" pattern="[0-9-]{1,20}" class="form-control" name="usuario_dni_up" id="usuario_dni" maxlength="20">
+										<label for="usuario_cedula" class="bmd-label-floating">Cedula</label>
+										<input type="text" pattern="[0-9-]{1,20}" class="form-control" name="txtusu_cedula" value="<?php echo $key["usu_cedula"] ?>" maxlength="20">
 									</div>
 								</div>
 								
 								<div class="col-12 col-md-4">
 									<div class="form-group">
 										<label for="usuario_nombre" class="bmd-label-floating">Nombres</label>
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,35}" class="form-control" name="usuario_nombre_up" id="usuario_nombre" maxlength="35">
+										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,35}" class="form-control" name="txtusu_nombre" value="<?php echo $key["usu_nombre"] ?>" maxlength="35">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group">
 										<label for="usuario_apellido" class="bmd-label-floating">Apellidos</label>
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,35}" class="form-control" name="usuario_apellido_up" id="usuario_apellido" maxlength="35">
+										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,35}" class="form-control" name="txtusu_apellido" value="<?php echo $key["usu_apellido"] ?>" maxlength="35">
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="usuario_telefono" class="bmd-label-floating">Teléfono</label>
-										<input type="text" pattern="[0-9()+]{8,20}" class="form-control" name="usuario_telefono_up" id="usuario_telefono" maxlength="20">
+										<input type="text" pattern="[0-9()+]{8,20}" class="form-control" name="txtusu_telefono" value="<?php echo $key["usu_telefono"] ?>" maxlength="20">
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="usuario_direccion" class="bmd-label-floating">Dirección</label>
-										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,190}" class="form-control" name="usuario_direccion_up" id="usuario_direccion" maxlength="190">
+										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,190}" class="form-control" name="txtusu_direccion" value="<?php echo $key["usu_direccion"] ?>" maxlength="190">
 									</div>
 								</div>
 							</div>
 						</div>
 					</fieldset>
 					<br><br><br>
+					<!-- desde aqui actualizacion de clave correo y contraseña-->
+					<!--
 					<fieldset>
 						<legend><i class="fas fa-user-lock"></i> &nbsp; Información de la cuenta</legend>
 						<div class="container-fluid">
@@ -68,22 +85,13 @@
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="usuario_usuario" class="bmd-label-floating">Nombre de usuario</label>
-										<input type="text" pattern="[a-zA-Z0-9]{1,35}" class="form-control" name="usuario_usuario_up" id="usuario_usuario" maxlength="35">
+										<input type="text" pattern="[a-zA-Z0-9]{1,35}" class="form-control" name="txtusu_usuario" value="<?php echo $key["usu_usuario"] ?>" maxlength="35">
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="usuario_email" class="bmd-label-floating">Email</label>
-										<input type="email" class="form-control" name="usuario_email_up" id="usuario_email" maxlength="70">
-									</div>
-								</div>
-								<div class="col-12">
-									<div class="form-group">
-										<span>Estado de la cuenta  &nbsp; <span class="badge badge-info">Activa</span></span>
-										<select class="form-control" name="usuario_estado_up">
-											<option value="Activa" selected="" >Activa</option>
-											<option value="Deshabilitada">Deshabilitada</option>
-										</select>
+										<input type="email" class="form-control" name="txtusu_email" value="<?php echo $key["usu_email"] ?>" maxlength="70">
 									</div>
 								</div>
 							</div>
@@ -98,15 +106,10 @@
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="usuario_clave_nueva_1" class="bmd-label-floating">Contraseña</label>
-										<input type="password" class="form-control" name="usuario_clave_nueva_1" id="usuario_clave_nueva_1" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" >
+										<input type="password" class="form-control" name="txtusu_clave" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" >
 									</div>
 								</div>
-								<div class="col-12 col-md-6">
-									<div class="form-group">
-										<label for="usuario_clave_nueva_2" class="bmd-label-floating">Repetir contraseña</label>
-										<input type="password" class="form-control" name="usuario_clave_nueva_2" id="usuario_clave_nueva_2" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" >
-									</div>
-								</div>
+								
 							</div>
 						</div>
 					</fieldset>
@@ -118,13 +121,11 @@
 								<div class="col-12">
 									<p><span class="badge badge-info">Administrador</span> Permisos para registrar, actualizar y eliminar</p>
 									<p><span class="badge badge-success">Analista</span> Permisos para registrar y actualizar</p>
-									<p><span class="badge badge-dark">Cliente</span> Solo permisos para registrar</p>
 									<div class="form-group">
-										<select class="form-control" name="usuario_privilegio_up">
+										<select class="form-control" name="selusu_privilegio">
 											<option value="" selected="" disabled="">Seleccione una opción</option>
 											<option value="1">Administrador</option>
 											<option value="2">Analista</option>
-											<option value="3">Cliente</option>
 										</select>
 									</div>
 								</div>
@@ -151,9 +152,10 @@
 							</div>
 						</div>
 					</fieldset>
+-->
 					<p class="text-center" style="margin-top: 40px;">
-						<button type="submit" class="btn btn-raised btn-success btn-sm"><i class="fas fa-sync-alt"></i> &nbsp; ACTUALIZAR</button>
+						<button type="submit" class="btn btn-raised btn-success btn-sm" name="btn_actualizar_usuario"><i class="fas fa-sync-alt"></i> &nbsp; ACTUALIZAR</button>
 					</p>
 				</form>
-
+				<?php } ?>
 			</div>
