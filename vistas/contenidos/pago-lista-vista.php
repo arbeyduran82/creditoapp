@@ -39,6 +39,7 @@ require_once 'modelos/pagosModelo.php';
 						</thead>
 						<tbody>
 						<?php
+						error_reporting(0);
 						$Objlistarpagos = new pago();
 						$Datos = $Objlistarpagos->listarpagos();
 
