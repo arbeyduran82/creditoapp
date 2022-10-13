@@ -67,7 +67,7 @@ class producto extends Conectar{
 	}
 	public function ObtenerArticulo($id)
     {
-        $query1 = "SELECT * FROM articulos WHERE art_id='$id'";
+        $query1 = "SELECT * FROM articulos WHERE art_codigo='$id'";
         $resul = $this->_bd->query($query1);
         
         if($resul->num_rows > 0)
@@ -78,7 +78,7 @@ class producto extends Conectar{
             }
         }
 
-        return $resultadoset[0];
+        return $resultadoset;
     }
 	public function actualizararticulos($codart,$nomart,$stockart,$estadoart,$detart){
 		$consulta="UPDATE articulos set art_codigo='$codart', art_nombre='$nomart', art_stock='$stockart', art_estado='$estadoart', art_detalle='$detart' WHERE art_codigo=$codart";
