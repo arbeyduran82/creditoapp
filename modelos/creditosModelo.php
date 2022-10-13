@@ -26,6 +26,17 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             return $resultadoset;
         }
 
+        public function consultasbasicascreditos(){
+            $sql="SELECT * FROM creditos INNER JOIN usuarios GROUP BY 12";
+            $resultado=$this->_bd->query($sql);
+            if($resultado->num_rows>0){
+                while($row=$resultado->fetch_assoc()){
+                    $resultadoset[]=$row;
+                }
+            }
+            return $resultadoset;
+        }
+
         public function registrocredito($cre_codigo,$cre_fecha,$cre_monto,$cre_tasa,$cre_cuotas,$cre_total,$cre_pagado,$cre_estado,$cre_observacion,$usu_id,$cli_id){
             /*$sql="SELECT * FROM creditos";
             $resultado=$this->_bd->query($sql);*/
@@ -69,17 +80,19 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
                 window.location='../solicitud-solicitud'</script>";
             }
         }
-        public function actualizarusuario($id,$nombre,$apellido,$email,$pass,$rol){
-            $consulta="UPDATE usuarios SET nombreUsu='$nombre', apellidoUsu='$apellido', emailUsu='$email', pass='$pass', rol='$rol' WHERE id='$id'";
+        public function actualizarcredito($cre_id,$cre_codigo,$cre_fecha,$cre_monto,$cre_tasa,$cre_cuotas,$cre_total,$cre_pagado,$cre_estado, $cre_observacion){
+            $consulta="UPDATE creditos SET cre_codigo='$cre_codigo', cre_fecha='$cre_fecha', cre_monto='$cre_monto', cre_tasa='$cre_tasa',
+             cre_cuotas='$cre_cuotas', cre_total='$cre_total', cre_pagado='$cre_pagado', cre_estado='$cre_estado', cre_observacion='$cre_observacion'
+              WHERE cre_id='$cre_id'";
             $resultado=$this->_bd->query($consulta);
             if($resultado){
-                print "<script>alert(\"Usuario actualizado\");
-                window.location='../view/principal.php';</script>";  
+                print "<script>alert(\"Credito actualizado\");
+                window.location='../solicitud-solicitud';</script>";  
             }
             else
             {
-                print "<script>alert(\"Usuario no actualizado\");
-                window.location='../view/principal.php';</script>";
+                print "<script>alert(\"Credito no actualizado\");
+                window.location='../solicitud-solicitud';</script>";
             }
         }
         

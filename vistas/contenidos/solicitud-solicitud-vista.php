@@ -63,7 +63,7 @@ require_once 'modelos/creditosModelo.php';
                             <td><?php echo $key["usu_id"] ?></td>
                            
                         <td>
-                            <a href="<?php echo SERVERURL; ?>usuario-actualizar/" class="btn btn-success">
+                            <a href="<?php echo SERVERURL; ?>solicitar-actualizar/?id=<?php echo $key['cre_id'] ?>" class="btn btn-success">
                                 <i class="fas fa-sync-alt"></i>
                             </a>
                         </td>
