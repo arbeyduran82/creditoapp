@@ -62,11 +62,11 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             $resultado=$this->_bd->query($query);
             if(!$resultado){
                 print "<script>alert(\"Credito no eliminado\");
-                window.location='../solicitar-lista'</script>";
+                window.location='../solicitud-solicitud'</script>";
             }
             else{
                 print "<script>alert(\"Credito eliminado\");
-                window.location='../solicitar-lista'</script>";
+                window.location='../solicitud-solicitud'</script>";
             }
         }
         public function actualizarusuario($id,$nombre,$apellido,$email,$pass,$rol){
