@@ -13,9 +13,9 @@
 					<li>
 						<a href="<?php echo SERVERURL; ?>usuario-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE USUARIOS</a>
 					</li>
-					<li>
+					<!--<li>
 						<a href="usuario-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR USUARIO</a>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 			<!-- Content -->
