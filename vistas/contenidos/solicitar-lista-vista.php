@@ -4,6 +4,26 @@
 			        <i class="fas fa-clipboard-list fa-fw"></i> &nbsp; FINALIZADOS
 			    </h3>
 			</div>
+
+			<div class="container-fluid">
+	<ul class="full-box list-unstyled page-nav-tabs">
+		<li>
+			<a href="<?php echo SERVERURL; ?>solicitar-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO PRÉSTAMO</a>
+		</li>
+		<li>
+			<a href="solicitud-solicitud/"><i class="far fa-calendar-alt"></i> &nbsp; RESERVACIONES</a>
+		</li>
+		<li>
+			<a href="<?php echo SERVERURL; ?>solicitar-pendiente/"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; PRÉSTAMOS</a>
+		</li>
+		<li>
+			<a class="active" href="<?php echo SERVERURL; ?>solicitar-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; FINALIZADOS</a>
+		</li>
+		<li>
+			<a href="<?php echo SERVERURL; ?>solicitar-buscar/"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; BUSCAR POR FECHA</a>
+		</li>
+	</ul>
+</div>
 			 <div class="container-fluid">
 				<div class="table-responsive">
 					<table class="table table-dark table-sm">

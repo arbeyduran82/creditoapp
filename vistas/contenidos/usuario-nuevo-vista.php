@@ -4,6 +4,20 @@
 					<i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO USUARIO
 				</h3>
 			</div>
+
+			<div class="container-fluid">
+				<ul class="full-box list-unstyled page-nav-tabs">
+					<li>
+						<a class="active" href="<?php echo SERVERURL; ?>usuario-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO USUARIO</a>
+					</li>
+					<li>
+						<a href="<?php echo SERVERURL; ?>usuario-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE USUARIOS</a>
+					</li>
+					<li>
+						<a href="usuario-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR USUARIO</a>
+					</li>
+				</ul>
+			</div>
 			<!-- Content -->
 			<div class="container-fluid">
 				<form action="../controladores/nuevoUsuControlador.php" class="form-neon" autocomplete="off" method="POST">
@@ -85,13 +99,11 @@
 								<div class="col-12">
 									<p><span class="badge badge-info">Administrador</span> Permisos para registrar, actualizar y eliminar</p>
 									<p><span class="badge badge-success">Analista</span> Permisos para registrar y actualizar</p>
-									<p><span class="badge badge-dark">Cliente</span> Solo permisos para visualizar</p>
 									<div class="form-group">
 										<select class="form-control" name="selrol">
 											<option value="" selected="" disabled="">Seleccione una opción</option>
 											<option value="admin">Administrador</option>
 											<option value="analista">Analista</option>
-											<option value="cliente">Cliente</option>
 										</select>
 									</div>
 								</div>
