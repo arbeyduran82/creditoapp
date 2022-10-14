@@ -11,49 +11,49 @@
 
 <!--CONTENT-->
 <div class="full-box tile-container">
-				<a href="<?php echo SERVERURL; ?>cliente-nuevo/" class="tile">
+				<a href="<?php echo SERVERURL; ?>reporte-historial/" class="tile">
 					<div class="tile-tittle">Historial Pagos</div>
 					<div class="tile-icon">
                     <i class="fas fa-dollar-sign"></i>
 					</div>
 				</a>
 				
-				<a href="<?php echo SERVERURL; ?>articulo-lista/" class="tile">
+				<a href="<?php echo SERVERURL; ?>reporte-estado/" class="tile">
 					<div class="tile-tittle">Estado Credito</div>
 					<div class="tile-icon">
                     <i class="fas fa-file-invoice-dollar"></i>
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>solicitud-solicitud/" class="tile">
+				<a href="<?php echo SERVERURL; ?>reporte-solicitudes/" class="tile">
 					<div class="tile-tittle">Solicitudes</div>
 					<div class="tile-icon">
                     <i class="fas fa-tasks"></i>
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>solicitar-pendiente/" class="tile">
+				<a href="<?php echo SERVERURL; ?>reporte-creditos-aprobados/" class="tile">
 					<div class="tile-tittle">Creditos Aprobados</div>
 					<div class="tile-icon">
 						<i class="fas fa-hand-holding-usd fa-fw"></i>
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>solicitar-lista/" class="tile">
+				<a href="<?php echo SERVERURL; ?>reporte-finalizados/" class="tile">
 					<div class="tile-tittle">Creditos Finalizados</div>
 					<div class="tile-icon">
                     <i class="fas fa-check"></i>
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>usuario-lista/" class="tile">
+				<a href="<?php echo SERVERURL; ?>reporte-clientes-financieros/" class="tile">
 					<div class="tile-tittle">Clientes Financieros</div>
 					<div class="tile-icon">
 						<i class="fas fa-users"></i>
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>empresa/" class="tile">
+				<a href="<?php echo SERVERURL; ?>reporte-pazysalvo/" class="tile">
 					<div class="tile-tittle">Paz y Salvo</div>
 					<div class="tile-icon">
                     <i class="far fa-handshake"></i>
