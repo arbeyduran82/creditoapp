@@ -136,5 +136,18 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
                 window.location='../index.php';</script>";
             }
         }
+
+        public function paginador(){
+            //Consulta
+            $sql="SELECT * FROM usuarios";
+            $resultado=$this->_bd->query($sql);
+            if($resultado->num_rows>0){
+                while($row=$resultado->fetch_assoc()){
+                    $resultadoset[]=$row;
+                }
+            }
+            return $resultadoset;
+
+         }
     }
 ?>

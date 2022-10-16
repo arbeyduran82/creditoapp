@@ -1,5 +1,11 @@
 <?php
-require_once 'modelos/creditosModelo.php';
+    require_once 'controladores/paginadorCreControler.php';
+
+    $urlGet = $_GET['pagina'];
+    echo $urlGet;
+    if ($urlGet = false) {
+        header('Location:solicitud-solicitud?pagina=1');
+    }
 ?>
 
 <!-- Page header -->
@@ -10,15 +16,15 @@ require_once 'modelos/creditosModelo.php';
 </div>
 
 <div class="container-fluid">
-	<ul class="full-box list-unstyled page-nav-tabs">
-		<li>
-			<a href="<?php echo SERVERURL; ?>solicitar-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO CREDITO</a>
-		</li>
-		
-		<li>
-			<a href="<?php echo SERVERURL; ?>solicitar-buscar/"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; BUSCAR POR FECHA</a>
-		</li>
-	</ul>
+    <ul class="full-box list-unstyled page-nav-tabs">
+        <li>
+            <a href="<?php echo SERVERURL; ?>solicitar-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO CREDITO</a>
+        </li>
+
+        <li>
+            <a href="<?php echo SERVERURL; ?>solicitar-buscar/"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; BUSCAR POR FECHA</a>
+        </li>
+    </ul>
 </div>
 
 <div class="container-fluid">
@@ -44,9 +50,6 @@ require_once 'modelos/creditosModelo.php';
                 </thead>
                 <tbody>
                     <?php
-                    $Objlistarempresa = new creditos();
-                    $Datos = $Objlistarempresa->listarcreditos();
-
                     foreach ($Datos as $key) {
                     ?>
                         <tr class="text-center">
@@ -61,17 +64,17 @@ require_once 'modelos/creditosModelo.php';
                             <td><?php echo $key["cre_estado"] ?></td>
                             <td><?php echo $key["cre_observacion"] ?></td>
                             <td><?php echo $key["usu_id"] ?></td>
-                           
-                        <td>
-                            <a href="<?php echo SERVERURL; ?>solicitar-actualizar/?id=<?php echo $key['cre_id'] ?>" class="btn btn-success">
-                                <i class="fas fa-sync-alt"></i>
-                            </a>
-                        </td>
-                       <td>
-                            <button type="button" class="btn btn-warning">
-                                <a href="<?php echo SERVERURL; ?>controladores/eliminarCreControlador.php?id=<?php echo $key['cre_id'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
-                            </button>
-                        </td>
+
+                            <td>
+                                <a href="<?php echo SERVERURL; ?>solicitar-actualizar/?id=<?php echo $key['cre_id'] ?>" class="btn btn-success">
+                                    <i class="fas fa-sync-alt"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-warning">
+                                    <a href="<?php echo SERVERURL; ?>controladores/eliminarCreControlador.php?id=<?php echo $key['cre_id'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                                </button>
+                            </td>
                         </tr>
                     <?php } ?>
 
@@ -80,17 +83,38 @@ require_once 'modelos/creditosModelo.php';
         </div>
 
     </div>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
 </div>
+
+<!-- Inicio Paginador -->
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item
+                    <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>
+                    ">
+                        <a class="page-link" href="?pagina=<?php echo $_GET['pagina'] - 1 ?>" tabindex="-1">
+                            Anterior
+                        </a>
+                    </li>
+                    <?php for ($i = 0; $i < $Paginas; $i++) : ?>
+                        <li class="page-item
+                            <?php echo $_GET['pagina'] == $i + 1 ? 'active' : '' ?>">
+                            <a class="page-link" href="?pagina=<?php echo $i + 1 ?>">
+                                <?php echo $i + 1 ?>
+                            </a>
+                        </li>
+                    <?php endfor ?>
+                    <li class="page-item
+                    <?php echo $_GET['pagina'] >= $Paginas ? 'disabled' : '' ?>
+                    ">
+                        <a class="page-link" href="?pagina=<?php echo $_GET['pagina'] + 1 ?>">Siguiente</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- fin Paginador -->

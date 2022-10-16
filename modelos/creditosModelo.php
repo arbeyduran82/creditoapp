@@ -58,8 +58,10 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
                 $this->_bd->close();*/
             }
         }
-        public function listarcreditos(){
-            $sql="select * from creditos";
+        /*Esta funcion recibe parametros por medio del controladores del paginador
+        de creditos*/
+        public function listarcreditos($iniciar,$Articulos_x_pagina){
+            $sql="select * from creditos LIMIT $iniciar,$Articulos_x_pagina";
             $resultado=$this->_bd->query($sql);
             if($resultado->num_rows>0){
                 while($row=$resultado->fetch_assoc()){
@@ -81,7 +83,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             }
         }
         public function actualizarcredito($cre_id,$cre_tasa,$cre_cuotas,$cre_estado, $cre_observacion){
-            $consulta="UPDATE creditos SET cre_id='$cre_id', cre_tasa='$cre_tasa',cre_cuotas='$cre_cuotas', cre_estado='$cre_estado', cre_observacion='$cre_observacion' WHERE cre_id='$cre_id'";
+            $consulta="UPDATE creditos SET cre_id='$cre_id', cre_tasa='$cre_tasa', cre_cuotas='$cre_cuotas', cre_estado='$cre_estado', cre_observacion='$cre_observacion' WHERE cre_id='$cre_id'";
             $resultado=$this->_bd->query($consulta);
             if($resultado){
                 print "<script>alert(\"Credito actualizado\");
@@ -106,5 +108,16 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             }
     
         }
-    }
-?>
+
+        public function contarfilas(){
+            $sql="select count(*) FROM creditos";
+            $resultado=$this->_bd->query($sql);
+
+            while($row = mysqli_fetch_array($resultado)) {
+                $Total = $row['count(*)'];
+            }
+            return $Total;
+
+        }
+        
+     }
