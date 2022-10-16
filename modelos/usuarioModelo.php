@@ -62,7 +62,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
                 }
             }  
             else{
-                print "<script>alert(\"Completar todos los campos\");
+                print "<script>alert(\"¡Ups! Algo salió mal\");
                 window.location='../index.php';</script>";
             }
         }

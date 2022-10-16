@@ -90,6 +90,7 @@ foreach ($Datos as $key) {
                         <option value="estudio">En estudio</option>
                         <option value="aprobado">Aprobado</option>
                         <option value="rechazado">Rechazado</option>
+                        <option value="finalizado">Finalizado</option>
                         <option value="aldia">al dia</option>
                         <option value="mora30">Mora 30 dias</option>
                         <option value="mora60">Mora 60 dias</option>
