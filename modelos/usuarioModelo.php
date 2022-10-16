@@ -140,7 +140,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
         }
 
         public function contarfilas(){
-            $sql="select count(*) FROM usuarios";
+            $sql="SELECT count(*) FROM usuarios";
             $resultado=$this->_bd->query($sql);
 
             while($row = mysqli_fetch_array($resultado)) {

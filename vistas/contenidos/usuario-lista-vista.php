@@ -15,7 +15,7 @@ require_once 'controladores/paginadorUsuControler.php';
 			<a href="<?php echo SERVERURL; ?>usuario-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO USUARIO</a>
 		</li>
 		<li>
-			<a class="active" href="<?php echo SERVERURL; ?>usuario-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE USUARIOS</a>
+			<a class="active" href="<?php echo SERVERURL; ?>usuario-lista?pagina=1"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE USUARIOS</a>
 		</li>
 		<!--<li>
 						<a href="<?php echo SERVERURL; ?>usuario-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR USUARIO</a>

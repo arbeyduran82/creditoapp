@@ -75,6 +75,17 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
                 window.location='../empresa?pagina=1/';</script>";
             }
         }
+
+        public function contarfilas(){
+            $sql="SELECT count(*) FROM empresa";
+            $resultado=$this->_bd->query($sql);
+
+            while($row = mysqli_fetch_array($resultado)) {
+                $Total = $row['count(*)'];
+            }
+            return $Total;
+
+        }
         
     }
 ?>
