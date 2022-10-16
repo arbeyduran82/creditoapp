@@ -44,7 +44,7 @@
                     <li><a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Creditos <i class="fas fa-chevron-down"></i></a>
                         <ul>
                             <li><a href="<?php echo SERVERURL; ?>solicitar-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Credito</a></li>
-                            <li><a href="<?php echo SERVERURL; ?>solicitud-solicitud/"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Lista creditos</a></li>
+                            <li><a href="<?php echo SERVERURL; ?>solicitud-solicitud?pagina=1"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Lista creditos</a></li>
                             <!--<li><a href="<?php echo SERVERURL; ?>solicitar-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Creditos finalizados</a></li> -->
                         </ul>
                     </li>
@@ -96,7 +96,7 @@
                     <li><a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Creditos <i class="fas fa-chevron-down"></i></a>
                         <ul>
                             <li><a href="<?php echo SERVERURL; ?>solicitar-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Credito</a></li>
-                            <li><a href="<?php echo SERVERURL; ?>solicitud-solicitud/"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Lista creditos</a></li>
+                            <li><a href="<?php echo SERVERURL; ?>solicitud-solicitud?pagina=1"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Lista creditos</a></li>
                             <!--<li><a href="<?php echo SERVERURL; ?>solicitar-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Creditos finalizados</a></li> -->
                         </ul>
                     </li>
