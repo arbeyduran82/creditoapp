@@ -47,13 +47,13 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             var_dump($resultado);
             if($resultado){
                 print "<script>alert(\"Credito registrado\");
-                window.location='../solicitud-solicitud/';</script>";
+                window.location='../solicitud-solicitud?pagina=1';</script>";
                 $resultado->close();
                 $this->_bd->close();
             }
             else{
                 print "<script>alert(\"Credito no registrado\");
-                window.location='../solicitar-nuevo';</script>";
+                window.location='../solicitar-nuevo?pagina=1';</script>";
                 /*$resultado->close();
                 $this->_bd->close();*/
             }
