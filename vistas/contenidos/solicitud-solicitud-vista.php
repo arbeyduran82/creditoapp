@@ -3,8 +3,8 @@
 
     $urlGet = $_GET['pagina'];
     echo $urlGet;
-    if ($urlGet = false) {
-        header('Location:solicitud-solicitud?pagina=1');
+    if ($urlGet== null) {
+        header('?pagina=1');
     }
 ?>
 
