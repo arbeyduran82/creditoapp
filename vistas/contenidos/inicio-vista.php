@@ -1,6 +1,7 @@
 <?php 
 require_once 'modelos/empresaModelo.php';
 require_once 'modelos/usuarioModelo.php';
+require_once 'modelos/creditosModelo.php';
 
 ?>
 <!-- Page header -->
@@ -28,11 +29,17 @@ require_once 'modelos/usuarioModelo.php';
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>solicitud-solicitud/" class="tile">
+				<a href="<?php echo SERVERURL; ?>solicitud-solicitud?pagina=1" class="tile">
 					<div class="tile-tittle">Solicitudes</div>
 					<div class="tile-icon">
 						<i class="far fa-calendar-alt fa-fw"></i>
-						<p>30 Registradas</p>
+						<p>
+						<?php
+							$objContarfilas = new creditos();
+							$Datos = $objContarfilas->contarfilas();
+							echo $Datos. " Registros";
+						?>
+						</p>
 					</div>
 				</a>
 
@@ -40,7 +47,13 @@ require_once 'modelos/usuarioModelo.php';
 					<div class="tile-tittle">Creditos</div>
 					<div class="tile-icon">
 						<i class="fas fa-hand-holding-usd fa-fw"></i>
-						<p>200 Registrados</p>
+						<p>
+						<?php
+							$objContarfilas = new creditos();
+							$Datos = $objContarfilas->contarfilas();
+							echo $Datos. " Registros";
+						?>
+						</p>
 					</div>
 				</a>
 
@@ -61,7 +74,7 @@ require_once 'modelos/usuarioModelo.php';
 							$objContarfilas = new usuario();
 							$Datos = $objContarfilas->contarfilas();
 							echo $Datos. " Registros";
-							?>
+						?>
 						</p>
 					</div>
 				</a>
