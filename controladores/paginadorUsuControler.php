@@ -1,7 +1,7 @@
 <?php
-    require_once 'modelos/creditosModelo.php';
+    require_once 'modelos/usuarioModelo.php';
 
-    $Objcontar = new creditos();
+    $Objcontar = new usuario();
     $Contador = $Objcontar->contarfilas();
     $Filas = $Contador;
     //Articulos x pagina
@@ -13,6 +13,6 @@
     //Definir articulos a mostrar por pagina
     $iniciar = ($_GET['pagina'] - 1) * $Articulos_x_pagina;
 
-    $Objlistarempresa = new creditos();
-    $Datos = $Objlistarempresa->listarcreditos($iniciar, $Articulos_x_pagina);
+    $Objlistarusuarios = new usuario();
+	$Datos = $Objlistarusuarios->listarusuarios($iniciar, $Articulos_x_pagina);
 ?>

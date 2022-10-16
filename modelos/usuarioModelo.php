@@ -76,19 +76,21 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             $resultado=$this->_bd->query($sql1);
             if($resultado){
                 print "<script>alert(\"Usuario registrado\");
-                window.location='../usuario-lista';</script>";
+                window.location='../usuario-lista?pagina=1';</script>";
                 $resultado->close();
                 $this->_bd->close();
             }
             else{
                 print "<script>alert(\"Usuario no registrado\");
-                window.location='../controller/controladorregistrarusuarios.php';</script>";
+                window.location='../usuario-lista?pagina=1';</script>";
                 /*$resultado->close();
                 $this->_bd->close();*/
             }
         }
-        public function listarusuarios(){
-            $sql="select * from usuarios";
+        /*Esta funcion recibe parametros por medio del controladores del paginador
+        de usuarios*/
+        public function listarusuarios($iniciar,$Articulos_x_pagina){
+            $sql="select * from usuarios LIMIT $iniciar,$Articulos_x_pagina";
             $resultado=$this->_bd->query($sql);
             if($resultado->num_rows>0){
                 while($row=$resultado->fetch_assoc()){
@@ -102,11 +104,11 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             $resultado=$this->_bd->query($query);
             if(!$resultado){
                 print "<script>alert(\"Uusario no eliminado\");
-                window.location='../usuario-lista'</script>";
+                window.location='../usuario-lista?pagina=1'</script>";
             }
             else{
                 print "<script>alert(\"Usuario eliminado\");
-                window.location='../usuario-lista'</script>";
+                window.location='../usuario-lista?pagina=1'</script>";
             }
         }
         public function actualizarusuario($usu_id,$usu_cedula,$usu_nombre,$usu_apellido,$usu_telefono,$usu_direccion){
@@ -114,12 +116,12 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             $resultado=$this->_bd->query($consulta);
             if($resultado){
                 print "<script>alert(\"Usuario actualizado\");
-                window.location='../usuario-lista';</script>";  
+                window.location='../usuario-lista?pagina=1';</script>";  
             }
             else
             {
                 print "<script>alert(\"Usuario no actualizado\");
-                window.location='../usuario-lista';</script>";
+                window.location='../usuario-lista?pagina=1';</script>";
             }
         }
         
@@ -137,17 +139,15 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             }
         }
 
-        public function paginador(){
-            //Consulta
-            $sql="SELECT * FROM usuarios";
+        public function contarfilas(){
+            $sql="select count(*) FROM usuarios";
             $resultado=$this->_bd->query($sql);
-            if($resultado->num_rows>0){
-                while($row=$resultado->fetch_assoc()){
-                    $resultadoset[]=$row;
-                }
-            }
-            return $resultadoset;
 
-         }
+            while($row = mysqli_fetch_array($resultado)) {
+                $Total = $row['count(*)'];
+            }
+            return $Total;
+
+        }
     }
 ?>

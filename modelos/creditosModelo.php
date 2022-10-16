@@ -75,11 +75,11 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             $resultado=$this->_bd->query($query);
             if(!$resultado){
                 print "<script>alert(\"Credito no eliminado\");
-                window.location='../solicitud-solicitud'</script>";
+                window.location='../solicitud-solicitud?pagina=1'</script>";
             }
             else{
                 print "<script>alert(\"Credito eliminado\");
-                window.location='../solicitud-solicitud'</script>";
+                window.location='../solicitud-solicitud?pagina=1'</script>";
             }
         }
         public function actualizarcredito($cre_id,$cre_tasa,$cre_cuotas,$cre_estado, $cre_observacion){
@@ -87,12 +87,12 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             $resultado=$this->_bd->query($consulta);
             if($resultado){
                 print "<script>alert(\"Credito actualizado\");
-                window.location='../solicitud-solicitud';</script>";  
+                window.location='../solicitud-solicitud?pagina=1';</script>";  
             }
             else
             {
                 print "<script>alert(\"Credito no actualizado\");
-                window.location='../solicitud-solicitud';</script>";
+                window.location='../solicitud-solicitud?pagina=1';</script>";
             }
         }
         

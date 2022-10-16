@@ -28,13 +28,13 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             $resultado=$this->_bd->query($sql1);
             if($resultado){
                 print "<script>alert(\"Empresa registrada\");
-                window.location='../empresa';</script>";
+                window.location='../empresa?pagina=1';</script>";
                 $resultado->close();
                 $this->_bd->close();
             }
             else{
                 print "<script>alert(\"Empresa no registrada\");
-                window.location='../empresa';</script>";
+                window.location='../empresa?pagina=1';</script>";
                 /*$resultado->close();
                 $this->_bd->close();*/
             }
@@ -55,12 +55,12 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             $resultado=$this->_bd->query($consulta);
             if($resultado){
                 print "<script>alert(\"Empresa actualizadactualizada\");
-                window.location='../empresa';</script>";  
+                window.location='../empresa?pagina=1';</script>";  
             }
             else
             {
                 print "<script>alert(\"Empresa no actualizada\");
-                window.location='../empresa';</script>";
+                window.location='../empresa?pagina=1';</script>";
             }
         }
 
@@ -69,10 +69,10 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             $resul=$this->_bd->query($query1);
             if($resul){
                 print "<script>alert(\"Empresa Eliminado.\");
-                window.location='../empresa/';</script>";
+                window.location='../empresa?pagina=1/';</script>";
             }else{
                 print "<script>alert(\"Error al eliminar empresa\");
-                window.location='../empresa/';</script>";
+                window.location='../empresa?pagina=1/';</script>";
             }
         }
         

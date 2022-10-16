@@ -60,7 +60,7 @@
                     <li><a href="#" class="nav-btn-submenu"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Usuarios <i class="fas fa-chevron-down"></i></a>
                         <ul>
                             <li><a href="<?php echo SERVERURL; ?>usuario-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo usuario</a></li>
-                            <li><a href="<?php echo SERVERURL; ?>usuario-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios</a></li>
+                            <li><a href="<?php echo SERVERURL; ?>usuario-lista?pagina=1"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios</a></li>
                             <!--<li><a href="<?php echo SERVERURL; ?>usuario-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario</a></li> -->
                         </ul>
                     </li>
