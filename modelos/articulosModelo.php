@@ -26,15 +26,15 @@ class producto extends Conectar{
 				window.location='../articulo-nuevo/';</script>";
             }else{
                 print "<script>alert(\"Producto registrado.\");
-				window.location='../articulo-lista/';</script>";
+				window.location='../articulo-lista?pagina=1';</script>";
 				$result->close();
 				$this->_bd->close();
             }
 
         }
     }
-    public function listararticulos(){
-		$sql1="SELECT * FROM articulos ORDER BY art_codigo";
+    public function listararticulos($iniciar,$Articulos_x_pagina){
+		$sql1="SELECT * FROM articulos LIMIT $iniciar,$Articulos_x_pagina";
 		$resul=$this->_bd->query($sql1);
 		if($resul->num_rows>0){
 			while ($row = $resul->fetch_assoc()) {
@@ -91,8 +91,16 @@ class producto extends Conectar{
 			window.location='../articulo-lista/';</script>";
 		}
 	}
-	public function paginararticulos(){
+	public function contarfilasart(){
+		$sql="SELECT count(*) FROM articulos";
+		$resultado=$this->_bd->query($sql);
+
+		while($row = mysqli_fetch_array($resultado)) {
+			$Total = $row['count(*)'];
+		}
+		return $Total;
 
 	}
+	
 }
 ?>
