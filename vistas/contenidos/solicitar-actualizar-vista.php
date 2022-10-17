@@ -24,9 +24,9 @@ require_once 'modelos/creditosModelo.php';
 
     <!--CONTENT-->
 <?php
-
+$cre_id = $_GET['id'];
 $Objseleccionarcredito = new creditos();
-$Datos = $Objseleccionarcredito->consultasbasicascreditos();
+$Datos = $Objseleccionarcredito->consultasbasicascreditos($cre_id);
 
 foreach ($Datos as $key) {
 ?>

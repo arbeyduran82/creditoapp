@@ -26,8 +26,8 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             return $resultadoset;
         }
 
-        public function consultasbasicascreditos(){
-            $sql="SELECT * FROM creditos INNER JOIN usuarios GROUP BY 12";
+        public function consultasbasicascreditos($cre_id){
+            $sql="SELECT * FROM creditos WHERE cre_id='$cre_id'";
             $resultado=$this->_bd->query($sql);
             if($resultado->num_rows>0){
                 while($row=$resultado->fetch_assoc()){
