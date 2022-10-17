@@ -26,8 +26,8 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             return $resultadoset;
         }
 
-        public function consultasbasicascreditos(){
-            $sql="SELECT * FROM creditos INNER JOIN usuarios GROUP BY 12";
+        public function consultasbasicascreditos($cre_id){
+            $sql="SELECT * FROM creditos WHERE cre_id='$cre_id'";
             $resultado=$this->_bd->query($sql);
             if($resultado->num_rows>0){
                 while($row=$resultado->fetch_assoc()){
@@ -47,13 +47,13 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             var_dump($resultado);
             if($resultado){
                 print "<script>alert(\"Credito registrado\");
-                window.location='../solicitud-solicitud/';</script>";
+                window.location='../solicitud-solicitud?pagina=1';</script>";
                 $resultado->close();
                 $this->_bd->close();
             }
             else{
                 print "<script>alert(\"Credito no registrado\");
-                window.location='../solicitar-nuevo';</script>";
+                window.location='../solicitar-nuevo?pagina=1';</script>";
                 /*$resultado->close();
                 $this->_bd->close();*/
             }
@@ -75,11 +75,11 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             $resultado=$this->_bd->query($query);
             if(!$resultado){
                 print "<script>alert(\"Credito no eliminado\");
-                window.location='../solicitud-solicitud'</script>";
+                window.location='../solicitud-solicitud?pagina=1'</script>";
             }
             else{
                 print "<script>alert(\"Credito eliminado\");
-                window.location='../solicitud-solicitud'</script>";
+                window.location='../solicitud-solicitud?pagina=1'</script>";
             }
         }
         public function actualizarcredito($cre_id,$cre_tasa,$cre_cuotas,$cre_estado, $cre_observacion){
@@ -87,12 +87,12 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
             $resultado=$this->_bd->query($consulta);
             if($resultado){
                 print "<script>alert(\"Credito actualizado\");
-                window.location='../solicitud-solicitud';</script>";  
+                window.location='../solicitud-solicitud?pagina=1';</script>";  
             }
             else
             {
                 print "<script>alert(\"Credito no actualizado\");
-                window.location='../solicitud-solicitud';</script>";
+                window.location='../solicitud-solicitud?pagina=1';</script>";
             }
         }
         

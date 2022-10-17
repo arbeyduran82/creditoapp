@@ -32,7 +32,7 @@ require_once '../modelos/usuarioModelo.php';
             }
         }
         else{
-            print "<script>alert(\"El usuario no existe\");
+            print "<script>alert('El usuario no existe');
             window.location='';</script>";
             header("location:".SERVERURL);
         }

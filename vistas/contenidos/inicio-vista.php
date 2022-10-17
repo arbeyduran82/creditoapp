@@ -1,4 +1,9 @@
+<?php 
+require_once 'modelos/empresaModelo.php';
+require_once 'modelos/usuarioModelo.php';
+require_once 'modelos/creditosModelo.php';
 
+?>
 <!-- Page header -->
 <div class="full-box page-header">
 				<h3 class="text-left">
@@ -24,19 +29,31 @@
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>solicitud-solicitud/" class="tile">
+				<a href="<?php echo SERVERURL; ?>solicitud-solicitud?pagina=1" class="tile">
 					<div class="tile-tittle">Solicitudes</div>
 					<div class="tile-icon">
 						<i class="far fa-calendar-alt fa-fw"></i>
-						<p>30 Registradas</p>
+						<p>
+						<?php
+							$objContarfilas = new creditos();
+							$Datos = $objContarfilas->contarfilas();
+							echo $Datos. " Registros";
+						?>
+						</p>
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>solicitud-solicitud/" class="tile">
+				<a href="<?php echo SERVERURL; ?>solicitud-solicitud?pagina=1" class="tile">
 					<div class="tile-tittle">Creditos</div>
 					<div class="tile-icon">
 						<i class="fas fa-hand-holding-usd fa-fw"></i>
-						<p>200 Registrados</p>
+						<p>
+						<?php
+							$objContarfilas = new creditos();
+							$Datos = $objContarfilas->contarfilas();
+							echo $Datos. " Registros";
+						?>
+						</p>
 					</div>
 				</a>
 
@@ -48,11 +65,17 @@
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>usuario-lista/" class="tile">
+				<a href="<?php echo SERVERURL; ?>usuario-lista?pagina=1" class="tile">
 					<div class="tile-tittle">Usuarios</div>
 					<div class="tile-icon">
 						<i class="fas fa-user-secret fa-fw"></i>
-						<p>50 Registrados</p>
+						<p>
+						<?php
+							$objContarfilas = new usuario();
+							$Datos = $objContarfilas->contarfilas();
+							echo $Datos. " Registros";
+						?>
+						</p>
 					</div>
 				</a>
 
@@ -60,7 +83,13 @@
 					<div class="tile-tittle">Empresa</div>
 					<div class="tile-icon">
 						<i class="fas fa-store-alt fa-fw"></i>
-						<p>1 Registrada</p>
+						<p>
+							<?php
+							$objContarfilas = new empresa();
+							$Datos = $objContarfilas->contarfilas();
+							echo $Datos. " Registros";
+							?>
+						</p>
 					</div>
 				</a>
 			</div>

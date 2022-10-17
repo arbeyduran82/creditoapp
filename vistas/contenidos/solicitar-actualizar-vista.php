@@ -24,9 +24,9 @@ require_once 'modelos/creditosModelo.php';
 
     <!--CONTENT-->
 <?php
-
+$cre_id = $_GET['id'];
 $Objseleccionarcredito = new creditos();
-$Datos = $Objseleccionarcredito->consultasbasicascreditos();
+$Datos = $Objseleccionarcredito->consultasbasicascreditos($cre_id);
 
 foreach ($Datos as $key) {
 ?>
@@ -90,6 +90,7 @@ foreach ($Datos as $key) {
                         <option value="estudio">En estudio</option>
                         <option value="aprobado">Aprobado</option>
                         <option value="rechazado">Rechazado</option>
+                        <option value="finalizado">Finalizado</option>
                         <option value="aldia">al dia</option>
                         <option value="mora30">Mora 30 dias</option>
                         <option value="mora60">Mora 60 dias</option>
