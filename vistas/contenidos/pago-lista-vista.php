@@ -60,7 +60,7 @@
 							</td>
 							<td>
 								<button type="button" class="btn btn-warning">
-									<a href="../controladores/eliminarPagControlador.php?id=<?php echo $key['pag_id'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+									<a href="<?php echo SERVERURL; ?>controladores/eliminarPagControlador.php?id=<?php echo $key['pag_id'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
 								</button>	
 							</td>
 							</tr>
