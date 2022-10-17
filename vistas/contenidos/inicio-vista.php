@@ -21,7 +21,7 @@ require_once 'modelos/creditosModelo.php';
 					</div>
 				</a>
 				
-				<a href="<?php echo SERVERURL; ?>articulo-lista/" class="tile">
+				<a href="<?php echo SERVERURL; ?>articulo-lista/?pagina=1" class="tile">
 					<div class="tile-tittle">Articulos</div>
 					<div class="tile-icon">
 						<i class="fas fa-boxes"></i>

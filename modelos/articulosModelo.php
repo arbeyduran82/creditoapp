@@ -48,10 +48,10 @@ class producto extends Conectar{
 		$resul=$this->_bd->query($query1);
 		if($resul){
 			print "<script>alert(\"Articulo Eliminado.\");
-			window.location='../articulo-lista/';</script>";
+			window.location='../articulo-lista?pagina=1';</script>";
 		}else{
 			print "<script>alert(\"No se puede eliminar el producto\");
-			window.location='../articulo-lista/';</script>";
+			window.location='../articulo-lista?pagina=1';</script>";
 		}
 	}
 	public function buscararticulos($busquedaarticulos){
@@ -88,7 +88,7 @@ class producto extends Conectar{
 			window.location='../articulo-actualizar/';</script>";
 		}else{
 			print "<script>alert(\"Articulo actualizado\");
-			window.location='../articulo-lista/';</script>";
+			window.location='../articulo-lista?pagina=1';</script>";
 		}
 	}
 	public function contarfilasart(){

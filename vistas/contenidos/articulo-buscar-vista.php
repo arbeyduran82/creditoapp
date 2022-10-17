@@ -16,7 +16,7 @@ error_reporting(0);
                         <a href="<?php echo SERVERURL; ?>articulo-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR ARTICULO</a>
                     </li>
                     <li>
-                        <a href="<?php echo SERVERURL; ?>articulo-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE ARTICULOS</a>
+                        <a href="<?php echo SERVERURL; ?>articulo-lista/?pagina=1"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE ARTICULOS</a>
                     </li>
                     <li>
                         <a class="active" href="<?php echo SERVERURL; ?>articulo-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR ARTICULOS</a>
@@ -28,7 +28,7 @@ error_reporting(0);
 
 $busquedaarticulos=strtolower($_REQUEST['busqueda-articulos']);
 if(empty($busquedaarticulos)){
-  header("location:../articulo-lista/");
+  header("location:../articulo-lista/?pagina=1");
 }
 
 ?>
@@ -66,6 +66,7 @@ if(empty($busquedaarticulos)){
                             </div>
                             <div class="col-12">
                                 <p class="text-center" style="margin-top: 20px;">
+						&nbsp; &nbsp;
                                     <button type="submit" class="btn btn-raised btn-danger"><i class="far fa-trash-alt"></i> &nbsp; ELIMINAR BÚSQUEDA</button>
                                 </p>
                             </div>
@@ -73,7 +74,13 @@ if(empty($busquedaarticulos)){
                     </div>
                 </form>
             </div>
+            <?php
+if ($busquedaarticulos == true) {
+    $Objbuscararticulos = new producto();
+	$Datos = $Objbuscararticulos->buscararticulos($busquedaarticulos);
 
+foreach ($Datos as $key) {
+?>
             <div class="container-fluid">
 				<div class="table-responsive">
 					<table class="table table-dark table-sm">
@@ -89,12 +96,7 @@ if(empty($busquedaarticulos)){
                             </tr>
                         </thead>
                         <tbody>
-                        <?php
-						$Objbuscararticulos = new producto();
-						$Datos = $Objbuscararticulos->buscararticulos($busquedaarticulos);
-
-						foreach ($Datos as $key) {
-						?>
+                        
 							<tr class="text-center" >
                             <td><?php echo $key["art_id"]?></td>
 							<td><?php echo $key["art_codigo"]?></td>
@@ -112,21 +114,9 @@ if(empty($busquedaarticulos)){
 								</button>	
 							</td>
 							</tr>
-							<?php } ?>
+							<?php } } ?>
                         </tbody>
                     </table>
 				</div>
-				<nav aria-label="Page navigation example">
-					<ul class="pagination justify-content-center">
-						<li class="page-item disabled">
-							<a class="page-link" href="#" tabindex="-1">Previous</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item">
-							<a class="page-link" href="#">Next</a>
-						</li>
-					</ul>
-				</nav>
+				
 			</div>

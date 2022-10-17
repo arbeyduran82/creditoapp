@@ -15,7 +15,7 @@ error_reporting(0);
 						<a href="<?php echo SERVERURL; ?>pago-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO PAGO</a>
 					</li>
 					<li>
-						<a href="<?php echo SERVERURL; ?>pago-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE PAGOS</a>
+						<a href="<?php echo SERVERURL; ?>pago-lista/?pagina=1"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE PAGOS</a>
 					</li>
 					<li>
 						<a class="active" href="<?php echo SERVERURL; ?>pago-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR PAGO</a>
@@ -26,7 +26,7 @@ error_reporting(0);
 			<?php
 $busquedapago=strtolower($_REQUEST['busqueda-pagos']);
 if(empty($busquedapago)){
-  header("location:../pago-lista/");
+  header("location:../pago-lista/?pagina=1");
 }
 
 ?>
@@ -64,6 +64,7 @@ if(empty($busquedapago)){
 							</div>
 							<div class="col-12">
 								<p class="text-center" style="margin-top: 20px;">
+								&nbsp; &nbsp;
 									<button type="submit" class="btn btn-raised btn-danger"><i class="far fa-trash-alt"></i> &nbsp; ELIMINAR BÚSQUEDA</button>
 								</p>
 							</div>
@@ -71,7 +72,13 @@ if(empty($busquedapago)){
 					</div>
 				</form>
 			</div>
+			<?php
+if ($busquedapago == true) {
+    $Objbuscarpagos = new pago();
+	$Datos = $Objbuscarpagos->buscarpagos($busquedapago);
 
+foreach ($Datos as $key) {
+?>
 			<div class="container-fluid">
 				<div class="table-responsive">
 					<table class="table table-dark table-sm">
@@ -86,12 +93,7 @@ if(empty($busquedapago)){
 							</tr>
 						</thead>
 						<tbody>
-						<?php
-						$Objbuscarpagos = new pago();
-						$Datos = $Objbuscarpagos->buscarpagos($busquedapago);
-
-						foreach ($Datos as $key) {
-						?>
+						
 							<tr class="text-center" >
 							<td><?php echo $key["pag_id"]?></td>
 							<td><?php echo $key["pag_total"]?></td>
@@ -108,23 +110,10 @@ if(empty($busquedapago)){
 								</button>	
 							</td>
 							</tr>
-							<?php } ?>
+							<?php } } ?>
 							
 						</tbody>
 					</table>
 				</div>
 
-				<nav aria-label="Page navigation example">
-					<ul class="pagination justify-content-center">
-						<li class="page-item disabled">
-							<a class="page-link" href="#" tabindex="-1">Previous</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item">
-							<a class="page-link" href="#">Next</a>
-						</li>
-					</ul>
-				</nav>
 			</div>

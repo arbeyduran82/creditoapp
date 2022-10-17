@@ -39,10 +39,10 @@ class pago extends Conectar{
 		$resul=$this->_bd->query($query1);
 		if($resul){
 			print "<script>alert(\"Pago Eliminado.\");
-			window.location='../pago-lista/';</script>";
+			window.location='../pago-lista?pagina=1';</script>";
 		}else{
 			print "<script>alert(\"No se puede eliminar el pago\");
-			window.location='../pago-lista/';</script>";
+			window.location='../pago-lista?pagina=1';</script>";
 		}
 	}
 	public function buscarpagos($busquedapago){
@@ -79,7 +79,7 @@ class pago extends Conectar{
 			window.location='../pago-actualizar/';</script>";
 		}else{
 			print "<script>alert(\"Pago actualizado\");
-			window.location='../pago-lista/';</script>";
+			window.location='../pago-lista?pagina=1';</script>";
 		}
 	}
 	public function contarfilaspag(){
