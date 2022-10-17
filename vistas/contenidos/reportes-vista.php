@@ -25,28 +25,28 @@
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>reporte-solicitudes/" class="tile">
+				<a href="<?php echo SERVERURL; ?>reporte-solicitudes?pagina=1" class="tile">
 					<div class="tile-tittle">Solicitudes</div>
 					<div class="tile-icon">
                     <i class="fas fa-tasks"></i>
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>reporte-creditos-aprobados/" class="tile">
+				<a href="<?php echo SERVERURL; ?>reporte-creditos-aprobados?pagina=1" class="tile">
 					<div class="tile-tittle">Creditos Aprobados</div>
 					<div class="tile-icon">
 						<i class="fas fa-hand-holding-usd fa-fw"></i>
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>reporte-finalizados/" class="tile">
+				<a href="<?php echo SERVERURL; ?>reporte-finalizados?pagina=1" class="tile">
 					<div class="tile-tittle">Creditos Finalizados</div>
 					<div class="tile-icon">
                     <i class="fas fa-check"></i>
 					</div>
 				</a>
 
-				<a href="<?php echo SERVERURL; ?>reporte-clientes-financieros/" class="tile">
+				<a href="<?php echo SERVERURL; ?>reporte-clientes-financieros?pagina=1" class="tile">
 					<div class="tile-tittle">Clientes Financieros</div>
 					<div class="tile-icon">
 						<i class="fas fa-users"></i>

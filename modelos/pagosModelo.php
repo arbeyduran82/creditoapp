@@ -18,14 +18,14 @@ class pago extends Conectar{
 				window.location='../pago-nuevo/';</script>";
             }else{
                 print "<script>alert(\"Pago registrado.\");
-				window.location='../pago-lista/';</script>";
+				window.location='../pago-lista?pagina=1';</script>";
 				$result->close();
 				$this->_bd->close();
             }
 
         }
-    public function listarpagos(){
-		$sql1="SELECT * FROM pagos ORDER BY pag_id";
+    public function listarpagos($iniciar,$Pagos_x_pagina){
+		$sql1="SELECT * FROM pagos LIMIT $iniciar,$Pagos_x_pagina";
 		$resul=$this->_bd->query($sql1);
 		if($resul->num_rows>0){
 			while ($row = $resul->fetch_assoc()) {
@@ -82,7 +82,14 @@ class pago extends Conectar{
 			window.location='../pago-lista/';</script>";
 		}
 	}
-	public function paginarpagos(){
+	public function contarfilaspag(){
+		$sql="SELECT count(*) FROM pagos";
+		$resultado=$this->_bd->query($sql);
+
+		while($row = mysqli_fetch_array($resultado)) {
+			$Total = $row['count(*)'];
+		}
+		return $Total;
 
 	}
 }

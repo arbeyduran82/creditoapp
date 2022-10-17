@@ -36,7 +36,7 @@
                     <li><a href="#" class="nav-btn-submenu"><i class="fas fa-pallet fa-fw"></i> &nbsp; Articulos <i class="fas fa-chevron-down"></i></a>
                         <ul>
                             <li><a href="<?php echo SERVERURL; ?>articulo-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar articulos</a></li>
-                            <li><a href="<?php echo SERVERURL; ?>articulo-lista/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de articulos</a></li>
+                            <li><a href="<?php echo SERVERURL; ?>articulo-lista?pagina=1"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de articulos</a></li>
                             <li><a href="<?php echo SERVERURL; ?>articulo-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar articulo</a></li>
                         </ul>
                     </li>
@@ -52,7 +52,7 @@
                     <li><a href="#" class="nav-btn-submenu"><i class="fas fa-credit-card"></i> &nbsp; Pagos <i class="fas fa-chevron-down"></i></a>
                         <ul>
                             <li><a href="<?php echo SERVERURL; ?>pago-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; Nuevo Pago</a></li>
-                            <li><a href="<?php echo SERVERURL; ?>pago-lista/"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Pagos realizados</a></li>
+                            <li><a href="<?php echo SERVERURL; ?>pago-lista?pagina=1"><i class="far fa-calendar-alt fa-fw"></i> &nbsp; Pagos realizados</a></li>
                             <li><a href="<?php echo SERVERURL; ?>pago-buscar/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Buscar pago</a></li>
                         </ul>
                     </li>

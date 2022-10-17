@@ -5,9 +5,9 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
     class Reportes extends Conectar
     {
         //Funcion reporte y listar de clientes financieros
-            public function listarclientesfinancieros()
+            public function listarclientesfinancieros($iniciar,$Articulos_x_pagina)
             {
-                $sql="select * from clientes";
+                $sql="select * from clientes LIMIT $iniciar,$Articulos_x_pagina";
                 $resultado=$this->_bd->query($sql);
                 if($resultado->num_rows>0)
                 {
@@ -22,10 +22,10 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
 
         
         //Funcion reporte y listar creditos en estado solicitud
-            public function reportesolicitudes()
+            public function reportesolicitudes($iniciar,$Articulos_x_pagina)
             {
                
-                $sql="SELECT * FROM creditos WHERE cre_estado LIKE 'estudio%'";
+                $sql="SELECT * FROM creditos WHERE cre_estado LIKE 'estudio%' LIMIT $iniciar,$Articulos_x_pagina";
                 $resultado=$this->_bd->query($sql);
                 if($resultado->num_rows>0)
                 {
@@ -40,10 +40,10 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
              }
         
         //Funcion reporte y listar credito en estado aprobados
-             public function reporteaprobados()
+             public function reporteaprobados($iniciar,$Articulos_x_pagina)
             {
                
-                $sql="SELECT * FROM creditos WHERE cre_estado LIKE 'aprobado%'";
+                $sql="SELECT * FROM creditos WHERE cre_estado LIKE 'aprobado%'LIMIT $iniciar,$Articulos_x_pagina";
                 $resultado=$this->_bd->query($sql);
                 if($resultado->num_rows>0)
                 {
@@ -57,10 +57,10 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
              }
         
         //Funcion reporte y listar credito en estado aprobados
-        public function reportefinalizados()
+        public function reportefinalizados($iniciar,$Articulos_x_pagina)
         {
            
-            $sql="SELECT * FROM creditos WHERE cre_estado LIKE 'finalizado%'";
+            $sql="SELECT * FROM creditos WHERE cre_estado LIKE 'finalizado%' LIMIT $iniciar,$Articulos_x_pagina";
             $resultado=$this->_bd->query($sql);
             if($resultado->num_rows>0)
             {
@@ -140,6 +140,46 @@ require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
              return $resultadoset;
          
           }
+          public function contarfilasolicitudes(){
+            $sql="SELECT count(*) FROM creditos WHERE cre_estado LIKE 'estudio%'";
+            $resultado=$this->_bd->query($sql);
+    
+            while($row = mysqli_fetch_array($resultado)) {
+                $Total = $row['count(*)'];
+            }
+            return $Total;
+    
+        }
+        public function contarfilasfinalizados(){
+            $sql="SELECT count(*) FROM creditos WHERE cre_estado LIKE 'finalizado%'";
+            $resultado=$this->_bd->query($sql);
+    
+            while($row = mysqli_fetch_array($resultado)) {
+                $Total = $row['count(*)'];
+            }
+            return $Total;
+    
+        }
+        public function contarfilasaprobados(){
+            $sql="SELECT count(*) FROM creditos WHERE cre_estado LIKE 'aprobado%'";
+            $resultado=$this->_bd->query($sql);
+    
+            while($row = mysqli_fetch_array($resultado)) {
+                $Total = $row['count(*)'];
+            }
+            return $Total;
+    
+        }
+        public function contarfilasclientesf(){
+            $sql="SELECT count(*) FROM clientes";
+            $resultado=$this->_bd->query($sql);
+    
+            while($row = mysqli_fetch_array($resultado)) {
+                $Total = $row['count(*)'];
+            }
+            return $Total;
+    
+        }
 
     }
 ?>

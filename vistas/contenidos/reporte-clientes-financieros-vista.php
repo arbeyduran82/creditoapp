@@ -1,7 +1,12 @@
 <!-- Page header -->
 <?php
-require_once 'modelos/reporteModelo.php';
+    require_once 'controladores/controladorpaginadorRepclientes.php';
 
+    $urlGet = $_GET['pagina'];
+    echo $urlGet;
+    if ($urlGet== null) {
+        header('?pagina=1');
+    }
 ?>
 <div class="full-box page-header">
 				<h3 class="text-left">
@@ -40,8 +45,6 @@ require_once 'modelos/reporteModelo.php';
 						<tbody>
 						<?php
 						error_reporting(0);
-						$Obj = new Reportes();
-						$Datos = $Obj->listarclientesfinancieros();
 
 						foreach ($Datos as $key) {
 						?>
@@ -65,18 +68,35 @@ require_once 'modelos/reporteModelo.php';
 						<center><button type="submit" class="btn btn-raised btn-info btn-sm"><i class="far fa-save"></i> &nbsp; GENERAR REPORTE</button></center>
 				    </form>
 
-				<nav aria-label="Page navigation example">
-					<ul class="pagination justify-content-center">
-						<li class="page-item disabled">
-							<a class="page-link" href="#" tabindex="-1">Previous</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item">
-							<a class="page-link" href="#">Next</a>
-						</li>
-					</ul>
-				</nav>
-
 			</div>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item
+                    <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>
+                    ">
+                        <a class="page-link" href="?pagina=<?php echo $_GET['pagina'] - 1 ?>" tabindex="-1">
+                            Anterior
+                        </a>
+                    </li>
+                    <?php for ($i = 0; $i < $Paginas; $i++) : ?>
+                        <li class="page-item
+                            <?php echo $_GET['pagina'] == $i + 1 ? 'active' : '' ?>">
+                            <a class="page-link" href="?pagina=<?php echo $i + 1 ?>">
+                                <?php echo $i + 1 ?>
+                            </a>
+                        </li>
+                    <?php endfor ?>
+                    <li class="page-item
+                    <?php echo $_GET['pagina'] >= $Paginas ? 'disabled' : '' ?>
+                    ">
+                        <a class="page-link" href="?pagina=<?php echo $_GET['pagina'] + 1 ?>">Siguiente</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
