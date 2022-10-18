@@ -2,6 +2,9 @@
 require_once 'modelos/empresaModelo.php';
 require_once 'modelos/usuarioModelo.php';
 require_once 'modelos/creditosModelo.php';
+require_once 'modelos/articulosModelo.php';
+require_once 'modelos/pagosModelo.php';
+require_once 'modelos/clienteModelo.php';
 
 ?>
 <!-- Page header -->
@@ -17,7 +20,13 @@ require_once 'modelos/creditosModelo.php';
 					<div class="tile-tittle">Clientes</div>
 					<div class="tile-icon">
 						<i class="fas fa-users"></i>
-						<p>5 Registrados</p>
+						<p>
+						<?php
+							$objContarfilas = new Clientes();
+							$Datos = $objContarfilas->contarfilasart();
+							echo $Datos. " Registros";
+						?>
+						</p>
 					</div>
 				</a>
 				
@@ -25,7 +34,13 @@ require_once 'modelos/creditosModelo.php';
 					<div class="tile-tittle">Articulos</div>
 					<div class="tile-icon">
 						<i class="fas fa-boxes"></i>
-						<p>9 Registrados</p>
+						<p>
+						<?php
+							$objContarfilas = new producto();
+							$Datos = $objContarfilas->contarfilasart();
+							echo $Datos. " Registros";
+						?>
+						</p>
 					</div>
 				</a>
 
@@ -61,7 +76,13 @@ require_once 'modelos/creditosModelo.php';
 					<div class="tile-tittle">Pagos</div>
 					<div class="tile-icon">
 					<i class="fas fa-wallet"></i>
-						<p>200 Registrados</p>
+						<p>
+						<?php
+							$objContarfilas = new pago();
+							$Datos = $objContarfilas->contarfilaspag();
+							echo $Datos. " Registros";
+						?>
+						</p>
 					</div>
 				</a>
 
