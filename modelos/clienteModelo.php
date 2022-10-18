@@ -8,10 +8,11 @@ class Clientes extends Conectar
     protected $apellidocl;
     protected $celularcl;
     protected $direccioncl;
+    protected $estadocl;
 
   
     public function consultabasica($cli_id){
-      $sql= "SELECT * FROM clientes WHERE cli_id='$cli_id'";
+      $sql= "SELECT cli_id, cli_nombre, cli_apellido, cli_telefono, cli_direccion FROM clientes WHERE cli_estado = 1 AND  cli_id='$cli_id'";
       $resultado=$this->_bd->query($sql);
       if($resultado->num_rows>0){
           while($row=$resultado->fetch_assoc()){
@@ -21,7 +22,7 @@ class Clientes extends Conectar
       return $resultadoset;
      }
     public function registrocliente($cli_id,$nombrecl,$apellidocl,$celularcl,$direccioncl){
-     $sql="SELECT * FROM clientes WHERE cli_id ='$cli_id;'";      
+     $sql="SELECT cli_id, cli_nombre, cli_apellido, cli_telefono, cli_direccion FROM clientes WHERE cli_estado = 1 AND  cli_id ='$cli_id;'";      
      $result=$this->_bd->query($sql);
      $lista=mysqli_fetch_assoc($result);
     
@@ -31,7 +32,7 @@ class Clientes extends Conectar
           window.location='../cliente-lista/';
           </script>";
         }else{
-            $insertar="INSERT INTO clientes (cli_id, cli_nombre, cli_apellido, cli_telefono, cli_direccion)VALUES('".$cli_id."','".$nombrecl."','".$apellidocl."','".$celularcl."','".$direccioncl."')";
+            $insertar="INSERT INTO clientes (cli_id, cli_nombre, cli_apellido, cli_telefono, cli_direccion,cli_estado) VALUES('".$cli_id."','".$nombrecl."','".$apellidocl."','".$celularcl."','".$direccioncl."',1)";
             $result=$this->_bd->query($insertar);
             if(!$result){
             
@@ -41,7 +42,7 @@ class Clientes extends Conectar
            {
          
             print "<script>alert(\"Cliente registrado .\");
-             window.location='../cliente-lista/' ;</script>"; 
+             window.location='../cliente-lista?pagina=1' ;</script>"; 
              $result->close();
              $this->_bd->close();
 
@@ -49,9 +50,21 @@ class Clientes extends Conectar
 
           }
       }
-      public function listarcliente()
+          /*Esta funcion recibe parametros por medio del controladores del paginador
+        de clientes*/
+      public function listarclientespagina($iniciar = 1, $Clientes_x_pagina = 3){
+        $sql1="SELECT * FROM clientes ";
+        $resul=$this->_bd->query($sql1);
+        if($resul->num_rows>0){
+          while ($row = $resul->fetch_assoc()) {
+            $resultset[]=$row;
+          }
+        }
+        return $resultset;
+      }
+      public function listarcliente($iniciar = 0, $Clientes_x_pagina = 3)
       {
-          $sql1 = "SELECT * FROM clientes ORDER BY cli_id";
+          $sql1 = "SELECT cli_id, cli_nombre, cli_apellido, cli_telefono, cli_direccion FROM clientes WHERE cli_estado = 1 ORDER BY cli_id LIMIT $iniciar, $Clientes_x_pagina;";
           $resul=$this->_bd->query($sql1);
           error_reporting(0);
           if($resul->num_rows > 0)
@@ -67,7 +80,7 @@ class Clientes extends Conectar
       }
       public function eliminarclientes($id)
       {
-      $query="DELETE FROM clientes WHERE cli_id='$id'";
+        $query="UPDATE clientes SET cli_estado = 0 WHERE cli_id='$id'";
       $resul=$this->_bd->query($query);
       if($resul)
       {
@@ -79,8 +92,8 @@ class Clientes extends Conectar
         window.location='../cliente-lista/' ;</script>";    
        }
       }
-      public function buscarcliente($busquedacliente){
-      $consulta1 = "SELECT * FROM clientes WHERE cli_id LIKE '%$busquedacliente%'";
+      public function buscarcliente($busquedacliente, $iniciar = 0, $Clientes_x_pagina = 3){
+      $consulta1 = "SELECT cli_id, cli_nombre, cli_apellido, cli_telefono, cli_direccion FROM clientes WHERE cli_estado = 1 AND cli_id LIKE '%$busquedacliente%' LIMIT $iniciar, $Clientes_x_pagina;";
       $busquedacliente=$this->_bd->query($consulta1);
       
         if($busquedacliente->num_rows >0)
@@ -106,6 +119,30 @@ class Clientes extends Conectar
           window.location='../cliente-lista/';</script>";
       }
   }
+  public function actualiza($estadocl){ 
+    $consulta6="UPDATE clientes SET cli_estado='$estadocl',  WHERE cli_id='$cli_id'";
+    $resultado6=$this->_bd->query($consulta);
+    if($resultado6){
+        print "<script>alert(\"Registro del cliente actualizado\");
+        window.location='../cliente-lista/';</script>";  
+    }
+    else
+    {
+        print "<script>alert(\"El registri del cliente no fue actualizado\");
+        window.location='../cliente-lista/';</script>";
+    }
+  }
+    public function contarfilasart(){
+      $sql="SELECT count(cli_id) as cantidad FROM clientes WHERE cli_estado = 1";
+      $resultado=$this->_bd->query($sql);
+  
+      while($row = mysqli_fetch_array($resultado)) {
+        $Total = $row['cantidad'];
+      }
+      return $Total;
+  
+    }
+   
 }  
 ?>
 
