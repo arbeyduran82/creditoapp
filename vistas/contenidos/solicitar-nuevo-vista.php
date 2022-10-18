@@ -15,10 +15,10 @@ error_reporting(0);
 		<li>
 			<a class="active" href="<?php echo SERVERURL; ?>solicitar-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO PRÉSTAMO</a>
 		</li>
-		
+		<!--
 		<li>
 			<a href="<?php echo SERVERURL; ?>solicitar-buscar/"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; BUSCAR POR FECHA</a>
-		</li>
+		</li> -->
 	</ul>
 </div>
 <!--CONTENT-->
@@ -139,17 +139,3 @@ foreach ($Datos as $key) {
 <?php } 
 } 
 ?>
-
-<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-        <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-        </li>
-    </ul>
-</nav>

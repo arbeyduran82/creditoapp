@@ -5,7 +5,7 @@
     $Contador = $Objcontar->contarfilaspag();
     $Filas = $Contador;
     //Articulos x pagina
-    $Pagos_x_pagina = 1;
+    $Pagos_x_pagina = 3;
     $Paginas = $Filas / $Pagos_x_pagina;
     //Redondeado arriba
     $Paginas = ceil($Paginas);
