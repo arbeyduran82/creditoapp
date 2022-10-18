@@ -55,7 +55,7 @@ class PDF extends FPDF
 }
 
 $obj1 = new Reportes();
-$datos = $obj1->reporteaprobados();
+$datos = $obj1->reporteaprobados1();
 
 $pdf = new PDF();
 $pdf->AliasNbPages();

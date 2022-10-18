@@ -54,7 +54,7 @@ class PDF extends FPDF
 }
 
 $obj1 = new Reportes();
-$datos = $obj1->listarclientesfinancieros();
+$datos = $obj1->listarclientesfinancieros1();
 
 $pdf = new PDF();
 $pdf->AliasNbPages();

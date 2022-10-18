@@ -57,7 +57,7 @@
 							</td>
 							<td>
 								<button type="button" class="btn btn-warning">
-									<a href="../controladores/eliminarArtControlador.php?id=<?php echo $key['art_codigo'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+									<a href="<?php echo SERVERURL; ?>controladores/eliminarArtControlador.php?id=<?php echo $key['art_codigo'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
 								</button>	
 							</td>
 							</tr>

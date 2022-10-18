@@ -21,13 +21,13 @@
 			            <a  href="<?php echo SERVERURL; ?>solicitar-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO CREDITO</a>
 			        </li>
 			        <li>
-			            <a  href="<?php echo SERVERURL; ?>reporte-solicitudes/"><i class="far fa-calendar-alt"></i> &nbsp; SOLICITUDES</a>
+			            <a  href="<?php echo SERVERURL; ?>reporte-solicitudes/?pagina=1"><i class="far fa-calendar-alt"></i> &nbsp; SOLICITUDES</a>
 			        </li>
                     <li>
-                        <a class="active" href="<?php echo SERVERURL; ?>reporte-creditos-aprobados/"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; APROBADOS</a>
+                        <a class="active" href="<?php echo SERVERURL; ?>reporte-creditos-aprobados/?pagina=1"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; APROBADOS</a>
                     </li>
 			        <li>
-			            <a  href="<?php echo SERVERURL; ?>reporte-finalizados/"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; FINALIZADOS</a>
+			            <a  href="<?php echo SERVERURL; ?>reporte-finalizados/?pagina=1"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; FINALIZADOS</a>
 			        </li>
                     <li>
 			            <a  href="<?php echo SERVERURL; ?>reporte-pazysalvo/"><i class="far fa-handshake"></i> &nbsp; PAZ Y SALVO</a>
@@ -70,7 +70,7 @@
                         </tbody>
                     </table>
 
-					<form action="../controladores/controladorRepaprobados.php/">
+					<form action="<?php echo SERVERURL; ?>controladores/controladorRepaprobados.php/">
 						<center><button type="submit" class="btn btn-raised btn-info btn-sm"><i class="far fa-save"></i> &nbsp; GENERAR REPORTE</button></center>
 				    </form>
 
