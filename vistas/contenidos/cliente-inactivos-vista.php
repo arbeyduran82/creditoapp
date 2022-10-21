@@ -121,7 +121,7 @@ if(empty($busquedacliente)){
                             <td><?php echo $key["cli_apellido"]?></td>
                             <td><?php echo $key["cli_telefono"]?></td>
                             <td><?php echo $key["cli_direccion"]?></td>
-				            <td><button type="submit" class="btn btn-warning"><a href="<?php echo SERVERURL; ?>controladores/activarClienteControlador.php?id=<?php echo $key['cli_id'] ?>" class="btn btn-success"><i class="fas fa-sync-alt"></i></a></button></td>
+				            <td><button type="submit" class="btn btn-warning"><a href="<?php echo SERVERURL; ?>controladores/activarClienteControlador.php?id=<?php echo $key['cli_id'] ?>" class="btn btn-success"><i class="fas fa-check"></i></a></button></td>
 						</tr>
 							<?php } ?>
 							
