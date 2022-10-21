@@ -1,11 +1,26 @@
-<footer class="main-footer">
-    <strong>Copyright &copy; 2022 <a href="#">Proyecto final Sena</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 2.0
-    </div>
-  </footer>
+<style>
+  footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+}
 
+</style>
+
+<footer class="bg-dark text-center text-white">
+ 
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: #333;">
+    © 2022 Todos los derechos reservados
+    <a class="text-white" href="https://micredito.giohosting.com/">.: Micredito :.</a>
+    <div class="float-right d-none d-sm-inline-block texto">
+      <b>Version</b> 1.0
+  </div>
+  </div>
+  <!-- Copyright -->
+  
+</footer>
 <!--=============================================
 	=            Include JavaScript files           =
 	==============================================-->
