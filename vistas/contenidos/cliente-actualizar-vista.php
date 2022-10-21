@@ -10,7 +10,20 @@ foreach ($id as $key) {
 				<h3 class="text-left">
 					<i class="fas fa-sync-alt fa-fw"></i> &nbsp; ACTUALIZAR CLIENTE</h3>
 </div>
- <form action="../controladores/actualizarCliControlador.php" method="POST">
+
+<div class="container-fluid">
+				<ul class="full-box list-unstyled page-nav-tabs">
+					<li>
+						<a href="<?php echo SERVERURL; ?>cliente-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR CLIENTE</a>
+					</li>
+				
+					<li>
+						<a href="<?php echo SERVERURL; ?>cliente-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR CLIENTE</a>
+					</li>
+					
+				</ul>	
+			</div>
+ <form action="../controladores/actualizarCliControlador.php"class="form-neon" autocomplete="off" method="POST">
 
 	<div class="container-fluid">
 		<div class="row">

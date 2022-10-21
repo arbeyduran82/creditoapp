@@ -6,7 +6,7 @@ $Clientes_x_pagina =3;
 	error_reporting(0);	
 
     $Objcliente = new Clientes();
-    $Contador = $Objcliente-> contarfilasart();
+    $Contador = $Objcliente-> contarfilasart1();
 
     //Redondeado arriba
     $Paginas = ceil($Contador / $Clientes_x_pagina);
@@ -35,16 +35,16 @@ $Clientes_x_pagina =3;
 						<a href="<?php echo SERVERURL; ?>cliente-lista"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE CLIENTES</a>
 					</li>
 					<li>
-						<a class="active" href="<?php echo SERVERURL; ?>cliente-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR CLIENTE</a>
+						<a  href="<?php echo SERVERURL; ?>cliente-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR CLIENTE</a>
 					</li>
 					<li>
-						<a href="<?php echo SERVERURL; ?>cliente-inactivos"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE CLIENTES INACTIVOS</a>
+						<a class="active" href="<?php echo SERVERURL; ?>cliente-inactivos"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE CLIENTES INACTIVOS</a>
 					</li>
 				</ul>	
 			</div>
 
             <?php
-		$busquedacliente=strtolower($_REQUEST['busqueda-clientes']);
+			$busquedacliente=strtolower($_REQUEST['busqueda-clientes']);
 if(empty($busquedacliente)){
   header("location:../cliente-lista/");
 }
@@ -105,14 +105,14 @@ if(empty($busquedacliente)){
 								<th>APELLIDO</th>
 								<th>TELEFONO</th>
 								<th>DIRECCIÓN</th>
-								<th>ACTUALIZAR</th>
-								<th>ELIMINAR</th>
+								<th>ACTIVAR</th>
+								
 								</tr>
 						</thead>
 						<tbody>
 	<?php
                     $Objcliente = new Clientes ();
-					$Datos = $Objcliente->buscarcliente($busquedacliente,$iniciar, $Clientes_x_pagina);
+					$Datos = $Objcliente->clienteinactivo($busquedacliente,$iniciar, $Clientes_x_pagina);
 					foreach ($Datos as $key) {
 					?>
                             <tr class="text-center" >
@@ -121,8 +121,7 @@ if(empty($busquedacliente)){
                             <td><?php echo $key["cli_apellido"]?></td>
                             <td><?php echo $key["cli_telefono"]?></td>
                             <td><?php echo $key["cli_direccion"]?></td>
-							<td>	<a href="<?php echo SERVERURL; ?>cliente-actualizar/?id=<?php echo $key['cli_id'] ?>" class="btn btn-success"><i class="fas fa-sync-alt"></i>	</td>
-				            <td><button type="submit" class="btn btn-warning"><a href="../controladores/eliminarClientesControlador.php?id=<?php echo $key['cli_id'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></button></td>
+				            <td><button type="submit" class="btn btn-warning"><a href="../controladores/activarClienteControlador.php?id=<?php echo $key['cli_id'] ?>" class="btn btn-success"><i class="fas fa-sync-alt"></i></a></button></td>
 						</tr>
 							<?php } ?>
 							

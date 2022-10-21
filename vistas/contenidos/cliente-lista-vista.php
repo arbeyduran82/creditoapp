@@ -36,6 +36,9 @@
 					<li>
 						<a href="<?php echo SERVERURL; ?>cliente-buscar/"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR CLIENTE</a>
 					</li>
+					<li>
+						<a href="<?php echo SERVERURL; ?>cliente-inactivos"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE CLIENTES INACTIVOS</a>
+					</li>
 				</ul>	
 			</div>
 			
@@ -51,7 +54,7 @@
 								<th>TELEFONO</th>
 								<th>DIRECCIÓN</th>
 								<th>ACTUALIZAR</th>
-								<th>ELIMINAR</th>
+								<th>INACTIVAR</th>
 							</tr>
 						</thead>
 						<tbody>
