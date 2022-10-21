@@ -65,7 +65,7 @@ $pdf->SetFont('times','',12);
 if($datos==0)
 {
     print "<script>alert(\"ERROR: No existen creditos finalizados\");
-    window.location='../../reporte-finalizados';</script>";
+    window.location='../../reporte-finalizados?pagina=1';</script>";
 
 }
 

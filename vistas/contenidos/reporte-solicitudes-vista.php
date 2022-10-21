@@ -33,9 +33,9 @@
                     <li>
 			            <a  href="<?php echo SERVERURL; ?>reporte-pazysalvo/"><i class="far fa-handshake"></i> &nbsp; PAZ Y SALVO</a>
 			        </li>
-			        <li>
+			        <!--<li>
 			            <a href="<?php echo SERVERURL; ?>reporte-buscar-fecha/"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; BUSCAR POR FECHA</a>
-			        </li>
+			        </li> -->
 			    </ul>
 			</div>
 

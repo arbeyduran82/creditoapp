@@ -1,6 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT']."/creditoapp/config/Conexion.php";
-
+error_reporting(0);
 
     class Reportes extends Conectar
     {
