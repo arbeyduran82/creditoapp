@@ -84,7 +84,7 @@ class Clientes extends Conectar
       $resul=$this->_bd->query($query);
       if($resul)
       {
-        print"<script>alert(\"Registro del cliente fue  eliminado\");
+        print"<script>alert(\"Registro del cliente fue  \");
         window.location='../cliente-lista/' ;</script>"; 
       }else 
       {
@@ -142,6 +142,44 @@ class Clientes extends Conectar
       return $Total;
   
     }
+    public function contarfilasart1(){
+      $sql="SELECT count(cli_id) as cantidad FROM clientes WHERE cli_estado = 0";
+      $resultado=$this->_bd->query($sql);
+  
+      while($row = mysqli_fetch_array($resultado)) {
+        $Total = $row['cantidad'];
+      }
+      return $Total;
+  
+    }
+    public function clienteinactivo($busquedacliente, $iniciar = 0, $Clientes_x_pagina = 3){
+      $consulta1 = "SELECT cli_id, cli_nombre, cli_apellido, cli_telefono, cli_direccion FROM clientes WHERE cli_estado = 0 AND cli_id LIKE '%$busquedacliente%' LIMIT $iniciar, $Clientes_x_pagina;";
+      $busquedacliente=$this->_bd->query($consulta1);
+      
+        if($busquedacliente->num_rows >0)
+        {
+          while($row=$busquedacliente->fetch_assoc())
+          {
+            $resultset[]=$row;
+      
+          }
+          return $resultset;
+        }
+      }
+      public function activarclientes($idactivo)
+      {
+        $query1="UPDATE clientes SET cli_estado = 1 WHERE cli_id='$idactivo'";
+      $resul1=$this->_bd->query($query1);
+      if($resul1)
+      {
+        print"<script>alert(\"Registro del cliente fue  \");
+        window.location='../cliente-lista/' ;</script>"; 
+      }else 
+      {
+        print"<script>alert(\"No se puede  eliminado el registro del cliente \");
+        window.location='../cliente-lista/' ;</script>";    
+       }
+      }
    
 }  
 ?>
