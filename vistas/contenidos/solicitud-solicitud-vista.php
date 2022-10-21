@@ -20,10 +20,10 @@
         <li>
             <a href="<?php echo SERVERURL; ?>solicitar-nuevo/"><i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO CREDITO</a>
         </li>
-
+    <!--
         <li>
             <a href="<?php echo SERVERURL; ?>solicitar-buscar/"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; BUSCAR POR FECHA</a>
-        </li>
+        </li> -->
     </ul>
 </div>
 
