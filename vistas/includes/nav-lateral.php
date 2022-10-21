@@ -65,7 +65,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="<?php echo SERVERURL; ?>reportes/"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Reportes</a></li>
+                    <li><a href="<?php echo SERVERURL; ?>reportes/"><i class="fas fa-chart-line"></i> &nbsp; Reportes</a></li>
 
                     <li><a href="<?php echo SERVERURL; ?>empresa/"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Empresa</a></li>
                 </ul>
@@ -109,7 +109,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="<?php echo SERVERURL; ?>reportes/"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Reportes</a></li>
+                    <li><a href="<?php echo SERVERURL; ?>reportes/"><i class="fas fa-chart-line"></i> &nbsp; Reportes</a></li>
 
                 </ul>
             </nav>
