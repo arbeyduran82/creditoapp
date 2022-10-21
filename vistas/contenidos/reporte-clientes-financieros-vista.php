@@ -3,7 +3,6 @@
     require_once 'controladores/controladorpaginadorRepclientes.php';
 
     $urlGet = $_GET['pagina'];
-    echo $urlGet;
     if ($urlGet== null) {
         header('?pagina=1');
     }

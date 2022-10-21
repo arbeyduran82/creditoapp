@@ -3,7 +3,7 @@
     require_once 'controladores/controladorpaginadorRepfinalizado.php';
 
     $urlGet = $_GET['pagina'];
-    echo $urlGet;
+    
     if ($urlGet== null) {
         header('?pagina=1');
     }

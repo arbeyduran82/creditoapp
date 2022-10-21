@@ -7,7 +7,7 @@ error_reporting(0);
         //Funcion reporte y listar de clientes financieros
             public function listarclientesfinancieros($iniciar,$Articulos_x_pagina)
             {
-                $sql="select * from clientes LIMIT $iniciar,$Articulos_x_pagina";
+                $sql="SELECT * FROM clientes WHERE cli_estado LIKE '1%' LIMIT $iniciar,$Articulos_x_pagina";
                 $resultado=$this->_bd->query($sql);
                 if($resultado->num_rows>0)
                 {
@@ -22,7 +22,7 @@ error_reporting(0);
 
             public function listarclientesfinancieros1()
             {
-                $sql="select * from clientes";
+                $sql="SELECT * FROM clientes WHERE cli_estado LIKE '1%'";
                 $resultado=$this->_bd->query($sql);
                 if($resultado->num_rows>0)
                 {
@@ -234,7 +234,7 @@ error_reporting(0);
     
         }
         public function contarfilasclientesf(){
-            $sql="SELECT count(*) FROM clientes";
+            $sql="SELECT count(*) FROM clientes WHERE cli_estado LIKE '1%'";
             $resultado=$this->_bd->query($sql);
     
             while($row = mysqli_fetch_array($resultado)) {

@@ -20,24 +20,25 @@ $busquedacedula=strtolower($_REQUEST['busqueda-cedula-historial']);
 					<fieldset>
 						<legend><i class="fas fa-user"></i> &nbsp; Consultar historial</legend>
 						<div class="container-fluid">
-							<div class="row">
-								<div class="col-12 col-md-6">
-									<div class="form-group">
-										<label for="inputSearch" class="bmd-label-floating">Cedula</label>
-										<input type="number" class="form-control" name="busqueda-cedula-historial"  id="inputSearch" maxlength="30">
-									</div>
-								</div>
+							<form class="form-neon" action="" method="POST">
+								<div class="container-fluid">
+									<div class="row justify-content-md-center">
+										<div class="col-12 col-md-6">
+											<div class="form-group">
+												<label class="bmd-label-floating">Ingrese numero de cedula!</label>
+												<input type="text" class="form-control" name="busqueda-cedula-historial" maxlength="30" required>
+											</div>
+										</div>
 							</div>
 						</div>
 					</fieldset>
 					<p class="text-center" style="margin-top: 40px;">
 						<button type="reset" class="btn btn-raised btn-secondary btn-sm"><i class="fas fa-paint-roller"></i> &nbsp; LIMPIAR</button>
 						&nbsp; &nbsp;
-						<button type="submit" class="btn btn-raised btn-info btn-sm"><i class="far fa-save"></i> &nbsp; GENERAR REPORTE</button>
+						<button type="submit" class="btn btn-raised btn-info btn-sm"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; GENERAR REPORTE</button>
 					</p>
 				</form>
 			</div>	
 
-
-	
-            </div>
+						
+		

@@ -66,7 +66,7 @@ $pdf->SetFont('times','',12);
 if($datos==false)
 {
     print "<script>alert(\"ERROR: No existen creditos en estudio\");
-    window.location='../../reporte-solicitudes/';</script>";
+    window.location='../../reporte-solicitudes?pagina=1';</script>";
     
 
 }
