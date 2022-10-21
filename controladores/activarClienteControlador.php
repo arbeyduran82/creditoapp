@@ -1,8 +1,8 @@
 <?php
 require_once "../modelos/clienteModelo.php";
-$$idactivo=$_GET ['idactivo'];    
+$idactivo=$_GET ['id'];    
 $consul=new  Clientes ();
-$reg=$consul-> activarclientes($$idactivo);
+$reg=$consul-> activarclientes($idactivo);
 
 if(!$reg)
 {

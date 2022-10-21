@@ -172,11 +172,11 @@ class Clientes extends Conectar
       $resul1=$this->_bd->query($query1);
       if($resul1)
       {
-        print"<script>alert(\"Registro del cliente fue  \");
+        print"<script>alert(\"Activacion del cliente exitosa \");
         window.location='../cliente-lista/' ;</script>"; 
       }else 
       {
-        print"<script>alert(\"No se puede  eliminado el registro del cliente \");
+        print"<script>alert(\"No fue posible activar el cliente \");
         window.location='../cliente-lista/' ;</script>";    
        }
       }

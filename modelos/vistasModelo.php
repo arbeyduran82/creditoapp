@@ -9,7 +9,7 @@ class vistasModelo{
     "usuario-actualizar","articulo-buscar","articulo-buscar-resultado","articulo-actualizar","solicitar-lista","solicitar-nuevo",
 "solicitar-pendiente","solicitud-solicitud","solicitar-buscar","solicitar-actualizar","pago-actualizar",
 "pago-buscar","pago-buscar-resultado","pago-lista","pago-nuevo","reportes","empresa-actualizar","reporte-historial","reporte-estado","reporte-solicitudes",
-"reporte-finalizados","reporte-clientes-financieros","reporte-creditos-aprobados","reporte-pazysalvo"];
+"reporte-finalizados","reporte-clientes-financieros","reporte-creditos-aprobados","reporte-pazysalvo","cliente-inactivos"];
         if (in_array($vistas, $listaBlanca)) {
             
             //se valida que la session este seteada
