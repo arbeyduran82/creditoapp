@@ -64,7 +64,7 @@ $pdf->SetFont('times','',12);
 if($datos==0)
 {
     print "<script>alert(\"ERROR: No existen clientes financieros\");
-    window.location='../../reporte-clientes-financieros';</script>";
+    window.location='../../reporte-clientes-financieros?pagina=1';</script>";
 
 }
 

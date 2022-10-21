@@ -8,7 +8,7 @@
 </div>
 <?php
 error_reporting(0);
-$busquedacedulapazysalco=strtolower($_REQUEST['busqueda-cedula-estado']);
+$busquedacedulapazysalco=strtolower($_REQUEST['busqueda-cedula-pazysalvo']);
 ?>
 			
 			<!-- Content here-->
@@ -17,13 +17,15 @@ $busquedacedulapazysalco=strtolower($_REQUEST['busqueda-cedula-estado']);
 					<fieldset>
 						<legend><i class="fas fa-user"></i> &nbsp; Consultar credito</legend>
 						<div class="container-fluid">
-							<div class="row">
-								<div class="col-12 col-md-6">
-									<div class="form-group">
-										<label for="inputSearch" class="bmd-label-floating">Cedula</label>
-										<input type="number" class="form-control" name="busqueda-cedula-pazysalvo"  id="inputSearch" maxlength="30">
-									</div>
-								</div>
+							<form class="form-neon" action="" method="POST">
+								<div class="container-fluid">
+									<div class="row justify-content-md-center">
+										<div class="col-12 col-md-6">
+											<div class="form-group">
+												<label class="bmd-label-floating">Ingrese numero de cedula!</label>
+												<input type="text" class="form-control" name="busqueda-cedula-pazysalvo" maxlength="30" required>
+											</div>
+										</div>
 							</div>
 						</div>
 					</fieldset>

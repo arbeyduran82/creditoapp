@@ -66,7 +66,7 @@ if(!empty($_POST))
               $filas = mysqli_fetch_assoc($Resultado);
                 
               $pdf->Text(10,70,'A quien pueda interesar:');
-              $pdf->Text(10,80, utf8_decode('Nos permitimos informar que '.utf8_decode($filas['cli_nombre']).' '.$filas['cli_apellido'].' identificado con Cedula de Ciudadania No. '.number_format($filas['cli_id'])));
+              $pdf->Text(10,80, utf8_decode('Nos permitimos informar que '.utf8_decode(strtoupper($filas['cli_nombre'])).' '. strtoupper($filas['cli_apellido']).' identificado con Cedula de Ciudadania No. '.number_format($filas['cli_id'])));
               $pdf->Text(10,85, utf8_decode('al dia de hoy se encuentra paz y salvo con su credito en la empresa COLCHONES SOÑADOR.'));
         
               $pdf->SetTextColor(65,105,225);

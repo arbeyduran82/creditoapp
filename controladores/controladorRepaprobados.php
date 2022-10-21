@@ -65,7 +65,7 @@ $pdf->SetFont('times','',12);
 if($datos==0)
 {
     print "<script>alert(\"ERROR: No existen creditos aprobados\");
-    window.location='../../reporte-creditos-aprobados';</script>";
+    window.location='../../reporte-creditos-aprobados?pagina=1';</script>";
 
 }
 
